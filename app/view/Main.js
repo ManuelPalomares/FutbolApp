@@ -12,9 +12,17 @@ Ext.define('EscuelaFutbol.view.Main', {
     },
 
     items: [{
+        region: 'north',
+        xtype  : "container",
+        style  : "border: 1pt solid black;background : lightgray",
+        height : 120,
+        items  : [{
+          xtype : "bannerppal"
+        }]
+    },{
         region: 'west',
         xtype: 'panel',
-        title: 'west',
+        title: 'Menu principal',
         width: 150
     },{
         region: 'center',

@@ -4,7 +4,7 @@ Ext.define('EscuelaFutbol.Application', {
     extend: 'Ext.app.Application',
 
     views: [
-        // TODO: add views here
+        "EscuelaFutbol.view.BannerPrincipal"
     ],
 
     controllers: [
