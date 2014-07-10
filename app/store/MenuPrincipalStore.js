@@ -3,6 +3,7 @@ Ext.define('EscuelaFutbol.store.MenuPrincipalStore', {
   	root: {
   	text : "Modulos",
     expanded: true,
+    scroll : 'both',
     children: [
         
         { text: "Mercadeo y ventas", expanded: false, 
