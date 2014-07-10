@@ -13,6 +13,6 @@ Ext.define('EscuelaFutbol.Application', {
     ],
 
     stores: [
-        // TODO: add stores here
+        "EscuelaFutbol.store.MenuPrincipalStore"
     ]
 });

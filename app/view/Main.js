@@ -23,7 +23,10 @@ Ext.define('EscuelaFutbol.view.Main', {
         region: 'west',
         xtype: 'panel',
         title: 'Menu principal',
-        width: 150
+        width: 300,
+        items : [{
+            xtype : 'menuppal'
+        }]
     },{
         region: 'center',
         xtype: 'tabpanel',
