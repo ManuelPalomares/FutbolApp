@@ -5,11 +5,12 @@ Ext.define('EscuelaFutbol.Application', {
 
     views: [
         "EscuelaFutbol.view.BannerPrincipal",
-        "EscuelaFutbol.view.MenuPrincipal"
+        "EscuelaFutbol.view.MenuPrincipal",
+        "EscuelaFutbol.view.NuevosClientes"
     ],
 
     controllers: [
-        // TODO: add controllers here
+        "EscuelaFutbol.controller.Main"
     ],
 
     stores: [

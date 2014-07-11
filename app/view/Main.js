@@ -30,8 +30,6 @@ Ext.define('EscuelaFutbol.view.Main', {
     },{
         region: 'center',
         xtype: 'tabpanel',
-        items:[{
-            title: 'Contenido principal'
-        }]
+        id : 'x_principal'
     }]
 });
