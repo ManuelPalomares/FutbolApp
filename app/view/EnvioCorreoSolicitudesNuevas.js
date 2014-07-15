@@ -27,7 +27,7 @@ Ext.define('EscuelaFutbol.view.EnvioCorreoSolicitudesNuevas', {
                     xtype: 'gridpanel',
                     title: 'Suscripciones o usuarios a enviar correo',
                     store: 'EscuelaFutbol.store.SuscripcionesNuevas',
-                    columns: [
+                     columns: [
                         {
                             xtype: 'gridcolumn',
                             dataIndex: 'nombre',
