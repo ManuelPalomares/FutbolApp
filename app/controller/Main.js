@@ -23,5 +23,20 @@ Ext.define('EscuelaFutbol.controller.Main', {
 
     	}
 
+        if(rec.data.text =="Envio de informacion de eventos y partidos"){
+            //alert(":_D");
+            var panelPpal = Ext.getCmp("x_principal");
+            
+            var tab = panelPpal.add({
+                title : rec.data.text,
+                closable: true,
+                xtype : "envioSolicitudesNuevas"
+            });
+            panelPpal.setActiveTab(tab);
+
+        }
+
+        
+
     }
 });
