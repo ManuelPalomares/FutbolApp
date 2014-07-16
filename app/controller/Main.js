@@ -36,6 +36,21 @@ Ext.define('EscuelaFutbol.controller.Main', {
 
         }
 
+        if(rec.data.text =="Citacion de prueba deportiva"){
+            //alert(":_D");
+            var panelPpal = Ext.getCmp("x_principal");
+            
+            var tab = panelPpal.add({
+                title : rec.data.text,
+                closable: true,
+                xtype : "citacionDeportiva"
+            });
+            panelPpal.setActiveTab(tab);
+
+        }
+
+        
+
         
 
     }

@@ -7,7 +7,8 @@ Ext.define('EscuelaFutbol.Application', {
         "EscuelaFutbol.view.BannerPrincipal",
         "EscuelaFutbol.view.MenuPrincipal",
         "EscuelaFutbol.view.NuevosClientes",
-        "EscuelaFutbol.view.EnvioCorreoSolicitudesNuevas"
+        "EscuelaFutbol.view.EnvioCorreoSolicitudesNuevas",
+        "EscuelaFutbol.view.CitacionDeportiva"
     ],
 
     controllers: [
@@ -16,6 +17,7 @@ Ext.define('EscuelaFutbol.Application', {
 
     stores: [
         "EscuelaFutbol.store.MenuPrincipalStore",
-        "EscuelaFutbol.store.SuscripcionesNuevas"
+        "EscuelaFutbol.store.SuscripcionesNuevas",
+        "EscuelaFutbol.store.Implementos"
     ]
 });
