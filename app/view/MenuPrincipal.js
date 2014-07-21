@@ -4,5 +4,6 @@ Ext.define('EscuelaFutbol.view.MenuPrincipal', {
     id : "x_menuprincipal",
     requires:["Ext.data.TreeStore"],
     width : '100%',
-    store : "EscuelaFutbol.store.MenuPrincipalStore"
+    store : "EscuelaFutbol.store.MenuPrincipalStore",
+    scrolled : true
 });

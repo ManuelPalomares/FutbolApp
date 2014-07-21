@@ -8,7 +8,8 @@ Ext.define('EscuelaFutbol.Application', {
         "EscuelaFutbol.view.MenuPrincipal",
         "EscuelaFutbol.view.NuevosClientes",
         "EscuelaFutbol.view.EnvioCorreoSolicitudesNuevas",
-        "EscuelaFutbol.view.CitacionDeportiva"
+        "EscuelaFutbol.view.CitacionDeportiva",
+        "EscuelaFutbol.view.Recaudo"
     ],
 
     controllers: [

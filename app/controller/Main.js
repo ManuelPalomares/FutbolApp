@@ -50,6 +50,18 @@ Ext.define('EscuelaFutbol.controller.Main', {
         }
 
         
+        if(rec.data.text =="Ingreso de pago"){
+            //alert(":_D");
+            var panelPpal = Ext.getCmp("x_principal");
+            
+            var tab = panelPpal.add({
+                title : rec.data.text,
+                closable: true,
+                xtype : "recaudo"
+            });
+            panelPpal.setActiveTab(tab);
+
+        }
 
         
 
