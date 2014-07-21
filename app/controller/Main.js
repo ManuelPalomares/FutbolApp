@@ -63,6 +63,31 @@ Ext.define('EscuelaFutbol.controller.Main', {
 
         }
 
+        if(rec.data.text =="Generacion manual de cobro de pago"){
+            //alert(":_D");
+            var panelPpal = Ext.getCmp("x_principal");
+            
+            var tab = panelPpal.add({
+                title : rec.data.text,
+                closable: true,
+                xtype : "clientesPagoPendientes"
+            });
+            panelPpal.setActiveTab(tab);
+
+        }
+
+        if(rec.data.text =="Impresion de recibo de pago"){
+            //alert(":_D");
+            var panelPpal = Ext.getCmp("x_principal");
+            
+            var tab = panelPpal.add({
+                title : rec.data.text,
+                closable: true,
+                xtype : "impreReciboPag"
+            });
+            panelPpal.setActiveTab(tab);
+
+        }
         
 
     }
