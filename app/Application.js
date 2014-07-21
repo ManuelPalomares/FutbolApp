@@ -9,7 +9,9 @@ Ext.define('EscuelaFutbol.Application', {
         "EscuelaFutbol.view.NuevosClientes",
         "EscuelaFutbol.view.EnvioCorreoSolicitudesNuevas",
         "EscuelaFutbol.view.CitacionDeportiva",
-        "EscuelaFutbol.view.Recaudo"
+        "EscuelaFutbol.view.Recaudo",
+        "EscuelaFutbol.view.ClientesPagosPendiente",
+        "EscuelaFutbol.view.ImpresionReciboPago"
     ],
 
     controllers: [
