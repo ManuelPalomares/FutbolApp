@@ -7,12 +7,3 @@
  */
 @import 'build/production/EscuelaFutbol/resources/EscuelaFutbol-all.css';
 
-.x_iconosBotones {
-	background-size: 80px 80px;
-	
-}
-
-
-.x-btn-default-small-icon-text-top .x-btn-icon-el{
-	height: inherit;
-}

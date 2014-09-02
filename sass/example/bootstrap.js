@@ -27,6 +27,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "EscuelaFutbol.view.Jugador": [],
   "EscuelaFutbol.view.Main": [],
   "EscuelaFutbol.view.MenuPrincipal": [],
+  "EscuelaFutbol.view.MenuPrincipalPanel": [],
   "EscuelaFutbol.view.NuevosClientes": [],
   "EscuelaFutbol.view.Recaudo": [],
   "EscuelaFutbol.view.Suscripcion": [],
@@ -895,6 +896,9 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "EscuelaFutbol.view.MenuPrincipal": [
     "widget.menuppal"
+  ],
+  "EscuelaFutbol.view.MenuPrincipalPanel": [
+    "widget.MenuppalPanel"
   ],
   "EscuelaFutbol.view.NuevosClientes": [
     "widget.nuevosClientes"
