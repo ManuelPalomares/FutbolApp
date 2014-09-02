@@ -20,7 +20,8 @@ Ext.define('EscuelaFutbol.store.MenuPrincipalStore', {
 		},
 		{ text: "Inscripción y Gestión Deportiva", expanded: false, 
         	children: [
-        		{ text: "Registro de inscripcion", leaf: true },
+        		{ text: "Registro de suscripcion", leaf: true },
+                { text: "Jugador", leaf: true},
         		{ text: "Comunicado de partidos", leaf: true},
         		{ text: "Registro de ficha de seguimiento por jugador", leaf: true},
         		{ text: "Reclasificacion de categorias individual o grupo", leaf: true}

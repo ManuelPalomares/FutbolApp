@@ -19,7 +19,7 @@ Ext.define('EscuelaFutbol.view.Main', {
         items  : [{
           xtype : "bannerppal"
         }]
-    },{
+    }/*,{
         region: 'west',
         xtype: 'panel',
         title: 'Menu principal',
@@ -27,9 +27,9 @@ Ext.define('EscuelaFutbol.view.Main', {
         items : [{
             xtype : 'menuppal'
         }]
-    },{
+    }*/,{
         region: 'center',
-        xtype: 'tabpanel',
+        xtype: 'MenuppalPanel',
         id : 'x_principal'
     }]
 });

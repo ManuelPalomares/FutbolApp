@@ -12,7 +12,7 @@ Ext.define('EscuelaFutbol.view.BannerPrincipal', {
     	xtype : "container",
     	width : "70%",
     	style : "margin :10px;",
-    	html   : "<img alt='logo' width='50%' height='50%' src='http://www.isggaming.com/images/banner_cat_FIFA.jpg'></img>"
+    	html   : "<img alt='logo' width='50%' height='50%' src='http://www.felix.com.pa/media/wysiwyg/banner_cat_FIFA.jpg'></img>"
     },{
     	xtype : "container",
     	style : "margin:10px;padding:1em;background:white",
