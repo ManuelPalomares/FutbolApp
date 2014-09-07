@@ -6,9 +6,6 @@ Ext.define('EscuelaFutbol.view.EnvioCorreoSolicitudesNuevas', {
         'Ext.grid.Panel',
         'Ext.grid.column.Column'
     ],
-
-    height: 454,
-    width: 490,
     bodyPadding: 10,
     title: 'Formulario de envio informacion de escuela',
 

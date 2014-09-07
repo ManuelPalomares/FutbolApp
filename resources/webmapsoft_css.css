@@ -1,8 +1,8 @@
 .x_iconosBotones {
-	background-size: 10%;
+	background-size: 80px 80px;
 
 }
 
 .x-btn-icon-text-top .x-btn-icon-el {
-    background-position: center top;
+    height: inherit;
 }

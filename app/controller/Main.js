@@ -20,6 +20,7 @@ Ext.define('EscuelaFutbol.controller.Main', {
                 height : 600,
                 autoScroll:true,
                 title : itemOpcion,
+                maximizable: true,
                 items : [{
                     xtype : 'nuevosClientes'
                 }],
@@ -36,6 +37,7 @@ Ext.define('EscuelaFutbol.controller.Main', {
                 height : 600,
                 autoScroll:true,
                 title : itemOpcion,
+                maximizable: true,
                 items : [{
                     xtype : 'envioSolicitudesNuevas'
                 }],
@@ -52,6 +54,7 @@ Ext.define('EscuelaFutbol.controller.Main', {
                 height : 600,
                 autoScroll:true,
                 title : itemOpcion,
+                maximizable: true,
                 items : [{
                     xtype : 'citacionDeportiva'
                 }],
@@ -68,6 +71,7 @@ Ext.define('EscuelaFutbol.controller.Main', {
                 height : 600,
                 autoScroll:true,
                 title : itemOpcion,
+                maximizable: true,
                 items : [{
                     xtype : 'recaudo'
                 }],
@@ -84,6 +88,7 @@ Ext.define('EscuelaFutbol.controller.Main', {
                 height : 600,
                 autoScroll:true,
                 title : itemOpcion,
+                maximizable: true,
                 items : [{
                     xtype : 'clientesPagoPendientes'
                 }],
@@ -101,6 +106,7 @@ Ext.define('EscuelaFutbol.controller.Main', {
                 height : 600,
                 autoScroll:true,
                 title : itemOpcion,
+                maximizable: true,
                 items : [{
                     xtype : 'impreReciboPag'
                 }],
@@ -117,8 +123,43 @@ Ext.define('EscuelaFutbol.controller.Main', {
                 height : 600,
                 autoScroll:true,
                 title : itemOpcion,
+                maximizable: true,
                 items : [{
                     xtype : 'suscripcion'
+                }],
+                closable: true
+            });
+            ventana.show();
+        }
+
+        if(itemOpcion =="Jugador"){
+            //alert(":_D");
+            var ventana = Ext.create("Ext.window.Window",{
+                modal: true, 
+                width: 900,
+                height : 600,
+                autoScroll:true,
+                title : itemOpcion,
+                maximizable: true,
+                items : [{
+                    xtype : 'jugador'
+                }],
+                closable: true
+            });
+            ventana.show();
+        }
+
+        if(itemOpcion =="Actualizar Datos personales"){
+            //alert(":_D");
+            var ventana = Ext.create("Ext.window.Window",{
+                modal: true, 
+                width: 900,
+                height : 600,
+                autoScroll:true,
+                title : itemOpcion,
+                maximizable: true,
+                items : [{
+                    xtype : 'actualizarDatosJugador'
                 }],
                 closable: true
             });

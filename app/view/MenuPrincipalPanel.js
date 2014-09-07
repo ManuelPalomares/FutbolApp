@@ -10,7 +10,7 @@ initComponent: function() {
 			title : "Menu principal",
 			style: {backgroundColor : "white"},
 			modal : true,
-			layout: {  type: 'hbox'},
+			layout: {  type: 'column'},
 			items : [{
 				xtype : "button",
 				text  : "Mercadeo y ventas",
@@ -70,6 +70,38 @@ initComponent: function() {
 				 {text: 'Ingreso de pago'},
 				 {text: 'Impresion de recibo de pago'},
 				 {text: 'Notificacion de clientes morosos'}
+				 ],
+				
+			},
+			{
+				xtype : "button",
+				text  : "Reportes",
+				style : {margin:'0.5em'},
+				width : 200,
+				height: 200,
+				icon : 'http://openerpspain.com/imagenes/presupuesto.png',
+				iconAlign :'top',
+				iconCls   : 'x_iconosBotones',
+				 menu      : [
+				 {text: 'Impresion de evaluacion inicial del jugador'},
+				 {text: 'Impresion inscripcion'},
+				 {text: 'Impresion ficha de seguimiento jugadores'},
+				 {text: 'Impresion de clientes pendientes de pago'}
+				 ],
+				
+			},
+			{
+				xtype : "button",
+				text  : "Jugador",
+				style : {margin:'0.5em'},
+				width : 200,
+				height: 200,
+				icon : 'http://www.veryicon.com/icon/png/Sport/Sport%20People/Football.png',
+				iconAlign :'top',
+				iconCls   : 'x_iconosBotones',
+				 menu      : [
+				 {text: 'Actualizar Datos personales'},
+				 {text: 'Ver facturas'}
 				 ],
 				
 			}

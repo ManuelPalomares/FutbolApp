@@ -12,7 +12,7 @@ Ext.define('EscuelaFutbol.view.ClientesPagosPendiente', {
    height: 473,
    width: 688,
    bodyPadding: 10,
-   title: 'Clientes con pagos pendientes',
+   title: 'Generacion de cobro de pago',
 
    initComponent: function() {
        var me = this;
@@ -27,25 +27,31 @@ Ext.define('EscuelaFutbol.view.ClientesPagosPendiente', {
                            fieldLabel: 'Categoría'
                        },
                        {
+                           xtype: 'textfield',
+                           fieldLabel: 'Nombre',
+                           width : 400
+                       },
+                       {
                            xtype: 'button',
                            text: 'Buscar'
                        },
                        {
                            xtype: 'gridpanel',
                            title: 'Clientes',
+                           store: 'EscuelaFutbol.store.SuscripcionesNuevas',
                            columns: [
                                {
                                    xtype: 'gridcolumn',
                                    width: 202,
                                    defaultWidth: 200,
                                    weight: 200,
-                                   dataIndex: 'string',
+                                   dataIndex: 'nombre',
                                    text: 'Nombres y Apellidos'
                                },
                                {
                                    xtype: 'datecolumn',
                                    width: 161,
-                                   dataIndex: 'date',
+                                   dataIndex: 'number',
                                    text: 'Pago pendiente'
                                }
                            ]

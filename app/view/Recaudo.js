@@ -16,7 +16,7 @@ Ext.define('EscuelaFutbol.view.Recaudo', {
     ],
 
     height: 447,
-    width: 670,
+    
     autoScroll: true,
     bodyPadding: 10,
     title: 'Recaudo',
@@ -29,16 +29,17 @@ Ext.define('EscuelaFutbol.view.Recaudo', {
                 {
                     xtype: 'gridpanel',
                     title: 'Cobros por cliente',
+                    store : 'EscuelaFutbol.store.SuscripcionesNuevas',
                     columns: [
                         {
                             xtype: 'gridcolumn',
-                            dataIndex: 'string',
+                            dataIndex: 'nombre',
                             text: 'Cliente'
                         },
                         {
                             xtype: 'numbercolumn',
                             dataIndex: 'number',
-                            text: 'Categoriq'
+                            text: 'Categoria'
                         },
                         {
                             xtype: 'datecolumn',
@@ -55,6 +56,7 @@ Ext.define('EscuelaFutbol.view.Recaudo', {
                         {
                             xtype: 'toolbar',
                             dock: 'top',
+                            layout :{type : 'column'},
                             items: [
                                 {
                                     xtype: 'container',
@@ -70,7 +72,18 @@ Ext.define('EscuelaFutbol.view.Recaudo', {
                                     items: [
                                         {
                                             xtype: 'combobox',
-                                            fieldLabel: 'Categoriq'
+                                            fieldLabel: 'Categoria'
+                                        }
+                                    ]
+                                },
+                                  {
+                                    xtype: 'container',
+                                    items: [
+                                        {
+                                            xtype: 'combobox',
+                                            fieldLabel: 'Nombre',
+                                            widht: 400
+
                                         }
                                     ]
                                 },
@@ -98,8 +111,40 @@ Ext.define('EscuelaFutbol.view.Recaudo', {
                 {
                     xtype: 'numberfield',
                     anchor: '100%',
-                    fieldLabel: 'Paga tanto',
+                    fieldLabel: 'Uniforme',
                     value: 10000
+                },
+                 {
+                    xtype: 'numberfield',
+                    anchor: '100%',
+                    fieldLabel: 'Incripcion',
+                    value: 10000
+                },
+                {
+                    xtype: 'numberfield',
+                    anchor: '100%',
+                    fieldLabel: 'Transporte',
+                    value: 10000
+                },
+
+                 {
+                    xtype: 'numberfield',
+                    anchor: '100%',
+                    fieldLabel: 'Actividades',
+                    value: 10000
+                },
+                   {
+                    xtype: 'numberfield',
+                    anchor: '100%',
+                    fieldLabel: 'Otros',
+                    value: 10000
+                },
+
+
+                {
+                    xtype : 'label',
+                    text  : 'Total : 50000'
+
                 }
             ]
         });
