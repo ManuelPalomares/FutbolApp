@@ -2,13 +2,31 @@ Ext.define('EscuelaFutbol.controller.Main', {
     extend: 'Ext.app.Controller',
     init: function() {
     	this.control({
-    		'#x_menuprincipal button': {
-    			itemclick: this.llamaOpcion
-    		},
+
+            '#x_menuPanelPrincipal' : {
+                render : this.cargarMenu
+            },
             'button[iconCls=x_iconosBotones] >menu':{
                     click: this.llamaOpcion
                 }
     	});
+     },
+     cargarMenu : function(panel,opt){
+
+         var host = Ext.create("EscuelaFutbol.controller.HostServer").getHost();
+        //var host = "http://localhost/FutbolAppPhp/";
+        Ext.Ajax.request({
+            url : host+"php/menus/menu.php",
+            params: {
+                accion:"CONSULTARMODULOS"
+            },
+            success : function(response){
+                var modulos = Ext.decode(responese.responseText);
+            },
+            failure : function(response){alert('Error realizando su solicitud por favor comunicar con su administrador :' + response.status);}
+            
+        });
+
      },
      llamaOpcion : function(btn,item){
         var itemOpcion = item.text;

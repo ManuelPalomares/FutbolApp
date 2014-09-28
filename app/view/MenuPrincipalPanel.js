@@ -8,10 +8,11 @@ initComponent: function() {
 		items: [{
 			xtype : "panel",
 			title : "Menu principal",
+			id    : "x_menuPanelPrincipal",
 			style: {backgroundColor : "white"},
 			modal : true,
-			layout: {  type: 'column'},
-			items : [{
+			layout: {  type: 'column'}
+			/*items : [{
 				xtype : "button",
 				text  : "Mercadeo y ventas",
 				style : {margin:'0.5em'},
@@ -105,7 +106,7 @@ initComponent: function() {
 				 ],
 				
 			}
-			]
+			]*/
 		}]
 	});
 	me.callParent(arguments);

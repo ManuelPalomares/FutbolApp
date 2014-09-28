@@ -13,6 +13,8 @@ Ext.Loader.addClassPathMappings({
 });
 Ext.ClassManager.addNameAlternateMappings({
   "EscuelaFutbol.Application": [],
+  "EscuelaFutbol.controller.HostServer": [],
+  "EscuelaFutbol.controller.Login": [],
   "EscuelaFutbol.controller.Main": [],
   "EscuelaFutbol.model.Implementos": [],
   "EscuelaFutbol.model.Suscripcion": [],
@@ -26,6 +28,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "EscuelaFutbol.view.EnvioCorreoSolicitudesNuevas": [],
   "EscuelaFutbol.view.ImpresionReciboPago": [],
   "EscuelaFutbol.view.Jugador": [],
+  "EscuelaFutbol.view.LoginForm": [],
   "EscuelaFutbol.view.Main": [],
   "EscuelaFutbol.view.MenuPrincipal": [],
   "EscuelaFutbol.view.MenuPrincipalPanel": [],
@@ -868,6 +871,8 @@ Ext.ClassManager.addNameAlternateMappings({
 });
 Ext.ClassManager.addNameAliasMappings({
   "EscuelaFutbol.Application": [],
+  "EscuelaFutbol.controller.HostServer": [],
+  "EscuelaFutbol.controller.Login": [],
   "EscuelaFutbol.controller.Main": [],
   "EscuelaFutbol.model.Implementos": [],
   "EscuelaFutbol.model.Suscripcion": [],
@@ -894,6 +899,9 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "EscuelaFutbol.view.Jugador": [
     "widget.jugador"
+  ],
+  "EscuelaFutbol.view.LoginForm": [
+    "widget.x_loginForm"
   ],
   "EscuelaFutbol.view.Main": [
     "widget.app-main"

@@ -35,7 +35,6 @@ Ext.define('EscuelaFutbol.Application', {
 
         Ext.Ajax.request({
             url: host+"php/session/session.php",
-            defaultHeaders: {'Origin': 'http://localhost'},
             success: function(response){
                 var result = Ext.decode(response.responseText);
                 //valida si el usuario no esta registrado
@@ -68,8 +67,5 @@ Ext.define('EscuelaFutbol.Application', {
                 alert('Error realizando su solicitud por favor comunicar con su administrador :' + response.status);
             }
         });
-
-        
-        //Ext.create("EscuelaFutbol.view.Viewport");
     }
 });
