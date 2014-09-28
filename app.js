@@ -9,5 +9,5 @@ Ext.application({
 
     extend: 'EscuelaFutbol.Application',
     
-    autoCreateViewport: true
+    autoCreateViewport: false
 });
