@@ -10,16 +10,19 @@ Ext.define('EscuelaFutbol.view.BannerPrincipal', {
 	},
     items : [{
     	xtype : "container",
-    	width : "70%",
-    	style : "margin :10px;",
-    	html   : "<img alt='logo' width='15%' height='15%' src='resources/img/logoEscueladeFutbol.png'></img>"
+    	width : "60%",
+    	style : "margin :0.5em;display:inline-block;",
+    	html   : "<img  alt='logo' width='15%' height='15%' src='resources/img/logoEscueladeFutbol.png'></img><div class='x_tituloApp'>Sistema de informacion Escuela de Futbol Champions</div>"
     },{
     	xtype : "container",
-        height: 100,
-    	style : "margin:10px;padding:1em;background:lightgray;border:1pt solid black",
+        width : "30%",
+        cls   : "x_panelSession",
+        layout: {
+            type: 'column',       // Arrange child items vertically
+            align: 'center'    // Each takes up full width
+        },
     	items : [{
     		xtype : "container",
-            style : "background:",
             items :[{xtype:"label",id:"x_labelUsuario",text:"Nombre de usuario : "},{xtype:"label",id:"x_labelNombreUsuario",text:""}]
     	},{
     		xtype : "button",
