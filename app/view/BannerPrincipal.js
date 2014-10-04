@@ -12,15 +12,18 @@ Ext.define('EscuelaFutbol.view.BannerPrincipal', {
     	xtype : "container",
     	width : "70%",
     	style : "margin :10px;",
-    	html   : "<img alt='logo' width='50%' height='50%' src='http://www.felix.com.pa/media/wysiwyg/banner_cat_FIFA.jpg'></img>"
+    	html   : "<img alt='logo' width='15%' height='15%' src='resources/img/logoEscueladeFutbol.png'></img>"
     },{
     	xtype : "container",
-    	style : "margin:10px;padding:1em;background:white",
+        height: 100,
+    	style : "margin:10px;padding:1em;background:lightgray;border:1pt solid black",
     	items : [{
     		xtype : "container",
-    		html  : "<div>Nombre Usuario: Manuel Palomares</div><div>Rol Administrador</div>"
+            style : "background:",
+            items :[{xtype:"label",id:"x_labelUsuario",text:"Nombre de usuario : "},{xtype:"label",id:"x_labelNombreUsuario",text:""}]
     	},{
     		xtype : "button",
+            id    : "x_botonCerrarSesion",
     		text  : "Cerrar Sesion"
     	}]
     }]

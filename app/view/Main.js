@@ -14,8 +14,9 @@ Ext.define('EscuelaFutbol.view.Main', {
     items: [{
         region: 'north',
         xtype  : "container",
-        style  : "border: 1pt solid black;background : lightgray",
+        style  : "border: 1pt solid black;background : white",
         height : 120,
+
         items  : [{
           xtype : "bannerppal"
         }]
