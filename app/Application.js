@@ -61,7 +61,7 @@ Ext.define('EscuelaFutbol.Application', {
                 }
 
                 Ext.create("EscuelaFutbol.view.Viewport");
-
+                
                 Ext.getCmp("x_labelNombreUsuario").setText(result.nombre);
             },
             failure: function(response){
