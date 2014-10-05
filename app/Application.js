@@ -16,12 +16,14 @@ Ext.define('EscuelaFutbol.Application', {
         "EscuelaFutbol.view.Suscripcion",
         "EscuelaFutbol.view.Jugador",
         "EscuelaFutbol.view.MenuPrincipalPanel",
-        "EscuelaFutbol.view.ActualizarDatosJugador"
+        "EscuelaFutbol.view.ActualizarDatosJugador",
+        "EscuelaFutbol.view.Roles"
     ],
 
     controllers: [
         "EscuelaFutbol.controller.Main",
-        "EscuelaFutbol.controller.Login"
+        "EscuelaFutbol.controller.Login",
+        "EscuelaFutbol.controller.Roles"
     ],
 
     stores: [
