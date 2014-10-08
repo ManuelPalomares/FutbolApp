@@ -37,8 +37,9 @@ Ext.define('EscuelaFutbol.view.Roles', {
                 },{
                     xtype : "grid",
                     title : "Listado de roles",
-                    columns: [{text: "Codigo",width:"10%"},{text:"Descripcion",width:"90%"}]
-                    
+                    columns: [{text: "Codigo",width:"10%",dataIndex:"CODIGO"},{text:"Descripcion",width:"90%",dataIndex:"DESCRIPCION"}],
+                    store  :"EscuelaFutbol.store.Roles",
+                    height : 200
                 }
             ],
             dockedItems: [{
