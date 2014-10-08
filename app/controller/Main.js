@@ -8,15 +8,15 @@ Ext.define('EscuelaFutbol.controller.Main', {
             'button[iconCls=x_iconosBotones] >menu': {
                 click: this.llamaOpcion
             },
-            '#x_botonCerrarSesion' : {
-                click : this.cerrarSesion
+            '#x_botonCerrarSesion': {
+                click: this.cerrarSesion
             }
         });
     },
     cargarMenu: function(panel, opt) {
 
         var host = Ext.create("EscuelaFutbol.controller.HostServer").getHost();
-        
+
         Ext.Ajax.request({
             url: host + "php/menus/menu.php",
             params: {
@@ -64,7 +64,7 @@ Ext.define('EscuelaFutbol.controller.Main', {
         var ventana = Ext.create("Ext.window.Window", {
             modal: true,
             width: 900,
-            height: 600,
+            height: 500,
             autoScroll: true,
             title: itemOpcion,
             maximizable: true,
@@ -75,7 +75,34 @@ Ext.define('EscuelaFutbol.controller.Main', {
         });
         ventana.show();
     },
-    cerrarSesion: function(btn,opt){
-     alert("Cerrar sesion");   
+    cerrarSesion: function(btn, opt) {
+
+        Ext.MessageBox.confirm('Advertencia', 'Esta seguro de cerrar su sesion?', function(btn) {
+            
+            if (btn === "no")
+                return false;
+            
+            var host = Ext.create("EscuelaFutbol.controller.HostServer").getHost();
+
+
+            Ext.Ajax.request({
+                url: host + "php/session/logaccess.php",
+                params: {
+                    accion: "CERRARSESION"
+                },
+                success: function(response) {
+                    var varRes = Ext.decode(response.responseText);
+                    if(varRes.success){
+                         location.reload(true);
+                    }
+                    
+                },
+                failure: function(response) {
+                    alert('Error realizando su solicitud por favor comunicar con su administrador :' + response.status);
+                }
+            });
+        });
+
+
     }
 });

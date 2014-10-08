@@ -9,12 +9,13 @@ Ext.define('EscuelaFutbol.view.Roles', {
         'Ext.menu.Item'
     ],
     alias: "widget.formularioRoles",
-    height: 300,
-    width: 900,
+    height: "100%",
+    width: "100%",
+    
     autoScroll: true,
     bodyPadding: 10,
     id : "x_formularioRoles",
-    title: 'Formulario de creacion de Roles',
+    
     initComponent: function() {
         var me = this;
 
@@ -23,13 +24,21 @@ Ext.define('EscuelaFutbol.view.Roles', {
                     xtype: 'numberfield',
                     name: 'codigo',
                     fieldLabel: 'Codigo',
-                    allowBlank: true
+                    allowBlank: true,
+                    editable: false,
+                    hideTrigger:true
                 },{
                     xtype: "textfield",
                     name : "descripcion",
+                    id   : "x_descripcionRol",
                     maxLength: 100,
                     fieldLabel: 'Descripcion del Rol',
                     allowBlank: false
+                },{
+                    xtype : "grid",
+                    title : "Listado de roles",
+                    columns: [{text: "Codigo",width:"10%"},{text:"Descripcion",width:"90%"}]
+                    
                 }
             ],
             dockedItems: [{
@@ -37,18 +46,34 @@ Ext.define('EscuelaFutbol.view.Roles', {
                     dock: 'top',
                     items : [{
                             xtype : "button",
-                            text  : "Guardar",
-                            icon  : "http://4vector.com/thumb_data/afd-9100.jpg",
-                            width: 100,
-                            height: 100,
-                            style: {margin: '0.5em'},
+                            text  : "Nuevo",
+                            icon  : "resources/img/btns/nuevo.png",
+                            width: 50,
+                            height: 50,
+                            style: {margin: '0.2em'},
                             iconCls : "x_iconosBotonesForma",
-                            iconAlign : "top",
+                            iconAlign : "center",
+                            id : "x_NuevoRol"
+                    },{
+                            xtype : "button",
+                            text  : "Guardar",
+                            icon  : "resources/img/btns/guardar.png",
+                            width: 50,
+                            height: 50,
+                            style: {margin: '0.2em'},
+                            iconCls : "x_iconosBotonesForma",
+                            iconAlign : "center",
                             id : "x_guardarRoles"
                     },{
                             xtype : "button",
-                            text  : "Eliminar"
-                            
+                            text  : "Eliminar",
+                            icon  : "resources/img/btns/eliminar.png",
+                            width: 50,
+                            height: 50,
+                            style: {margin: '0.2em'},
+                            iconCls : "x_iconosBotonesForma",
+                            iconAlign : "center",
+                            id : "x_eliminarRoles"
                     }]
             }]
         });

@@ -4,7 +4,10 @@ Ext.define('EscuelaFutbol.controller.Roles', {
     	this.control({
     		'#x_guardarRoles': {
     			click: this.guardarRoles
-    		}
+    		},
+                '#x_NuevoRol':{
+                    click :this.rolNuevo
+                }
     	});
      },
      guardarRoles : function(){
@@ -27,5 +30,11 @@ Ext.define('EscuelaFutbol.controller.Roles', {
              }
              
          });
+     },
+     rolNuevo: function(){
+         //llama el formulario
+         var formularioRoles = Ext.getCmp("x_formularioRoles");
+         formularioRoles.getForm().reset();
+         Ext.getCmp("x_descripcionRol").focus();
      }
      });

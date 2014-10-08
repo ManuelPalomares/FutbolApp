@@ -32,5 +32,8 @@ Ext.define('EscuelaFutbol.view.Main', {
         region: 'center',
         xtype: 'MenuppalPanel',
         id : 'x_principal'
+    },{
+        region : "south",
+        html : "prueba"
     }]
 });

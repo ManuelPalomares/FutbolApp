@@ -21,6 +21,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "EscuelaFutbol.controller.HostServer": [],
   "EscuelaFutbol.controller.Login": [],
   "EscuelaFutbol.controller.Main": [],
+  "EscuelaFutbol.controller.Roles": [],
   "EscuelaFutbol.model.Implementos": [],
   "EscuelaFutbol.model.Suscripcion": [],
   "EscuelaFutbol.store.Implementos": [],
@@ -39,6 +40,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "EscuelaFutbol.view.MenuPrincipalPanel": [],
   "EscuelaFutbol.view.NuevosClientes": [],
   "EscuelaFutbol.view.Recaudo": [],
+  "EscuelaFutbol.view.Roles": [],
   "EscuelaFutbol.view.Suscripcion": [],
   "EscuelaFutbol.view.Viewport": [],
   "Ext.AbstractComponent": [],
@@ -863,6 +865,7 @@ Ext.ClassManager.addNameAliasMappings({
   "EscuelaFutbol.controller.HostServer": [],
   "EscuelaFutbol.controller.Login": [],
   "EscuelaFutbol.controller.Main": [],
+  "EscuelaFutbol.controller.Roles": [],
   "EscuelaFutbol.model.Implementos": [],
   "EscuelaFutbol.model.Suscripcion": [],
   "EscuelaFutbol.store.Implementos": [],
@@ -906,6 +909,9 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "EscuelaFutbol.view.Recaudo": [
     "widget.recaudo"
+  ],
+  "EscuelaFutbol.view.Roles": [
+    "widget.formularioRoles"
   ],
   "EscuelaFutbol.view.Suscripcion": [
     "widget.suscripcion"
@@ -1898,4 +1904,5 @@ Ext.ClassManager.addNameAliasMappings({
 });
 Ext.setVersion("ext-theme-base", "4.2.1");
 Ext.setVersion("ext-theme-classic", "4.2.1");
+Ext.setVersion("ext-theme-gray", "4.2.1");
 Ext.setVersion("ext-theme-neutral", "4.2.1");
