@@ -1,5 +1,6 @@
 Ext.define('EscuelaFutbol.controller.Roles', {
     extend: 'Ext.app.Controller',
+    requires:['Ext.tip.*'],
     init: function() {
     	this.control({
     		'#x_guardarRoles': {
@@ -21,14 +22,16 @@ Ext.define('EscuelaFutbol.controller.Roles', {
              waitMsg : "Guardando los datos",
              params:{accion : "GUARDAR"},
              url :host+"php/seguridad/roles.php",
-             success: function(){
+             success: function(form,action){
+                 console.log(action.result);
                  //Se programa el evento exitoso
+                 Ext.MessageBox.alert('Proceso',action.result.msg);
+                 Ext.getCmp("x_grid_roles").getStore().load();
              },
-             failure : function(){
+             failure : function(form,action){
                  //Se programa el evento fallido del servidor
               Ext.Msg.alert('Failed', action.result ? action.result.message : 'No response');   
              }
-             
          });
      },
      rolNuevo: function(){
