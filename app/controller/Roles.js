@@ -11,8 +11,8 @@ Ext.define('EscuelaFutbol.controller.Roles', {
             },
             '#x_eliminarRoles': {
                 click: this.eliminarRoles
-            },'#x_grid_roles':{
-                itemclick : this.cargarDatosAformulario
+            }, '#x_grid_roles': {
+                itemclick: this.cargarDatosAformulario
             }
         });
     },
@@ -62,35 +62,39 @@ Ext.define('EscuelaFutbol.controller.Roles', {
         var formularioRoles = Ext.getCmp("x_formularioRoles");
         //se llama el host 
         var host = Ext.create("EscuelaFutbol.controller.HostServer").getHost();
-        var accion_send  = "ELIMINAR";
-        
-         formularioRoles.getForm().submit({
-            clientValidation: true,
-            waitMsg: "Eliminando los registros",
-            params: {accion: accion_send},
-            url: host + "php/seguridad/roles.php",
-            success: function(form, action) {
-                //console.log(action.result);
+        var accion_send = "ELIMINAR";
+        Ext.MessageBox.confirm('Advertencia', 'Esta seguro de eliminar el registro?', function(btn) {
+            if (btn === 'yes') {
+                formularioRoles.getForm().submit({
+                    clientValidation: true,
+                    waitMsg: "Eliminando los registros",
+                    params: {accion: accion_send},
+                    url: host + "php/seguridad/roles.php",
+                    success: function(form, action) {
+                        //console.log(action.result);
 
-                if (action.result.mensaje_error != undefined) {
-                    Ext.Msg.alert('Mensaje', action.result.mensaje_error);
-                    return;
-                }
-                Ext.getCmp("x_codigoRol").setValue(action.result.newId);
-                Ext.MessageBox.alert('Proceso', action.result.msg);
-                Ext.getCmp("x_grid_roles").getStore().load();
-            },
-            failure: function(form, action) {
-                //Se programa el evento fallido del servidor
-                Ext.Msg.alert('Failed', action.result ? action.result.message : 'No response');
+                        if (action.result.mensaje_error != undefined) {
+                            Ext.Msg.alert('Mensaje', action.result.mensaje_error);
+                            return;
+                        }
+                        Ext.getCmp("x_codigoRol").setValue(action.result.newId);
+                        Ext.MessageBox.alert('Proceso', action.result.msg);
+                        Ext.getCmp("x_grid_roles").getStore().load();
+                    },
+                    failure: function(form, action) {
+                        //Se programa el evento fallido del servidor
+                        Ext.Msg.alert('Failed', action.result ? action.result.message : 'No response');
+                    }
+                });
+
             }
+
         });
-        
     },
-    cargarDatosAformulario: function(grid,record){
+    cargarDatosAformulario: function(grid, record) {
         //llama el formulario
         var formularioRoles = Ext.getCmp("x_formularioRoles");
-        
+
         formularioRoles.getForm().setValues(record.data);
     }
 });
