@@ -23,9 +23,11 @@ Ext.ClassManager.addNameAlternateMappings({
   "EscuelaFutbol.controller.Main": [],
   "EscuelaFutbol.controller.Roles": [],
   "EscuelaFutbol.model.Implementos": [],
+  "EscuelaFutbol.model.Roles": [],
   "EscuelaFutbol.model.Suscripcion": [],
   "EscuelaFutbol.store.Implementos": [],
   "EscuelaFutbol.store.MenuPrincipalStore": [],
+  "EscuelaFutbol.store.Roles": [],
   "EscuelaFutbol.store.SuscripcionesNuevas": [],
   "EscuelaFutbol.view.ActualizarDatosJugador": [],
   "EscuelaFutbol.view.BannerPrincipal": [],
@@ -867,9 +869,11 @@ Ext.ClassManager.addNameAliasMappings({
   "EscuelaFutbol.controller.Main": [],
   "EscuelaFutbol.controller.Roles": [],
   "EscuelaFutbol.model.Implementos": [],
+  "EscuelaFutbol.model.Roles": [],
   "EscuelaFutbol.model.Suscripcion": [],
   "EscuelaFutbol.store.Implementos": [],
   "EscuelaFutbol.store.MenuPrincipalStore": [],
+  "EscuelaFutbol.store.Roles": [],
   "EscuelaFutbol.store.SuscripcionesNuevas": [],
   "EscuelaFutbol.view.ActualizarDatosJugador": [
     "widget.actualizarDatosJugador"

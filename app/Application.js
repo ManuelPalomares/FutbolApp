@@ -48,7 +48,7 @@ Ext.define('EscuelaFutbol.Application', {
                         id : "x_ventanalogin",
                         height : 150,
                         modal  : true,
-                        title : "Inicio de session",
+                        title : "Inicio de sesion",
                         resizable: false,
                         closable: false,
                         items : [{xtype  : "x_loginForm"}],
@@ -56,7 +56,7 @@ Ext.define('EscuelaFutbol.Application', {
                              '->',{
                             xtype : "button",
                             id :  "x_login",
-                            text : "Ingresar"
+                            text : "Iniciar sesión"
                         }]
                     });
                     win.show();

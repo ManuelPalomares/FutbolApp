@@ -8,6 +8,9 @@ Ext.define('EscuelaFutbol.controller.Roles', {
     		},
                 '#x_NuevoRol':{
                     click :this.rolNuevo
+                },
+                '#x_eliminarRoles': {
+                    click : this.eliminarRoles
                 }
     	});
      },
@@ -17,14 +20,25 @@ Ext.define('EscuelaFutbol.controller.Roles', {
          //se llama el host 
          var host = Ext.create("EscuelaFutbol.controller.HostServer").getHost();
          //submit y la configuracion y se programa la respuesta
+         var accion_send = "GUARDAR";
+         
+         //si el codigo del campono es nulo actualiza el dato
+         if(Ext.getCmp("x_codigoRol").getValue()===""){
+             accion_send = "ACTUALIZAR";
+         }
+         
          formularioRoles.getForm().submit({
              clientValidation: true,
              waitMsg : "Guardando los datos",
-             params:{accion : "GUARDAR"},
+             params:{accion : accion_send},
              url :host+"php/seguridad/roles.php",
              success: function(form,action){
-                 console.log(action.result);
-                 //Se programa el evento exitoso
+                 if(action.result.permiso =="true"){
+                     Ext.MessageBox.alert('Error',action.result.mensaje_error);
+                     return;
+                 }
+                 
+                 Ext.getCmp("x_codigoRol").setValue(action.result.newId);
                  Ext.MessageBox.alert('Proceso',action.result.msg);
                  Ext.getCmp("x_grid_roles").getStore().load();
              },
@@ -39,5 +53,8 @@ Ext.define('EscuelaFutbol.controller.Roles', {
          var formularioRoles = Ext.getCmp("x_formularioRoles");
          formularioRoles.getForm().reset();
          Ext.getCmp("x_descripcionRol").focus();
+     },
+     eliminarRoles : function(){
+         
      }
      });

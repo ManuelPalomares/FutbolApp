@@ -26,7 +26,8 @@ Ext.define('EscuelaFutbol.view.Roles', {
                     fieldLabel: 'Codigo',
                     allowBlank: true,
                     editable: false,
-                    hideTrigger: true
+                    hideTrigger: true,
+                    id : "x_codigoRol"
                 }, {
                     xtype: "textfield",
                     name: "descripcion",
@@ -39,7 +40,7 @@ Ext.define('EscuelaFutbol.view.Roles', {
                     scrollable: true,
                     title: "Listado de roles",
                     id   : "x_grid_roles",
-                    store:"EscuelaFutbol.store.Roles",
+                    store:Ext.create("EscuelaFutbol.store.Roles"),
                     columns: [
                         {xtype :'gridcolumn',text: "Codigo", width: "10%", dataIndex: "codigo"},
                         {xtype :'gridcolumn',text: "Descripcion", width: "90%", dataIndex: "descripcion"}
