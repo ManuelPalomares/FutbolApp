@@ -11,6 +11,8 @@ Ext.define('EscuelaFutbol.controller.Roles', {
             },
             '#x_eliminarRoles': {
                 click: this.eliminarRoles
+            },'#x_grid_roles':{
+                itemclick : this.cargarDatosAformulario
             }
         });
     },
@@ -58,15 +60,17 @@ Ext.define('EscuelaFutbol.controller.Roles', {
     eliminarRoles: function() {
         //llama el formulario
         var formularioRoles = Ext.getCmp("x_formularioRoles");
+        //se llama el host 
+        var host = Ext.create("EscuelaFutbol.controller.HostServer").getHost();
         var accion_send  = "ELIMINAR";
         
          formularioRoles.getForm().submit({
             clientValidation: true,
-            waitMsg: "Guardando los datos",
+            waitMsg: "Eliminando los registros",
             params: {accion: accion_send},
             url: host + "php/seguridad/roles.php",
             success: function(form, action) {
-                console.log(action.result);
+                //console.log(action.result);
 
                 if (action.result.mensaje_error != undefined) {
                     Ext.Msg.alert('Mensaje', action.result.mensaje_error);
@@ -82,5 +86,11 @@ Ext.define('EscuelaFutbol.controller.Roles', {
             }
         });
         
+    },
+    cargarDatosAformulario: function(grid,record){
+        //llama el formulario
+        var formularioRoles = Ext.getCmp("x_formularioRoles");
+        
+        formularioRoles.getForm().setValues(record.data);
     }
 });
