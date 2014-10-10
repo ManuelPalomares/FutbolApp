@@ -33,7 +33,7 @@ Ext.define('EscuelaFutbol.controller.Roles', {
              params:{accion : accion_send},
              url :host+"php/seguridad/roles.php",
              success: function(form,action){
-                 if(action.result.permiso =="true"){
+                 if(action.result.permiso ==="true"){
                      Ext.MessageBox.alert('Error',action.result.mensaje_error);
                      return;
                  }
