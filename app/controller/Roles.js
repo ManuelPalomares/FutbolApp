@@ -56,6 +56,31 @@ Ext.define('EscuelaFutbol.controller.Roles', {
         Ext.getCmp("x_descripcionRol").focus();
     },
     eliminarRoles: function() {
+        //llama el formulario
+        var formularioRoles = Ext.getCmp("x_formularioRoles");
+        var accion_send  = "ELIMINAR";
+        
+         formularioRoles.getForm().submit({
+            clientValidation: true,
+            waitMsg: "Guardando los datos",
+            params: {accion: accion_send},
+            url: host + "php/seguridad/roles.php",
+            success: function(form, action) {
+                console.log(action.result);
 
+                if (action.result.mensaje_error != undefined) {
+                    Ext.Msg.alert('Mensaje', action.result.mensaje_error);
+                    return;
+                }
+                Ext.getCmp("x_codigoRol").setValue(action.result.newId);
+                Ext.MessageBox.alert('Proceso', action.result.msg);
+                Ext.getCmp("x_grid_roles").getStore().load();
+            },
+            failure: function(form, action) {
+                //Se programa el evento fallido del servidor
+                Ext.Msg.alert('Failed', action.result ? action.result.message : 'No response');
+            }
+        });
+        
     }
 });
