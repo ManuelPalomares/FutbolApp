@@ -63,7 +63,7 @@ Ext.define('EscuelaFutbol.controller.Roles', {
         //se llama el host 
         var host = Ext.create("EscuelaFutbol.controller.HostServer").getHost();
         var accion_send = "ELIMINAR";
-        Ext.MessageBox.confirm('Advertencia', 'Esta seguro de eliminar el registro?', function(btn) {
+        Ext.MessageBox.confirm('Advertencia', 'Esta  seguro de eliminar el registro?', function(btn) {
             if (btn === 'yes') {
                 formularioRoles.getForm().submit({
                     clientValidation: true,
