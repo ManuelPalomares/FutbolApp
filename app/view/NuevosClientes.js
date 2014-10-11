@@ -1,118 +1,171 @@
-/*Ext.define('EscuelaFutbol.view.NuevosClientes', {
-    extend: 'Ext.form.Panel',
-    alias : 'widget.nuevosClientes',
-    id : "x_nuevosClientes",
-    html : "<h1>Nuevos clientes</h1>"
-});
-*/
-
 Ext.define('EscuelaFutbol.view.NuevosClientes', {
     extend: 'Ext.form.Panel',
-    id : "x_nuevosClientes",
-    alias : 'widget.nuevosClientes',
-
+    alias: 'widget.nuevosClientes',
     requires: [
-        'Ext.form.field.Text',
-        'Ext.toolbar.Toolbar',
-        'Ext.button.Button',
-        'Ext.menu.Menu',
-        'Ext.menu.Item'
+        'Ext.form.field.Date',
+        'Ext.form.field.Number',
+        'Ext.form.field.ComboBox',
+        'Ext.form.FieldSet'
     ],
-
-    height: 284,
-    width: 468,
+    height: 433,
+    id: 'x_formularioSuscriptores',
+    width: 651,
+    layout: 'column',
     bodyPadding: 10,
-    title: 'Registro de clientes nuevos',
-    waitTitle: 'Guardando la informacion',
-
-    initComponent: function() {
+    title: 'Datos del Suscriptor o Responsable',
+    initComponent: function () {
         var me = this;
-
-        me.initialConfig = Ext.apply({
-            waitTitle: 'Guardando la informacion'
-        }, me.initialConfig);
 
         Ext.applyIf(me, {
             items: [
                 {
-                    xtype: 'container',
+                    xtype: 'datefield',
+                    fieldLabel: 'Fecha Inscripción',
+                    name: 'fecha_ingreso',
+                    editable: false,
+                    format: 'Y/d/m'
+                },
+                {
+                    xtype: 'numberfield',
+                    fieldLabel: 'Código Suscriptor',
+                    name: 'codigo',
+                    maxLength: 15,
+                    editable: false
+                },
+                {
+                    xtype: 'combobox',
+                    fieldLabel: 'Tipo Documento:',
+                    name: 'tipo_documento',
+                    store: 'EscuelaFutbol.store.Estado'
+                },
+                {
+                    xtype: 'numberfield',
+                    fieldLabel: 'Número documento:',
+                    name: 'numero_documento',
+                    maxLength: 20
+                },
+                {
+                    xtype: 'textfield',
+                    fieldLabel: 'Nombres:',
+                    name: 'nombres',
+                    maxLength: 50
+                },
+                {
+                    xtype: 'textfield',
+                    fieldLabel: 'Apellidos:',
+                    name: 'apellidos',
+                    maxLength: 50
+                },
+                {
+                    xtype: 'textfield',
+                    fieldLabel: 'Telefono Fijo:',
+                    name: 'telefono',
+                    maxLength: 20
+                },
+                {
+                    xtype: 'textfield',
+                    fieldLabel: 'Celular:',
+                    name: 'celular',
+                    maxLength: 20
+                },
+                {
+                    xtype: 'textfield',
+                    fieldLabel: 'Email:',
+                    name: 'email',
+                    maxLength: 100
+                },
+                {
+                    xtype: 'combobox',
+                    fieldLabel: 'Género:',
+                    name: 'genero',
+                    maxLength: 1,
+                    store: 'EscuelaFutbol.store.Genero'
+                },
+                {
+                    xtype: 'combobox',
+                    fieldLabel: 'Estado:',
+                    name: 'estado',
+                    maxLength: 1
+                },
+                {
+                    xtype: 'combobox',
+                    fieldLabel: 'Parentesco:',
+                    name: 'parentesco'
+                },
+                {
+                    xtype: 'fieldset',
+                    layout: 'column',
+                    collapsible: true,
+                    title: 'Datos del responsable 2',
                     items: [
                         {
                             xtype: 'textfield',
-                            fieldLabel: 'Nombre'
-                        }
-                    ]
-                },
-                {
-                    xtype: 'container',
-                    items: [
+                            fieldLabel: 'Nombres Responsable 2:',
+                            name: 'nombres2',
+                            maxLength: 50
+                        },
                         {
                             xtype: 'textfield',
-                            fieldLabel: 'Apellidos'
-                        }
-                    ]
-                },
-                {
-                    xtype: 'container',
-                    width: 150,
-                    items: [
+                            fieldLabel: 'Apellidos Responsable 2:',
+                            name: 'apellidos2',
+                            maxLength: 50
+                        },
                         {
-                            xtype: 'textfield',
-                            width: 400,
-                            fieldLabel: 'Direccion'
-                        }
-                    ]
-                },
-                {
-                    xtype: 'container',
-                    width: 150,
-                    items: [
+                            xtype: 'combobox',
+                            fieldLabel: 'Tipo Documento Responsable 2:',
+                            name: 'tipo_documento2',
+                            store: 'EscuelaFutbol.store.TipoDocumento'
+                        },
                         {
-                            xtype: 'textfield',
-                            width: 400,
-                            fieldLabel: 'Correo',
-                            inputType: 'email'
-                        }
-                    ]
-                },
-                {
-                    xtype: 'container',
-                    width: 150,
-                    items: [
+                            xtype: 'numberfield',
+                            fieldLabel: 'Número documento Responsable 2:',
+                            name: 'numero_documento2',
+                            maxLength: 20
+                        },
                         {
-                            xtype: 'datefield',
-                            width: 300,
-                            fieldLabel: 'Fecha Nacimiento'
-                            
+                            xtype: 'combobox',
+                            fieldLabel: 'Parentesco Responsable 2:',
+                            name: 'parentesco2'
                         }
                     ]
                 }
-            ],
-            dockedItems: [
-                {
+            ]/*,
+            dockedItems: [{
                     xtype: 'toolbar',
                     dock: 'top',
-                    items: [
-                        {
-                            xtype: 'button',
-                            text: 'Acciones',
-                            menu: {
-                                xtype: 'menu',
-                                items: [
-                                    {
-                                        xtype: 'menuitem',
-                                        text: 'Guardar'
-                                    },
-                                    {
-                                        xtype: 'menuitem',
-                                        text: 'Eliminar'
-                                    }
-                                ]
-                            }
-                        }
-                    ]
-                }
-            ]
+                    items: [{
+                            xtype: "button",
+                            text: "Nuevo",
+                            icon: "resources/img/btns/nuevo.png",
+                            width: 50,
+                            height: 50,
+                            style: {margin: '0.2em'},
+                            iconCls: "x_iconosBotonesForma",
+                            iconAlign: "center",
+                            id: "x_NuevoRol"
+                        }, {
+                            xtype: "button",
+                            text: "Guardar",
+                            icon: "resources/img/btns/guardar.png",
+                            width: 50,
+                            height: 50,
+                            style: {margin: '0.2em'},
+                            iconCls: "x_iconosBotonesForma",
+                            iconAlign: "center",
+                            id: "x_guardarRoles"
+                        }, {
+                            xtype: "button",
+                            text: "Eliminar",
+                            icon: "resources/img/btns/eliminar.png",
+                            width: 50,
+                            height: 50,
+                            style: {margin: '0.2em'},
+                            iconCls: "x_iconosBotonesForma",
+                            iconAlign: "center",
+                            id: "x_eliminarRoles"
+                        }]
+                }]*/
+
         });
 
         me.callParent(arguments);
