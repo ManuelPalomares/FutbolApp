@@ -1,22 +1,19 @@
-Ext.define('MyApp.view.EscuelaFutbol.view.Suscriptores', {
+Ext.define('EscuelaFutbol.view.Suscripcion', {
     extend: 'Ext.form.Panel',
-    alias: 'widget.formularioSuscriptores',
-
+    alias: 'widget.nuevoSuscriptor',
     requires: [
         'Ext.form.field.Date',
         'Ext.form.field.Number',
         'Ext.form.field.ComboBox',
         'Ext.form.FieldSet'
     ],
-
     height: 433,
     id: 'x_formularioSuscriptores',
     width: 651,
     layout: 'column',
     bodyPadding: 10,
     title: 'Datos del Suscriptor o Responsable',
-
-    initComponent: function() {
+    initComponent: function () {
         var me = this;
 
         Ext.applyIf(me, {
@@ -39,7 +36,8 @@ Ext.define('MyApp.view.EscuelaFutbol.view.Suscriptores', {
                     xtype: 'combobox',
                     fieldLabel: 'Tipo Documento:',
                     name: 'tipo_documento',
-                    store: 'TipoDocumento'
+                    store: 'EscuelaFutbol.store.Estado',
+                    displayField: 'descripcion'
                 },
                 {
                     xtype: 'numberfield',
@@ -82,13 +80,16 @@ Ext.define('MyApp.view.EscuelaFutbol.view.Suscriptores', {
                     fieldLabel: 'Género:',
                     name: 'genero',
                     maxLength: 1,
-                    store: 'genero'
+                    store: 'EscuelaFutbol.store.Genero',
+                    displayField: 'descripcion'
                 },
                 {
                     xtype: 'combobox',
                     fieldLabel: 'Estado:',
                     name: 'estado',
-                    maxLength: 1
+                    maxLength: 1,
+                    store: 'EscuelaFutbol.store.Estado',
+                    displayField: 'descripcion'
                 },
                 {
                     xtype: 'combobox',
@@ -117,7 +118,8 @@ Ext.define('MyApp.view.EscuelaFutbol.view.Suscriptores', {
                             xtype: 'combobox',
                             fieldLabel: 'Tipo Documento Responsable 2:',
                             name: 'tipo_documento2',
-                            store: 'TipoDocumento'
+                            store: 'EscuelaFutbol.store.TipoDocumento',
+                            displayField: 'descripcion'
                         },
                         {
                             xtype: 'numberfield',
@@ -132,7 +134,43 @@ Ext.define('MyApp.view.EscuelaFutbol.view.Suscriptores', {
                         }
                     ]
                 }
-            ]
+            ],
+            dockedItems: [{
+                    xtype: 'toolbar',
+                    dock: 'top',
+                    items: [{
+                            xtype: "button",
+                            text: "Nuevo",
+                            icon: "resources/img/btns/nuevo.png",
+                            width: 50,
+                            height: 50,
+                            style: {margin: '0.2em'},
+                            iconCls: "x_iconosBotonesForma",
+                            iconAlign: "center",
+                            id: "x_NuevoRol"
+                        }, {
+                            xtype: "button",
+                            text: "Guardar",
+                            icon: "resources/img/btns/guardar.png",
+                            width: 50,
+                            height: 50,
+                            style: {margin: '0.2em'},
+                            iconCls: "x_iconosBotonesForma",
+                            iconAlign: "center",
+                            id: "x_guardarRoles"
+                        }, {
+                            xtype: "button",
+                            text: "Eliminar",
+                            icon: "resources/img/btns/eliminar.png",
+                            width: 50,
+                            height: 50,
+                            style: {margin: '0.2em'},
+                            iconCls: "x_iconosBotonesForma",
+                            iconAlign: "center",
+                            id: "x_eliminarRoles"
+                        }]
+                }]
+
         });
 
         me.callParent(arguments);
