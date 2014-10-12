@@ -26,13 +26,7 @@ Ext.define('EscuelaFutbol.store.Estado', {
                     codigo: 'P',
                     descripcion: 'Prueba Deportiva'
                 }
-            ],
-            proxy: {
-                type: 'ajax',
-                reader: {
-                    type: 'array'
-                }
-            }
+            ]
         }, cfg)]);
     }
 });

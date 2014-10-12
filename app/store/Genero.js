@@ -22,13 +22,7 @@ Ext.define('EscuelaFutbol.store.Genero', {
                     codigo: 'F',
                     descripcion: 'Femenino'
                 }
-            ],
-            proxy: {
-                type: 'ajax',
-                reader: {
-                    type: 'array'
-                }
-            }
+            ]
         }, cfg)]);
     }
 });

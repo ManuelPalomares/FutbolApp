@@ -22,13 +22,7 @@ Ext.define('EscuelaFutbol.store.TipoDocumento', {
                     codigo: 'TE',
                     descripcion: 'Tarjeta de Extranjería'
                 }
-            ],
-            proxy: {
-                type: 'ajax',
-                reader: {
-                    type: 'array'
-                }
-            }
+            ]
         }, cfg)]);
     }
 });

@@ -36,7 +36,8 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                     xtype: 'combobox',
                     fieldLabel: 'Tipo Documento:',
                     name: 'tipo_documento',
-                    store: 'EscuelaFutbol.store.Estado'
+                    store: 'EscuelaFutbol.store.Estado',
+                    displayField: 'descripcion'
                 },
                 {
                     xtype: 'numberfield',
@@ -79,13 +80,16 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                     fieldLabel: 'Género:',
                     name: 'genero',
                     maxLength: 1,
-                    store: 'EscuelaFutbol.store.Genero'
+                    store: 'EscuelaFutbol.store.Genero',
+                    displayField: 'descripcion'
                 },
                 {
                     xtype: 'combobox',
                     fieldLabel: 'Estado:',
                     name: 'estado',
-                    maxLength: 1
+                    maxLength: 1,
+                    store: 'EscuelaFutbol.store.Estado',
+                    displayField: 'descripcion'
                 },
                 {
                     xtype: 'combobox',
@@ -114,7 +118,8 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                             xtype: 'combobox',
                             fieldLabel: 'Tipo Documento Responsable 2:',
                             name: 'tipo_documento2',
-                            store: 'EscuelaFutbol.store.TipoDocumento'
+                            store: 'EscuelaFutbol.store.TipoDocumento',
+                            displayField: 'descripcion'
                         },
                         {
                             xtype: 'numberfield',
