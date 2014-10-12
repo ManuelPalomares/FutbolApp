@@ -129,7 +129,7 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                         }
                     ]
                 }
-            ]/*,
+            ],
             dockedItems: [{
                     xtype: 'toolbar',
                     dock: 'top',
@@ -164,7 +164,7 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                             iconAlign: "center",
                             id: "x_eliminarRoles"
                         }]
-                }]*/
+                }]
 
         });
 
