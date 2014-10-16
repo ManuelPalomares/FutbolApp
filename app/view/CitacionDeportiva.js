@@ -1,198 +1,115 @@
 Ext.define('EscuelaFutbol.view.CitacionDeportiva', {
     extend: 'Ext.form.Panel',
-    alias: 'widget.citacionDeportiva',
-    id: "x_formularioCitaDeportiva",
+
     requires: [
-        'Ext.form.FieldSet',
-        'Ext.form.field.Number',
         'Ext.form.field.Date',
-        'Ext.form.field.ComboBox',
-        'Ext.form.field.HtmlEditor',
+        'Ext.form.field.Time',
         'Ext.grid.Panel',
         'Ext.grid.column.Template',
-        'Ext.XTemplate'
+        'Ext.XTemplate',
+        'Ext.toolbar.Toolbar',
+        'Ext.button.Button'
     ],
-    
-    items: [
-        {xtype: 'panel',
-            bodyPadding: 10,
-            layout: 'hbox',
-            height : '100%',
-            width : 900,
-            collapsible: true,
-            title : 'Citas deportivas',
+    alias : "widget.citacionDeportiva",
+    width: 727,
+    bodyPadding: 10,
+    title: 'Citacion de prueba deportiva',
+
+    initComponent: function() {
+        var me = this;
+
+        Ext.applyIf(me, {
             items: [
                 {
                     xtype: 'container',
-                    width : '50%',
                     items: [
                         {
-                            xtype: 'numberfield',
-                            anchor: '100%',
-                            fieldLabel: 'Codigo de la cita deportiva',
-                            name: 'codigo',
-                            maxLength: 15,
-                            editable: false,
-                            hideTrigger: true,
-                            id: 'x_codigoCitaDeportiva' //actualizar o guardar 
-
-                        },
-                        {
-                            xtype: 'textfield',
-                            anchor: '100%',
-                            width: 400,
-                            fieldLabel: 'Titulo del evento',
-                            name: 'titulo_evento',
-                            maxLength: 200,
-                            id: 'x_tituloCita',
-                            allowBlank: false
-                        },
-                        {
-                            xtype: 'fieldcontainer',
-                            layout: {
-        type: 'table',
-        columns: 2,
-        tdAttrs: { style: 'padding: 0.1px;' }
-    },
-                            
-                            items: [
-                                {
-                                    xtype: 'datefield',
-                                    fieldLabel: 'Fecha inicio evento',
-                                    name: 'fecha_inicio',
-                                    format: 'Y/d/m',
-                                    width : 200,
-                                    allowBlank: false
-                                },
-                                {
-                                    xtype: 'timefield',
-                                    fieldLabel: 'Hora Inicio',
-                                    width: 200,
-                                    increment: 30,
-                                    format: 'H:i',
-                                    name : 'hora1',
-                                    style: {
-                                        'margin-left': '0.5em'
-                                    }
-                                },
-                                {
-                                    xtype: 'datefield',
-                                    fieldLabel: 'Fecha fin del evento',
-                                    name: 'fecha_fin',
-                                    format: 'Y/d/m',
-                                    width: 200,
-                                    allowBlank: false
-                                },
-                                    {
-                                    xtype: 'timefield',
-                                    fieldLabel: 'Hora Final',
-                                    width: 200,
-                                    increment: 30,
-                                    format: 'H:i',
-                                    name : 'hora2',
-                                    style: {
-                                        'margin-left': '0.5em'
-                                    }
-                                }
-                               
-                            ]
-                        },
-                         {
-                                    xtype: 'combobox',
-                                    style: {
-                                        'margin-left': '0.5em'
-                                    },
-                                    width: 200,
-                                    fieldLabel: 'Estado del evento',
-                                    name: 'estado_evento',
-                                    store: Ext.create("EscuelaFutbol.store.EstadosEventos"),
-                                    displayField: "descripcion",
-                                    queryMode: 'local',
-                                    allowBlank: false
-                                },
-                        {
-                            xtype: 'htmleditor',
-                            anchor: '100%',
-                            width: 400,
-                            fieldLabel: 'Texto del evento deportivo',
-                            name: 'descripcion_evento',
-                            allowBlank: false
+                            xtype: 'datefield',
+                            fieldLabel: 'Fecha Citacion'
                         }
                     ]
                 },
                 {
                     xtype: 'container',
-                    width: '50%',
-                    
                     items: [
                         {
-                            xtype: 'gridpanel',
-                            height: 350,
-                            id: 'x_citasDeportivasGrid',
-                            store: 'EscuelaFutbol.store.Eventos',
-                            columns: [
-                                {
-                                    xtype: 'gridcolumn',
-                                    width: '50%',
-                                    dataIndex: 'titulo_evento',
-                                    text: 'Evento'
-                                },
-                                {
-                                    xtype: 'templatecolumn',
-                                    tpl: [
-                                        '{fecha_inicio} - {fecha_fin}'
-                                    ],
-                                    width: '50%',
-                                    text: 'Fechas Evento'
-                                }
-                            ]
+                            xtype: 'timefield',
+                            fieldLabel: 'Hora Citacion'
                         }
                     ]
-                }]
-        }, {
-            xtype: "gridpanel",
-            title: "Agenda de la cita",
-            width: 900,
-            height: 300,
-            columns: [{xtype: 'gridcolumn', text: 'Suscriptor', dataIndex: 'prueba'}],
-            store: 'EscuelaFutbol.store.AgendadosEventos'
+                },
+                {
+                    xtype: 'container',
+                    items: [
+                        {
+                            xtype: 'combobox',
+                            fieldLabel: 'Profesor asignado',
+                            queryMode: 'local'                            
+                            /*store: '[{\r\n    "Jose Pekerman",\r\n    "Farid Mondragon",\r\n    "El pibe Valderrama"\r\n}]'*/
+                        }
+                    ]
+                },
+                {
+                    xtype: 'gridpanel',
+                    width: 400,
+                    title: 'Implementos Deportivos',
+                    store: 'EscuelaFutbol.store.Implementos',
+                    columns: [
+                        {
+                            xtype: 'gridcolumn',
+                            width: 300,
+                            dataIndex: 'nombre',
+                            text: 'Implemento '
+                        },
+                        {
+                            xtype: 'templatecolumn',
+                            tpl: [
+                                '<input type="checkbox">'
+                            ],
+                            text: 'Seleccionar'
+                        }
+                    ]
+                },
+                {
+                    xtype: 'gridpanel',
+                    title: 'Convocados de la prueba deportiva',
+                    store: 'EscuelaFutbol.store.SuscripcionesNuevas',
+                    columns: [
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'nombre',
+                            text: 'Nombre'
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'telefono',
+                            text: 'Telefono'
+                        },
+                        {
+                            xtype: 'templatecolumn',
+                            tpl: [
+                                '<input type="checkbox" /> '
+                            ],
+                            text: 'Seleccionar'
+                        }
+                    ]
+                }
+            ],
+            dockedItems: [
+                {
+                    xtype: 'toolbar',
+                    dock: 'top',
+                    items: [
+                        {
+                            xtype: 'button',
+                            text: 'Enviar Citacion'
+                        }
+                    ]
+                }
+            ]
+        });
 
-        }
-    ],
-    dockedItems: [{
-            xtype: 'toolbar',
-            dock: 'top',
-            items: [{
-                    xtype: "button",
-                    text: "Nuevo",
-                    icon: "resources/img/btns/nuevo.png",
-                    width: 50,
-                    height: 50,
-                    style: {margin: '0.2em'},
-                    iconCls: "x_iconosBotonesForma",
-                    iconAlign: "center",
-                    id: "x_NuevaCita"
-                }, {
-                    xtype: "button",
-                    text: "Guardar",
-                    icon: "resources/img/btns/guardar.png",
-                    width: 50,
-                    height: 50,
-                    style: {margin: '0.2em'},
-                    iconCls: "x_iconosBotonesForma",
-                    iconAlign: "center",
-                    id: "x_guardarCita"
-                }, {
-                    xtype: "button",
-                    text: "Eliminar",
-                    icon: "resources/img/btns/eliminar.png",
-                    width: 50,
-                    height: 50,
-                    style: {margin: '0.2em'},
-                    iconCls: "x_iconosBotonesForma",
-                    iconAlign: "center",
-                    id: "x_eliminarCita"
-                }]
-        }]
+        me.callParent(arguments);
+    }
 
 });

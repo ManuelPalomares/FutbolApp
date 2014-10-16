@@ -63,8 +63,8 @@ Ext.define('EscuelaFutbol.controller.Main', {
         var xtypeID = item.xtypeID;
         var ventana = Ext.create("Ext.window.Window", {
             modal: true,
-            width: 1000,
-            height: 600,
+            width: 900,
+            height: 500,
             autoScroll: true,
             title: itemOpcion,
             maximizable: true,
