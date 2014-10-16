@@ -23,7 +23,8 @@ Ext.define('EscuelaFutbol.Application', {
     controllers: [
         "EscuelaFutbol.controller.Main",
         "EscuelaFutbol.controller.Login",
-        "EscuelaFutbol.controller.Roles"
+        "EscuelaFutbol.controller.Roles",
+        "EscuelaFutbol.controller.CitacionDeportiva"
     ],
 
     stores: [
@@ -33,7 +34,10 @@ Ext.define('EscuelaFutbol.Application', {
         "EscuelaFutbol.store.Roles",
         "EscuelaFutbol.store.TipoDocumento",
         "EscuelaFutbol.store.Estado",
-        "EscuelaFutbol.store.Genero"
+        "EscuelaFutbol.store.Genero",
+        "EscuelaFutbol.store.EstadosEventos",
+        "EscuelaFutbol.store.Eventos",
+        "EscuelaFutbol.store.AgendadosEventos"
     ],
     launch : function(){
         var host = Ext.create("EscuelaFutbol.controller.HostServer").getHost();
