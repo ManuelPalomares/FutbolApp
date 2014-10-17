@@ -60,7 +60,7 @@ Ext.define('EscuelaFutbol.view.CitacionDeportiva', {
                                     xtype: 'datefield',
                                     fieldLabel: 'Fecha inicio evento',
                                     name: 'fecha_inicio',
-                                    format: 'Y/d/m',
+                                    format: 'Y/m/d',
                                     width : 200,
                                     allowBlank: false
                                 },
@@ -79,7 +79,7 @@ Ext.define('EscuelaFutbol.view.CitacionDeportiva', {
                                     xtype: 'datefield',
                                     fieldLabel: 'Fecha fin del evento',
                                     name: 'fecha_fin',
-                                    format: 'Y/d/m',
+                                    format: 'Y/m/d',
                                     width: 200,
                                     allowBlank: false
                                 },
