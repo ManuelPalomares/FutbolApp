@@ -107,6 +107,7 @@ Ext.define('EscuelaFutbol.view.CitacionDeportiva', {
                                     name: 'estado_evento',
                                     store: Ext.create("EscuelaFutbol.store.EstadosEventos"),
                                     displayField: "descripcion",
+                                    valueField  : "codigo",
                                     queryMode: 'local',
                                     allowBlank: false
                                 },
