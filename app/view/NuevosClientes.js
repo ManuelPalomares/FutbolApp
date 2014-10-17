@@ -1,136 +1,311 @@
 Ext.define('EscuelaFutbol.view.NuevosClientes', {
     extend: 'Ext.form.Panel',
     alias: 'widget.nuevosClientes',
+
     requires: [
+        'Ext.form.FieldContainer',
         'Ext.form.field.Date',
         'Ext.form.field.Number',
         'Ext.form.field.ComboBox',
         'Ext.form.FieldSet'
     ],
-    height: 433,
+
+    //height: 497,
     id: 'x_formularioSuscriptores',
-    width: 651,
+    width: 900,
     layout: 'column',
     bodyPadding: 10,
     title: 'Datos del Suscriptor o Responsable',
-    initComponent: function () {
+
+    initComponent: function() {
         var me = this;
 
         Ext.applyIf(me, {
             items: [
                 {
-                    xtype: 'datefield',
-                    fieldLabel: 'Fecha Inscripción',
-                    name: 'fecha_ingreso',
-                    editable: false,
-                    format: 'Y/d/m'
-                },
-                {
-                    xtype: 'numberfield',
-                    fieldLabel: 'Código Suscriptor',
-                    name: 'codigo',
-                    maxLength: 15,
-                    editable: false
-                },
-                {
-                    xtype: 'combobox',
-                    fieldLabel: 'Tipo Documento:',
-                    name: 'tipo_documento',
-                    store: 'EscuelaFutbol.store.Estado',
-                    displayField: 'descripcion'
-                },
-                {
-                    xtype: 'numberfield',
-                    fieldLabel: 'Número documento:',
-                    name: 'numero_documento',
-                    maxLength: 20
-                },
-                {
-                    xtype: 'textfield',
-                    fieldLabel: 'Nombres:',
-                    name: 'nombres',
-                    maxLength: 50
-                },
-                {
-                    xtype: 'textfield',
-                    fieldLabel: 'Apellidos:',
-                    name: 'apellidos',
-                    maxLength: 50
-                },
-                {
-                    xtype: 'textfield',
-                    fieldLabel: 'Telefono Fijo:',
-                    name: 'telefono',
-                    maxLength: 20
-                },
-                {
-                    xtype: 'textfield',
-                    fieldLabel: 'Celular:',
-                    name: 'celular',
-                    maxLength: 20
-                },
-                {
-                    xtype: 'textfield',
-                    fieldLabel: 'Email:',
-                    name: 'email',
-                    maxLength: 100
-                },
-                {
-                    xtype: 'combobox',
-                    fieldLabel: 'Género:',
-                    name: 'genero',
-                    maxLength: 1,
-                    store: 'EscuelaFutbol.store.Genero',
-                    displayField: 'descripcion'
-                },
-                {
-                    xtype: 'combobox',
-                    fieldLabel: 'Estado:',
-                    name: 'estado',
-                    maxLength: 1,
-                    store: 'EscuelaFutbol.store.Estado',
-                    displayField: 'descripcion'
-                },
-                {
-                    xtype: 'combobox',
-                    fieldLabel: 'Parentesco:',
-                    name: 'parentesco'
-                },
-                {
-                    xtype: 'fieldset',
+                    xtype: 'fieldcontainer',
+                    height: 30,
+                    style: {
+                        marginTop: '2px',
+                        marginLeft: '20px'
+                    },
+                    width: 866,
                     layout: 'column',
-                    collapsible: true,
-                    title: 'Datos del responsable 2',
+                    fieldLabel: '',
                     items: [
                         {
-                            xtype: 'textfield',
-                            fieldLabel: 'Nombres Responsable 2:',
-                            name: 'nombres2',
-                            maxLength: 50
-                        },
-                        {
-                            xtype: 'textfield',
-                            fieldLabel: 'Apellidos Responsable 2:',
-                            name: 'apellidos2',
-                            maxLength: 50
-                        },
-                        {
-                            xtype: 'combobox',
-                            fieldLabel: 'Tipo Documento Responsable 2:',
-                            name: 'tipo_documento2',
-                            store: 'EscuelaFutbol.store.TipoDocumento',
-                            displayField: 'descripcion'
+                            xtype: 'datefield',
+                            margin: 3,
+                            fieldLabel: 'Fecha Ingreso',
+                            name: 'fecha_ingreso',
+                            editable: false,
+                            format: 'Y/d/m'
                         },
                         {
                             xtype: 'numberfield',
-                            fieldLabel: 'Número documento Responsable 2:',
-                            name: 'numero_documento2',
-                            maxLength: 20
+                            style: {
+                                marginTop: '3px',
+                                marginLeft: '20px'
+                            },
+                            width: 200,
+                            fieldLabel: 'Suscriptor',
+                            name: 'codigo',
+                            maxLength: 15,
+                            editable: false
                         },
                         {
                             xtype: 'combobox',
-                            fieldLabel: 'Parentesco Responsable 2:',
-                            name: 'parentesco2'
+                            style: {
+                                marginTop: '3px',
+                                marginLeft: '20px'
+                            },
+                            width: 250,
+                            fieldLabel: 'Estado:',
+                            name: 'estado',
+                            store: 'EscuelaFutbol.store.Estado',
+                            displayField:'descripcion',
+                            valueField:'codigo',
+                            queryMode:'local'
+                        }
+                    ]
+                },
+                {
+                    xtype: 'fieldset',
+                    height: 200,
+                    style: {
+                        marginTop: '10px',
+                        marginLeft: '10px'
+                    },
+                    width: 870,
+                    layout: 'column',
+                    title: 'Datos Responsable Principal',
+                    items: [
+                        {
+                            xtype: 'fieldcontainer',
+                            height: 30,
+                            style: {
+                                marginTop: '10px'
+                            },
+                            width: 866,
+                            layout: 'column',
+                            fieldLabel: '',
+                            items: [
+                                {
+                                    xtype: 'combobox',
+                                    margin: 3,
+                                    width: 300,
+                                    fieldLabel: 'Parentesco:',
+                                    name: 'parentesco',
+                            store: 'EscuelaFutbol.store.Parentesco',
+                            displayField:'descripcion',
+                            valueField:'codigo',
+                            queryMode:'local'
+                                }
+                            ]
+                        },
+                        {
+                            xtype: 'fieldcontainer',
+                            height: 30,
+                            width: 870,
+                            layout: 'column',
+                            fieldLabel: '',
+                            items: [
+                                {
+                                    xtype: 'combobox',
+                                    margin: 3,
+                                    width: 300,
+                                    fieldLabel: 'Tipo Documento:',
+                                    name: 'tipo_documento',
+                                    displayField: 'descripcion',
+                                    store: 'EscuelaFutbol.store.TipoDocumento',
+                                    valueField:'codigo',
+                                    queryMode:'local'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    style: {
+                                        marginLeft: '113px',
+                                        marginTop: '3px'
+                                    },
+                                    width: 350,
+                                    fieldLabel: 'Documento:',
+                                    name: 'numero_documento',
+                                    maxLength: 20
+                                }
+                            ]
+                        },
+                        {
+                            xtype: 'fieldcontainer',
+                            height: 60,
+                            style: {
+                                marginTop: '5px'
+                            },
+                            width: 866,
+                            layout: 'column',
+                            fieldLabel: '',
+                            items: [
+                                {
+                                    xtype: 'textfield',
+                                    margin: 3,
+                                    width: 410,
+                                    fieldLabel: 'Nombres:',
+                                    name: 'nombres',
+                                    maxLength: 50
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    margin: 3,
+                                    width: 410,
+                                    fieldLabel: 'Apellidos:',
+                                    name: 'apellidos',
+                                    maxLength: 50
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    margin: 3,
+                                    width: 300,
+                                    fieldLabel: 'Teléfono Fijo:',
+                                    name: 'telefono',
+                                    maxLength: 20
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    style: {
+                                        marginTop: '3px',
+                                        marginLeft: '113px'
+                                    },
+                                    width: 350,
+                                    fieldLabel: 'Celular:',
+                                    name: 'celular',
+                                    maxLength: 20
+                                }
+                            ]
+                        },
+                        {
+                            xtype: 'fieldcontainer',
+                            height: 30,
+                            width: 870,
+                            layout: 'column',
+                            fieldLabel: '',
+                            items: [
+                                {
+                                    xtype: 'textfield',
+                                    margin: 3,
+                                    width: 410,
+                                    fieldLabel: 'Email:',
+                                    name: 'email',
+                                    maxLength: 100
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    xtype: 'fieldset',
+                    height: 165,
+                    style: {
+                        marginTop: '2px',
+                        marginLeft: '10px'
+                    },
+                    width: 870,
+                    layout: 'column',
+                    title: 'Datos del Segundo Responsable',
+                    items: [
+                        {
+                            xtype: 'fieldcontainer',
+                            height: 30,
+                            style: {
+                                marginTop: '10px'
+                            },
+                            width: 866,
+                            layout: 'column',
+                            fieldLabel: '',
+                            items: [
+                                {
+                                    xtype: 'combobox',
+                                    margin: 3,
+                                    width: 300,
+                                    fieldLabel: 'Parentesco:',
+                                    name: 'parentesco2',
+                                    store: 'EscuelaFutbol.store.Parentesco',
+                                    displayField:'descripcion',
+                                    valueField:'codigo',
+                                    queryMode:'local'
+                                }
+                            ]
+                        },
+                        {
+                            xtype: 'fieldcontainer',
+                            height: 30,
+                            width: 866,
+                            layout: 'column',
+                            fieldLabel: '',
+                            items: [
+                                {
+                                    xtype: 'combobox',
+                                    margin: 3,
+                                    width: 300,
+                                    fieldLabel: 'Tipo Documento:',
+                                    name: 'tipo_documento2',
+                                    store: 'EscuelaFutbol.store.TipoDocumento',
+                                    displayField:'descripcion',
+                                    valueField:'codigo',
+                                    queryMode:'local'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    style: {
+                                        marginLeft: '113px',
+                                        marginTop: '3px'
+                                    },
+                                    width: 350,
+                                    fieldLabel: 'Documento:',
+                                    name: 'numero_documento2',
+                                    maxLength: 20
+                                }
+                            ]
+                        },
+                        {
+                            xtype: 'fieldcontainer',
+                            height: 60,
+                            width: 866,
+                            layout: 'column',
+                            fieldLabel: '',
+                            items: [
+                                {
+                                    xtype: 'textfield',
+                                    margin: 3,
+                                    width: 410,
+                                    fieldLabel: 'Nombres:',
+                                    name: 'nombres2',
+                                    maxLength: 50
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    margin: 3,
+                                    width: 410,
+                                    fieldLabel: 'Apellidos:',
+                                    name: 'apellidos2',
+                                    maxLength: 50
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    margin: 3,
+                                    width: 300,
+                                    fieldLabel: 'Celular:',
+                                    name: 'celular2'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    style: {
+                                        marginLeft: '113px',
+                                        marginTop: '3px'
+                                    },
+                                    width: 410,
+                                    fieldLabel: 'Email:',
+                                    name: 'email2'
+                                }
+                            ]
                         }
                     ]
                 }
@@ -170,7 +345,6 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                             id: "x_eliminarRoles"
                         }]
                 }]
-
         });
 
         me.callParent(arguments);
