@@ -40,7 +40,8 @@ Ext.define('EscuelaFutbol.Application', {
         "EscuelaFutbol.store.AgendadosEventos",
         "EscuelaFutbol.store.Parentesco",
         "EscuelaFutbol.store.TipoSangre",
-        "EscuelaFutbol.store.Ciudades"
+        "EscuelaFutbol.store.Ciudades",
+        "EscuelaFutbol.store.Categorias"
     ],
     launch : function(){
         var host = Ext.create("EscuelaFutbol.controller.HostServer").getHost();

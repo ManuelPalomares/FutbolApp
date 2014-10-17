@@ -21,6 +21,14 @@ Ext.define('EscuelaFutbol.store.TipoDocumento', {
                 {
                     codigo: 'TE',
                     descripcion: 'Tarjeta de Extranjería'
+                },
+                {
+                    codigo: 'TI',
+                    descripcion: 'Tarjeta de Identidad'
+                },
+                {
+                    codigo: 'RC',
+                    descripcion: 'Registro Civíl'
                 }
             ]
         }, cfg)]);

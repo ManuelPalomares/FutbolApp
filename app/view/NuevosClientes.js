@@ -322,7 +322,7 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                             style: {margin: '0.2em'},
                             iconCls: "x_iconosBotonesForma",
                             iconAlign: "center",
-                            id: "x_NuevoRol"
+                            id: "x_NuevoCliente"
                         }, {
                             xtype: "button",
                             text: "Guardar",
@@ -332,7 +332,7 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                             style: {margin: '0.2em'},
                             iconCls: "x_iconosBotonesForma",
                             iconAlign: "center",
-                            id: "x_guardarRoles"
+                            id: "x_guardarNuevoCliente"
                         }, {
                             xtype: "button",
                             text: "Eliminar",
@@ -342,7 +342,7 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                             style: {margin: '0.2em'},
                             iconCls: "x_iconosBotonesForma",
                             iconAlign: "center",
-                            id: "x_eliminarRoles"
+                            id: "x_eliminarNuevoCliente"
                         }]
                 }]
         });

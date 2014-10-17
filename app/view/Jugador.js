@@ -275,11 +275,11 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                                     margin: 3,
                                     width: 405,
                                     fieldLabel: 'Categoría',
-                                    name: 'codigo_categoria'
-                                    //displayField:'descripcion',
-                                    //valueField:'codigo',
-                                    //queryMode:'local'
-                                    //store:'EscuelaFutbol.store.Categoria'
+                                    name: 'codigo_categoria',
+                                    displayField:'descripcion',
+                                    valueField:'codigo',
+                                    queryMode:'local',
+                                    store:'EscuelaFutbol.store.Categorias'
                                 },
                                 {
                                     xtype: 'textfield',
@@ -314,7 +314,7 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                             style: {margin: '0.2em'},
                             iconCls: "x_iconosBotonesForma",
                             iconAlign: "center",
-                            id: "x_NuevoRol"
+                            id: "x_NuevoJugador"
                         }, {
                             xtype: "button",
                             text: "Guardar",
@@ -324,7 +324,7 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                             style: {margin: '0.2em'},
                             iconCls: "x_iconosBotonesForma",
                             iconAlign: "center",
-                            id: "x_guardarRoles"
+                            id: "x_guardarJugador"
                         }, {
                             xtype: "button",
                             text: "Eliminar",
@@ -334,7 +334,7 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                             style: {margin: '0.2em'},
                             iconCls: "x_iconosBotonesForma",
                             iconAlign: "center",
-                            id: "x_eliminarRoles"
+                            id: "x_eliminarJugador"
                         }]
                 }]
         });
