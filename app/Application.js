@@ -21,6 +21,7 @@ Ext.define('EscuelaFutbol.Application', {
     ],
 
     controllers: [
+        "EscuelaFutbol.controller.HostServer",
         "EscuelaFutbol.controller.Main",
         "EscuelaFutbol.controller.Login",
         "EscuelaFutbol.controller.Roles",

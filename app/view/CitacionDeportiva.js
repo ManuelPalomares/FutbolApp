@@ -15,7 +15,7 @@ Ext.define('EscuelaFutbol.view.CitacionDeportiva', {
     
     items: [
         {xtype: 'panel',
-            bodyPadding: 10,
+            bodyPadding:'0,2',
             layout: 'hbox',
             height : '100%',
             width : 900,
@@ -110,15 +110,19 @@ Ext.define('EscuelaFutbol.view.CitacionDeportiva', {
                                     valueField  : "codigo",
                                     queryMode: 'local',
                                     allowBlank: false
-                                },
-                        {
+                                },{
+                                    xtype : "button",
+                                    text  : "Descripcion del evento",
+                                    id    :"x_btn_descripcion_evento"
+                                }
+                        /*{
                             xtype: 'htmleditor',
                             anchor: '100%',
                             width: 400,
                             fieldLabel: 'Texto del evento deportivo',
                             name: 'descripcion_evento',
                             allowBlank: false
-                        }
+                        }*/
                     ]
                 },
                 {
@@ -150,14 +154,6 @@ Ext.define('EscuelaFutbol.view.CitacionDeportiva', {
                         }
                     ]
                 }]
-        }, {
-            xtype: "gridpanel",
-            title: "Agenda de la cita",
-            width: 900,
-            height: 300,
-            columns: [{xtype: 'gridcolumn', text: 'Suscriptor', dataIndex: 'prueba'}],
-            store: 'EscuelaFutbol.store.AgendadosEventos'
-
         }
     ],
     dockedItems: [{
