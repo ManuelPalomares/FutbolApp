@@ -1,6 +1,7 @@
 Ext.define('EscuelaFutbol.controller.CitacionDeportiva', {
     extend: 'Ext.app.Controller',
-    requires: ['Ext.tip.*'],
+    
+    requires: ['Ext.tip.*','Ext.form.field.HtmlEditor'],
     init: function() {
         this.control({
             '#x_guardarCita': {
@@ -14,6 +15,9 @@ Ext.define('EscuelaFutbol.controller.CitacionDeportiva', {
             }, 
             '#x_grid_roles': {
                 itemclick: this.cargarDatosAformulario
+            },
+            '#x_btn_descripcion_evento' : {
+                click : this.cargarVentanaDescripcionEvento
             }
         });
     },
@@ -100,5 +104,17 @@ Ext.define('EscuelaFutbol.controller.CitacionDeportiva', {
         var formulario = Ext.getCmp("x_formulario");
 
         formulario.getForm().setValues(record.data);
+    },
+    cargarVentanaDescripcionEvento : function(){
+        var windDes = Ext.create("Ext.window.Window",{
+           title : "Descripcion del Evento",
+           closabled: false,
+           maximizable:false,
+           width : 900,
+           height:500,
+           modal : true,
+           items : [{xtype:'htmleditor',width:900,height:500}]
+        });
+        windDes.show();
     }
 });
