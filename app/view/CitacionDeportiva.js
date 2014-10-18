@@ -12,19 +12,18 @@ Ext.define('EscuelaFutbol.view.CitacionDeportiva', {
         'Ext.grid.column.Template',
         'Ext.XTemplate'
     ],
-    
     items: [
         {xtype: 'panel',
-            bodyPadding:2,
+            bodyPadding: 2,
             layout: 'hbox',
-            height : '100%',
-            width : 900,
+            height: '100%',
+            width: 900,
             collapsible: true,
-            title : 'Citas deportivas',
+            title: 'Citas deportivas',
             items: [
                 {
                     xtype: 'container',
-                    width : '50%',
+                    width: '50%',
                     items: [
                         {
                             xtype: 'numberfield',
@@ -50,18 +49,17 @@ Ext.define('EscuelaFutbol.view.CitacionDeportiva', {
                         {
                             xtype: 'fieldcontainer',
                             layout: {
-        type: 'table',
-        columns: 2,
-        tdAttrs: { style: 'padding: 0.1px;' }
-    },
-                            
+                                type: 'table',
+                                columns: 2,
+                                tdAttrs: {style: 'padding: 0.1px;'}
+                            },
                             items: [
                                 {
                                     xtype: 'datefield',
                                     fieldLabel: 'Fecha inicio evento',
                                     name: 'fecha_inicio',
                                     format: 'Y/m/d',
-                                    width : 200,
+                                    width: 200,
                                     allowBlank: false
                                 },
                                 {
@@ -70,7 +68,7 @@ Ext.define('EscuelaFutbol.view.CitacionDeportiva', {
                                     width: 200,
                                     increment: 30,
                                     format: 'H:i',
-                                    name : 'hora1',
+                                    name: 'hora1',
                                     style: {
                                         'margin-left': '0.5em'
                                     }
@@ -83,53 +81,57 @@ Ext.define('EscuelaFutbol.view.CitacionDeportiva', {
                                     width: 200,
                                     allowBlank: false
                                 },
-                                    {
+                                {
                                     xtype: 'timefield',
                                     fieldLabel: 'Hora Final',
                                     width: 200,
                                     increment: 30,
                                     format: 'H:i',
-                                    name : 'hora2',
+                                    name: 'hora2',
                                     style: {
                                         'margin-left': '0.5em'
                                     }
                                 }
-                               
+
                             ]
                         },
-                         {
-                                    xtype: 'combobox',
-                                    style: {
-                                        'margin-left': '0.5em'
-                                    },
-                                    width: 200,
-                                    fieldLabel: 'Estado del evento',
-                                    name: 'estado_evento',
-                                    store: Ext.create("EscuelaFutbol.store.EstadosEventos"),
-                                    displayField: "descripcion",
-                                    valueField  : "codigo",
-                                    queryMode: 'local',
-                                    allowBlank: false
-                                },{
-                                    xtype : "button",
-                                    text  : "Descripcion del evento",
-                                    id    :"x_btn_descripcion_evento",
-                                    style :{'margin':'10px'}
-                                }
-                        /*{
-                            xtype: 'htmleditor',
-                            anchor: '100%',
-                            width: 400,
-                            fieldLabel: 'Texto del evento deportivo',
-                            name: 'descripcion_evento',
+                        {
+                            xtype: 'combobox',
+                            style: {
+                                'margin-left': '0.5em'
+                            },
+                            width: 200,
+                            fieldLabel: 'Estado del evento',
+                            name: 'estado_evento',
+                            store: Ext.create("EscuelaFutbol.store.EstadosEventos"),
+                            displayField: "descripcion",
+                            valueField: "codigo",
+                            queryMode: 'local',
                             allowBlank: false
-                        }*/
+                        }, {
+                            xtype: "button",
+                            text: "Descripcion del evento",
+                            id: "x_btn_descripcion_evento",
+                            style: {'margin': '10px'}
+                        }, {
+                            xtype: 'textfield',
+                            name: 'name',
+                            fieldLabel: 'Name',
+                            allowBlank: false  // requires a non-empty value
+                        }
+                        /*{
+                         xtype: 'htmleditor',
+                         anchor: '100%',
+                         width: 400,
+                         fieldLabel: 'Texto del evento deportivo',
+                         name: 'descripcion_evento',
+                         allowBlank: false
+                         }*/
                     ]
                 },
                 {
                     xtype: 'container',
                     width: '50%',
-                    
                     items: [
                         {
                             xtype: 'gridpanel',
