@@ -1,7 +1,6 @@
 Ext.define('EscuelaFutbol.controller.CitacionDeportiva', {
     extend: 'Ext.app.Controller',
-    
-    requires: ['Ext.tip.*','Ext.form.field.HtmlEditor'],
+    requires: ['Ext.tip.*', 'Ext.form.field.HtmlEditor'],
     init: function() {
         this.control({
             '#x_guardarCita': {
@@ -12,12 +11,12 @@ Ext.define('EscuelaFutbol.controller.CitacionDeportiva', {
             },
             '#x_eliminarCita': {
                 click: this.eliminarCitas
-            }, 
+            },
             '#x_grid_roles': {
                 itemclick: this.cargarDatosAformulario
             },
-            '#x_btn_descripcion_evento' : {
-                click : this.cargarVentanaDescripcionEvento
+            '#x_btn_descripcion_evento': {
+                click: this.cargarVentanaDescripcionEvento
             }
         });
     },
@@ -47,7 +46,7 @@ Ext.define('EscuelaFutbol.controller.CitacionDeportiva', {
                     return;
                 }
                 //TODO//
-                
+
                 Ext.getCmp("x_codigoCitaDeportiva").setValue(action.result.newId);
                 Ext.MessageBox.alert('Proceso', action.result.msg);
                 //Actualizar la grilla de valores
@@ -105,15 +104,26 @@ Ext.define('EscuelaFutbol.controller.CitacionDeportiva', {
 
         formulario.getForm().setValues(record.data);
     },
-    cargarVentanaDescripcionEvento : function(){
-        var windDes = Ext.create("Ext.window.Window",{
-           title : "Descripcion del Evento",
-           closabled: false,
-           maximizable:false,
-           width : 900,
-           height:500,
-           modal : true,
-           items : [{xtype:'htmleditor',width:900,height:500}]
+    cargarVentanaDescripcionEvento: function() {
+        var windDes = Ext.create("Ext.window.Window", {
+            title: "Descripcion del Evento",
+            closabled: false,
+            maximizable: false,
+            width: 900,
+            height: 500,
+            modal: true,
+            items: [{xtype: 'htmleditor', width: 900, height: 500}],
+            tbar: [{
+                    xtype: "button",
+                    text: "Guardar",
+                    icon: "resources/img/btns/guardar.png",
+                    width: 50,
+                    height: 50,
+                    style: {margin: '0.2em'},
+                    iconCls: "x_iconosBotonesForma",
+                    iconAlign: "center",
+                    id: "x_guardarGuardarDescripcion"
+                }]
         });
         windDes.show();
     }

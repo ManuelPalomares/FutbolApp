@@ -15,7 +15,7 @@ Ext.define('EscuelaFutbol.view.CitacionDeportiva', {
     
     items: [
         {xtype: 'panel',
-            bodyPadding:'0,2',
+            bodyPadding:2,
             layout: 'hbox',
             height : '100%',
             width : 900,
@@ -113,7 +113,8 @@ Ext.define('EscuelaFutbol.view.CitacionDeportiva', {
                                 },{
                                     xtype : "button",
                                     text  : "Descripcion del evento",
-                                    id    :"x_btn_descripcion_evento"
+                                    id    :"x_btn_descripcion_evento",
+                                    style :{'margin':'10px'}
                                 }
                         /*{
                             xtype: 'htmleditor',
