@@ -25,7 +25,8 @@ Ext.define('EscuelaFutbol.Application', {
         "EscuelaFutbol.controller.Main",
         "EscuelaFutbol.controller.Login",
         "EscuelaFutbol.controller.Roles",
-        "EscuelaFutbol.controller.CitacionDeportiva"
+        "EscuelaFutbol.controller.CitacionDeportiva",
+        "EscuelaFutbol.controller.NuevosClientes"
     ],
 
     stores: [

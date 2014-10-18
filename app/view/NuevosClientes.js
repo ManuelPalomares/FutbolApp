@@ -1,7 +1,6 @@
 Ext.define('EscuelaFutbol.view.NuevosClientes', {
     extend: 'Ext.form.Panel',
     alias: 'widget.nuevosClientes',
-
     requires: [
         'Ext.form.FieldContainer',
         'Ext.form.field.Date',
@@ -9,15 +8,13 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
         'Ext.form.field.ComboBox',
         'Ext.form.FieldSet'
     ],
-
     //height: 497,
     id: 'x_formularioSuscriptores',
     width: 900,
     layout: 'column',
     bodyPadding: 10,
     title: 'Datos del Suscriptor o Responsable',
-
-    initComponent: function() {
+    initComponent: function () {
         var me = this;
 
         Ext.applyIf(me, {
@@ -38,8 +35,12 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                             margin: 3,
                             fieldLabel: 'Fecha Ingreso',
                             name: 'fecha_ingreso',
-                            editable: false,
-                            format: 'Y/d/m'
+                            editable :false,
+                            format: 'Y/d/m',
+                            value  : new Date(),
+                            hideTrigger: true,
+                            disabled : true
+
                         },
                         {
                             xtype: 'numberfield',
@@ -51,7 +52,9 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                             fieldLabel: 'Suscriptor',
                             name: 'codigo',
                             maxLength: 15,
-                            editable: false
+                            editable: false,
+                            id: 'x_codigoSuscriptor',
+                            hideTrigger: true
                         },
                         {
                             xtype: 'combobox',
@@ -63,9 +66,12 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                             fieldLabel: 'Estado:',
                             name: 'estado',
                             store: 'EscuelaFutbol.store.Estado',
-                            displayField:'descripcion',
-                            valueField:'codigo',
-                            queryMode:'local'
+                            displayField: 'descripcion',
+                            valueField: 'codigo',
+                            queryMode: 'local',
+                            allowBlank: false,
+                            value : 'P',
+                            editable : false
                         }
                     ]
                 },
@@ -96,10 +102,12 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                                     width: 300,
                                     fieldLabel: 'Parentesco:',
                                     name: 'parentesco',
-                            store: 'EscuelaFutbol.store.Parentesco',
-                            displayField:'descripcion',
-                            valueField:'codigo',
-                            queryMode:'local'
+                                    store: 'EscuelaFutbol.store.Parentesco',
+                                    displayField: 'descripcion',
+                                    valueField: 'codigo',
+                                    queryMode: 'local',
+                                    id: 'x_parentescoClienteNuevo',
+                                    allowBlank: false
                                 }
                             ]
                         },
@@ -118,8 +126,9 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                                     name: 'tipo_documento',
                                     displayField: 'descripcion',
                                     store: 'EscuelaFutbol.store.TipoDocumento',
-                                    valueField:'codigo',
-                                    queryMode:'local'
+                                    valueField: 'codigo',
+                                    queryMode: 'local',
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
@@ -130,7 +139,8 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                                     width: 350,
                                     fieldLabel: 'Documento:',
                                     name: 'numero_documento',
-                                    maxLength: 20
+                                    maxLength: 20,
+                                    allowBlank: false
                                 }
                             ]
                         },
@@ -150,7 +160,8 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                                     width: 410,
                                     fieldLabel: 'Nombres:',
                                     name: 'nombres',
-                                    maxLength: 50
+                                    maxLength: 50,
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
@@ -158,7 +169,8 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                                     width: 410,
                                     fieldLabel: 'Apellidos:',
                                     name: 'apellidos',
-                                    maxLength: 50
+                                    maxLength: 50,
+                                    allowBlank: false
                                 },
                                 {
                                     xtype: 'textfield',
@@ -194,7 +206,9 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                                     width: 410,
                                     fieldLabel: 'Email:',
                                     name: 'email',
-                                    maxLength: 100
+                                    maxLength: 100,
+                                    allowBlank: false,
+                                    vtype : 'email'
                                 }
                             ]
                         }
@@ -228,9 +242,9 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                                     fieldLabel: 'Parentesco:',
                                     name: 'parentesco2',
                                     store: 'EscuelaFutbol.store.Parentesco',
-                                    displayField:'descripcion',
-                                    valueField:'codigo',
-                                    queryMode:'local'
+                                    displayField: 'descripcion',
+                                    valueField: 'codigo',
+                                    queryMode: 'local'
                                 }
                             ]
                         },
@@ -248,9 +262,9 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                                     fieldLabel: 'Tipo Documento:',
                                     name: 'tipo_documento2',
                                     store: 'EscuelaFutbol.store.TipoDocumento',
-                                    displayField:'descripcion',
-                                    valueField:'codigo',
-                                    queryMode:'local'
+                                    displayField: 'descripcion',
+                                    valueField: 'codigo',
+                                    queryMode: 'local'
                                 },
                                 {
                                     xtype: 'textfield',
@@ -333,16 +347,6 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                             iconCls: "x_iconosBotonesForma",
                             iconAlign: "center",
                             id: "x_guardarNuevoCliente"
-                        }, {
-                            xtype: "button",
-                            text: "Eliminar",
-                            icon: "resources/img/btns/eliminar.png",
-                            width: 50,
-                            height: 50,
-                            style: {margin: '0.2em'},
-                            iconCls: "x_iconosBotonesForma",
-                            iconAlign: "center",
-                            id: "x_eliminarNuevoCliente"
                         }]
                 }]
         });
