@@ -12,7 +12,7 @@ Ext.define('EscuelaFutbol.controller.CitacionDeportiva', {
             '#x_eliminarCita': {
                 click: this.eliminarCitas
             },
-            '#x_grid_roles': {
+            '#x_citasDeportivasGrid': {
                 itemclick: this.cargarDatosAformulario
             },
             '#x_btn_descripcion_evento': {
@@ -53,7 +53,7 @@ Ext.define('EscuelaFutbol.controller.CitacionDeportiva', {
                 Ext.getCmp("x_codigoCitaDeportiva").setValue(action.result.newId);
                 Ext.MessageBox.alert('Proceso', action.result.msg);
                 //Actualizar la grilla de valores
-                Ext.getCmp("x_grid_roles").getStore().load();
+                Ext.getCmp("x_citasDeportivasGrid").getStore().load();
             },
             failure: function(form, action) {
                 //Se programa el evento fallido del servidor
@@ -69,7 +69,7 @@ Ext.define('EscuelaFutbol.controller.CitacionDeportiva', {
     },
     eliminarCitas: function() {
         //llama el formulario
-        var formulario = Ext.getCmp("x_formulario");
+        var formulario = Ext.getCmp("x_formularioCitaDeportiva");
         //se llama el host 
         var host = Ext.create("EscuelaFutbol.controller.HostServer").getHost();
         var accion_send = "ELIMINAR";
@@ -103,7 +103,7 @@ Ext.define('EscuelaFutbol.controller.CitacionDeportiva', {
     },
     cargarDatosAformulario: function(grid, record) {
         //llama el formulario
-        var formulario = Ext.getCmp("x_formulario");
+        var formulario = Ext.getCmp("x_formularioCitaDeportiva");
 
         formulario.getForm().setValues(record.data);
     },

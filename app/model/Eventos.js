@@ -18,6 +18,12 @@ Ext.define('EscuelaFutbol.model.Eventos', {
         },
         {
             name: 'estado_evento'
+        },
+        {
+            name :'hora1'
+        },
+        {
+            name :'hora2'
         }
     ]
 });

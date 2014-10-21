@@ -18,7 +18,7 @@ Ext.define('EscuelaFutbol.store.Eventos', {
                     extraParams: {"accion": "CONSULTAR"},
                     reader: {
                         type: "json",
-                        root: "roles",
+                        root: "citas",
                         totalProperty: "totalRows"
                     }
                 },
