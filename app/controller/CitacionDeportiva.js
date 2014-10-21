@@ -17,6 +17,9 @@ Ext.define('EscuelaFutbol.controller.CitacionDeportiva', {
             },
             '#x_btn_descripcion_evento': {
                 click: this.cargarVentanaDescripcionEvento
+            },
+            '#x_guardarGuardarDescripcion':{
+                click : this.guardarDescripcion
             }
         });
     },
@@ -110,9 +113,10 @@ Ext.define('EscuelaFutbol.controller.CitacionDeportiva', {
             closabled: false,
             maximizable: false,
             width: 900,
+            id : 'x_windowDescripcionHtml',
             height: 500,
             modal: true,
-            items: [{xtype: 'htmleditor', width: 900, height: 500}],
+            items: [{xtype: 'htmleditor', id: 'x_descripcionHtml',width: 900, height: 500, value :Ext.getCmp('x_descripcionEvento').getValue()}],
             tbar: [{
                     xtype: "button",
                     text: "Guardar",
@@ -126,5 +130,11 @@ Ext.define('EscuelaFutbol.controller.CitacionDeportiva', {
                 }]
         });
         windDes.show();
+    },
+    guardarDescripcion : function(){
+        var desc = Ext.getCmp('x_descripcionHtml').getValue();
+        Ext.getCmp('x_descripcionEvento').setValue(desc);
+        Ext.getCmp('x_windowDescripcionHtml').close();
+        
     }
 });

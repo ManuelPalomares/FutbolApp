@@ -115,18 +115,13 @@ Ext.define('EscuelaFutbol.view.CitacionDeportiva', {
                             style: {'margin': '10px'}
                         }, {
                             xtype: 'textfield',
-                            name: 'name',
-                            fieldLabel: 'Name',
+                            name: 'descripcion_evento',
+                            maxLength : 4000,
+                            id : 'x_descripcionEvento',
+                            hidden : true,
                             allowBlank: false  // requires a non-empty value
                         }
-                        /*{
-                         xtype: 'htmleditor',
-                         anchor: '100%',
-                         width: 400,
-                         fieldLabel: 'Texto del evento deportivo',
-                         name: 'descripcion_evento',
-                         allowBlank: false
-                         }*/
+                        
                     ]
                 },
                 {
