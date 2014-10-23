@@ -135,6 +135,5 @@ Ext.define('EscuelaFutbol.controller.CitacionDeportiva', {
         var desc = Ext.getCmp('x_descripcionHtml').getValue();
         Ext.getCmp('x_descripcionEvento').setValue(desc);
         Ext.getCmp('x_windowDescripcionHtml').close();
-        
     }
 });
