@@ -135,7 +135,7 @@ Ext.define('EscuelaFutbol.view.CitacionDeportiva', {
                             xtype: 'gridpanel',
                             height: 350,
                             id: 'x_citasDeportivasGrid',
-                            store: 'EscuelaFutbol.store.Eventos',
+                            store: Ext.create('EscuelaFutbol.store.Eventos'),
                             columns: [
                                 {
                                     xtype: 'gridcolumn',
