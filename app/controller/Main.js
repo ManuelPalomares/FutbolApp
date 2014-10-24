@@ -33,8 +33,9 @@ Ext.define('EscuelaFutbol.controller.Main', {
                     //crea menu del objeto submenu
                     for (var x = 0; x < submenuDatos.length; x++) {
                         submenu.add({
-                            text: submenuDatos[x].DESCRIPCION,
-                            xtypeID: submenuDatos[x].WIDGETALIAS
+                            text: submenuDatnos[x].DESCRIPCION,
+                            xtypeID: submenuDatos[x].WIDGETALIAS,
+                            xIdOpcion: submenuDatos[x].CODIGO
                         });
                     }
                     var boton = Ext.create("Ext.Button", {
@@ -63,7 +64,7 @@ Ext.define('EscuelaFutbol.controller.Main', {
         var xtypeID = item.xtypeID;
         var ventana = Ext.create("Ext.window.Window", {
             modal: true,
-            width: 1000,
+            width: 1100,
             height: 600,
             autoScroll: true,
             title: itemOpcion,
