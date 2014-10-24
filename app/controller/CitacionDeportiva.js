@@ -116,7 +116,7 @@ Ext.define('EscuelaFutbol.controller.CitacionDeportiva', {
             id : 'x_windowDescripcionHtml',
             height: 500,
             modal: true,
-            items: [{xtype: 'htmleditor', id: 'x_descripcionHtml',width: 900, height: 500, value :Ext.getCmp('x_descripcionEvento').getValue()}],
+            items: [{xtype: 'htmleditor',id: 'x_descripcionHtml',width: 900, height: 500, value :Ext.getCmp('x_descripcionEvento').getValue()}],
             tbar: [{
                     xtype: "button",
                     text: "Guardar",
