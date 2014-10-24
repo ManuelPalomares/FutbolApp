@@ -33,7 +33,7 @@ Ext.define('EscuelaFutbol.controller.Main', {
                     //crea menu del objeto submenu
                     for (var x = 0; x < submenuDatos.length; x++) {
                         submenu.add({
-                            text: submenuDatnos[x].DESCRIPCION,
+                            text: submenuDatos[x].DESCRIPCION,
                             xtypeID: submenuDatos[x].WIDGETALIAS,
                             xIdOpcion: submenuDatos[x].CODIGO
                         });
