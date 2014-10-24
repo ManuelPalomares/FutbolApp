@@ -7,18 +7,16 @@ Ext.define('EscuelaFutbol.view.Jugador', {
         'Ext.form.field.Number',
         'Ext.form.field.ComboBox',
         'Ext.form.FieldSet',
-        'Ext.Img',
-        'Ext.grid.Panel',
-        'Ext.grid.column.Template',
-        'Ext.XTemplate'
+        'Ext.Img'
     ],
-    height: 600,
+    //height: 497,
     id: 'x_formularioJugadores',
     width: 900,
     layout: 'column',
     bodyPadding: 10,
     title: 'Ficha de Inscripción del jugador',
-    initComponent: function () {
+
+    initComponent: function() {
         var me = this;
 
         Ext.applyIf(me, {
@@ -41,9 +39,9 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                             name: 'fecha_ingreso',
                             editable: false,
                             format: 'Y/d/m',
-                            value: new Date(),
+                            value  : new Date(),
                             hideTrigger: true,
-                            disabled: true
+                            disabled : true
                         },
                         {
                             xtype: 'numberfield',
@@ -69,17 +67,17 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                             fieldLabel: 'Estado:',
                             name: 'estado',
                             store: 'EscuelaFutbol.store.Estado',
-                            displayField: 'descripcion',
-                            valueField: 'codigo',
-                            queryMode: 'local',
+                            displayField:'descripcion',
+                            valueField:'codigo',
+                            queryMode:'local',
                             allowBlank: false,
-                            value: 'A'
+                            value : 'A'
                         }
                     ]
                 },
                 {
                     xtype: 'fieldset',
-                    height: 280,
+                    height: 400,
                     style: {
                         marginTop: '10px',
                         marginLeft: '10px'
@@ -117,8 +115,8 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                                     name: 'tipo_documento',
                                     displayField: 'descripcion',
                                     store: 'EscuelaFutbol.store.TipoDocumento',
-                                    valueField: 'codigo',
-                                    queryMode: 'local',
+                                    valueField:'codigo',
+                                    queryMode:'local',
                                     id: 'x_tipoDocumentoJugador'
                                 },
                                 {
@@ -136,7 +134,6 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                                     width: 250,
                                     fieldLabel: 'Fecha Exp:',
                                     labelWidth: 80,
-                                    format: 'Y/d/m',
                                     name: 'fecha_expedicion'
                                 }
                             ]
@@ -172,7 +169,6 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                                     margin: 3,
                                     width: 280,
                                     fieldLabel: 'Fec Nacimiento:',
-                                    format: 'Y/d/m',
                                     name: 'fecha_nacimiento'
                                 },
                                 {
@@ -182,10 +178,10 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                                     fieldLabel: 'Lugar Nac:',
                                     labelWidth: 80,
                                     name: 'codigo_lugar_nacimiento',
-                                    displayField: 'descripcion',
-                                    valueField: 'codigo',
-                                    queryMode: 'local',
-                                    store: 'EscuelaFutbol.store.Ciudades'
+                                    displayField:'descripcion',
+                                    valueField:'codigo',
+                                    queryMode:'local',
+                                    store:'EscuelaFutbol.store.Ciudades'
                                 },
                                 {
                                     xtype: 'combobox',
@@ -195,9 +191,97 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                                     labelWidth: 80,
                                     name: 'tipo_sangre',
                                     store: 'EscuelaFutbol.store.TipoSangre',
-                                    displayField: 'descripcion',
-                                    valueField: 'codigo',
-                                    queryMode: 'local'
+                                    displayField:'descripcion',
+                                    valueField:'codigo',
+                                    queryMode:'local'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    margin: 3,
+                                    width: 410,
+                                    fieldLabel: 'Dirección',
+                                    name: 'direccion',
+                                    maxLength: 200
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    margin: 3,
+                                    width: 405,
+                                    fieldLabel: 'Barrio:',
+                                    name: 'barrio',
+                                    maxLength: 100
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    margin: 3,
+                                    width: 280,
+                                    fieldLabel: 'Tel Fijo:',
+                                    name: 'telefono',
+                                    maxLength: 50
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    margin: 3,
+                                    width: 280,
+                                    fieldLabel: 'Celular:',
+                                    labelWidth: 80,
+                                    name: 'celular',
+                                    maxLength: 50
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    margin: 3,
+                                    width: 250,
+                                    fieldLabel: 'BB_PIN',
+                                    labelWidth: 80,
+                                    name: 'BB_PIN',
+                                    maxLength: 20
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    margin: 3,
+                                    width: 280,
+                                    fieldLabel: 'Colegio:',
+                                    name: 'colegio',
+                                    maxLength: 100
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    margin: 3,
+                                    width: 280,
+                                    fieldLabel: 'Grado:',
+                                    labelWidth: 80,
+                                    name: 'grado',
+                                    maxLength: 50
+                                },
+                                {
+                                    xtype: 'combobox',
+                                    margin: 3,
+                                    width: 250,
+                                    fieldLabel: 'Sexo:',
+                                    labelWidth: 80,
+                                    name: 'genero',
+                                    store: 'EscuelaFutbol.store.Genero',
+                                    displayField:'descripcion',
+                                    valueField:'codigo',
+                                    queryMode:'local'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    margin: 3,
+                                    width: 410,
+                                    fieldLabel: 'Email:',
+                                    name: 'email',
+                                    maxLength: 100,
+                                    vtype: 'email'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    margin: 3,
+                                    width: 405,
+                                    fieldLabel: 'EPS:',
+                                    name: 'seguridad_social',
+                                    maxLength: 100
                                 },
                                 {
                                     xtype: 'combobox',
@@ -205,10 +289,10 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                                     width: 410,
                                     fieldLabel: 'Categoría',
                                     name: 'codigo_categoria',
-                                    displayField: 'descripcion',
-                                    valueField: 'codigo',
-                                    queryMode: 'local',
-                                    store: 'EscuelaFutbol.store.Categorias'
+                                    displayField:'descripcion',
+                                    valueField:'codigo',
+                                    queryMode:'local',
+                                    store:'EscuelaFutbol.store.Categorias'
                                 },
                                 {
                                     xtype: 'combobox',
@@ -216,44 +300,21 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                                     width: 405,
                                     fieldLabel: 'Suscriptor:',
                                     name: 'codigo_suscriptor',
-                                    displayField: 'nombrescompletos',
-                                    valueField: 'codigo',
-                                    queryMode: 'local',
-                                    store: 'EscuelaFutbol.store.Suscriptores'
+                                    displayField:'nombrescompletos',
+                                    valueField:'codigo',
+                                    queryMode:'local',
+                                    store:'EscuelaFutbol.store.Suscriptores'
                                 }
                             ]
-                        }
-
-                    ]
-                },
-                {
-                    xtype: 'gridpanel',
-                    id : 'x_grillaJugadores',
-                    height: 700,
-                    width : 800,
-                    title: 'Listado de Jugadores',
-                    scroll : true,
-                    store : Ext.create('EscuelaFutbol.store.Jugadores'),
-                    columns: [{
-                            xtype: 'gridcolumn',
-                            text: 'Documento de Identificacion',
-                            dataIndex: 'doc_identidad',
-                            width : 200
                         },
                         {
-                            xtype: 'gridcolumn',
-                            text: 'Apellidos y Nombres',
-                            dataIndex: 'nombre_completo',
-                            width: 400
+                            xtype: 'fieldcontainer',
+                            height: 30,
+                            width: 870,
+                            layout: 'column',
+                            fieldLabel: ''
                         }
-                    ],
-                     tbar: [{
-                     xtype: 'combobox',
-                     fieldLabel: 'Categoria'
-                     }, '->', {
-                     xtype: 'button',
-                     text: 'Consultar'
-                     }]
+                    ]
                 }
             ],
             dockedItems: [{
@@ -280,16 +341,16 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                             iconAlign: "center",
                             id: "x_guardarJugador"
                         }/*, {
-                         xtype: "button",
-                         text: "Eliminar",
-                         icon: "resources/img/btns/eliminar.png",
-                         width: 50,
-                         height: 50,
-                         style: {margin: '0.2em'},
-                         iconCls: "x_iconosBotonesForma",
-                         iconAlign: "center",
-                         id: "x_eliminarJugador"
-                         }*/]
+                            xtype: "button",
+                            text: "Eliminar",
+                            icon: "resources/img/btns/eliminar.png",
+                            width: 50,
+                            height: 50,
+                            style: {margin: '0.2em'},
+                            iconCls: "x_iconosBotonesForma",
+                            iconAlign: "center",
+                            id: "x_eliminarJugador"
+                        }*/]
                 }]
         });
 
@@ -297,3 +358,4 @@ Ext.define('EscuelaFutbol.view.Jugador', {
     }
 
 });
+

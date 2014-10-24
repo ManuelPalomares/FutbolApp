@@ -26,7 +26,8 @@ Ext.define('EscuelaFutbol.Application', {
         "EscuelaFutbol.controller.Login",
         "EscuelaFutbol.controller.Roles",
         "EscuelaFutbol.controller.CitacionDeportiva",
-        "EscuelaFutbol.controller.NuevosClientes"
+        "EscuelaFutbol.controller.NuevosClientes",
+        "EscuelaFutbol.controller.Jugadores"
     ],
 
     stores: [
@@ -43,7 +44,9 @@ Ext.define('EscuelaFutbol.Application', {
         "EscuelaFutbol.store.Parentesco",
         "EscuelaFutbol.store.TipoSangre",
         "EscuelaFutbol.store.Ciudades",
-        "EscuelaFutbol.store.Categorias"
+        "EscuelaFutbol.store.Categorias",
+        "EscuelaFutbol.store.Suscriptores",
+        "EscuelaFutbol.store.Jugadores"
     ],
     launch : function(){
         var host = Ext.create("EscuelaFutbol.controller.HostServer").getHost();

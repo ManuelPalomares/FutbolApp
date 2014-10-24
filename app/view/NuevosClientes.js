@@ -7,6 +7,7 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
         'Ext.form.field.Number',
         'Ext.form.field.ComboBox',
         'Ext.form.FieldSet'
+        
     ],
     //height: 497,
     id: 'x_formularioSuscriptores',

@@ -50,10 +50,10 @@ Ext.define('EscuelaFutbol.view.CitacionDeportiva', {
                         {
                             xtype: 'fieldcontainer',
                             layout: {
-        type: 'table',
-        columns: 2,
-        tdAttrs: { style: 'padding: 0.1px;' }
-    },
+                                type: 'table',
+                                columns: 2,
+                                tdAttrs: {style: 'padding: 0.1px;'}
+                            },
                             
                             items: [
                                 {
