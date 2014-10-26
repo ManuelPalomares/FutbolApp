@@ -196,6 +196,16 @@ Ext.define('EscuelaFutbol.view.CitacionDeportiva', {
                     iconCls: "x_iconosBotonesForma",
                     iconAlign: "center",
                     id: "x_eliminarCita"
+                },{
+                    xtype: "button",
+                    text: "Enviar Mail",
+                    icon: "resources/img/btns/mail.png",
+                    width: 50,
+                    height: 50,
+                    style: {margin: '0.2em'},
+                    iconCls: "x_iconosBotonesForma",
+                    iconAlign: "center",
+                    id: "x_enviarMailCitacionDeportiva"
                 }]
         }]
 
