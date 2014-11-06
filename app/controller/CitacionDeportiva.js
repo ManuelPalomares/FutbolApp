@@ -23,6 +23,9 @@ Ext.define('EscuelaFutbol.controller.CitacionDeportiva', {
             },
             '#x_enviarMailCitacionDeportiva': {
                 click: this.enviarMail
+            },
+            '#x_formularioCitaDeportiva': {
+                render: this.recargarGrillaEventos
             }
         });
     },
@@ -161,5 +164,8 @@ Ext.define('EscuelaFutbol.controller.CitacionDeportiva', {
                 Ext.Msg.alert('Failed', action.result ? action.result.message : 'No response');
             }
         });
+    },
+    recargarGrillaEventos: function(){
+        Ext.getCmp("x_citasDeportivasGrid").getStore().load();
     }
 });
