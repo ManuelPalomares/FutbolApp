@@ -214,3 +214,5 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 /nbproject/private/
+app/controller/HostServer.js
+app/view/view.zip

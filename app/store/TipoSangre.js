@@ -15,36 +15,36 @@ Ext.define('EscuelaFutbol.store.TipoSangre', {
             storeId: 'TipoSangre',
             data: [
                 {
-                    codigo: '1',
-                    descripcion: 'O+'
+                    codigo: 'O+',
+                    descripcion: 'O +'
                 },
                 {
-                    codigo: '2',
-                    descripcion: 'O-'
+                    codigo: 'O-',
+                    descripcion: 'O -'
                 },
                 {
-                    codigo: '3',
-                    descripcion: 'A+'
+                    codigo: 'A+',
+                    descripcion: 'A +'
                 },
                 {
-                    codigo: '4',
-                    descripcion: 'A-'
+                    codigo: 'A-',
+                    descripcion: 'A -'
                 },
                 {
-                    codigo: '5',
-                    descripcion: 'B+'
+                    codigo: 'B+',
+                    descripcion: 'B +'
                 },
                 {
-                    codigo: '6',
-                    descripcion: 'B-'
+                    codigo: 'B-',
+                    descripcion: 'B -'
                 },
                 {
-                    codigo: '7',
-                    descripcion: 'AB+'
+                    codigo: 'AB+',
+                    descripcion: 'A B +'
                 },
                 {
-                    codigo: '8',
-                    descripcion: 'AB-'
+                    codigo: 'AB-',
+                    descripcion: 'A B -'
                 }
             ]
         }, cfg)]);

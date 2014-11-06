@@ -16,11 +16,11 @@ Ext.define('EscuelaFutbol.store.Genero', {
             data: [
                 {
                     codigo: 'M',
-                    descripcion: 'Masculino'
+                    descripcion: 'M'
                 },
                 {
                     codigo: 'F',
-                    descripcion: 'Femenino'
+                    descripcion: 'F'
                 }
             ]
         }, cfg)]);
