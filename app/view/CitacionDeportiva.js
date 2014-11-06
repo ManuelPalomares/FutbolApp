@@ -111,6 +111,12 @@ Ext.define('EscuelaFutbol.view.CitacionDeportiva', {
                                     queryMode: 'local',
                                     allowBlank: false
                                 },{
+                                    xtype : 'textfield',
+                                    maxLength : '4000',
+                                    hidden : true,
+                                    id    : 'x_descripcionEvento',
+                                    name  :'descripcion_evento'
+                                },{
                                     xtype : "button",
                                     text  : "Descripcion del evento",
                                     id    :"x_btn_descripcion_evento",
@@ -190,6 +196,16 @@ Ext.define('EscuelaFutbol.view.CitacionDeportiva', {
                     iconCls: "x_iconosBotonesForma",
                     iconAlign: "center",
                     id: "x_eliminarCita"
+                },{
+                    xtype: "button",
+                    text: "Enviar Mail",
+                    icon: "resources/img/btns/mail.png",
+                    width: 50,
+                    height: 50,
+                    style: {margin: '0.2em'},
+                    iconCls: "x_iconosBotonesForma",
+                    iconAlign: "center",
+                    id: "x_enviarMailCitacionDeportiva"
                 }]
         }]
 

@@ -22,7 +22,7 @@ Ext.define('EscuelaFutbol.store.Eventos', {
                         totalProperty: "totalRows"
                     }
                 },
-                autoLoad: true
+                autoLoad: false
         }, cfg)]);
     }
 });

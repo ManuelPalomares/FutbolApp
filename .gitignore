@@ -216,3 +216,4 @@ pip-log.txt
 /nbproject/private/
 app/controller/HostServer.js
 app/view/view.zip
+app/view/BannerPrincipal.js

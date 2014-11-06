@@ -62,27 +62,44 @@ Ext.define('EscuelaFutbol.controller.Main', {
     llamaOpcion: function(btn, item) {
         var itemOpcion = item.text;
         var xtypeID = item.xtypeID;
-        var ventana = Ext.create("Ext.window.Window", {
-            modal: true,
-            width: 1100,
-            height: 600,
-            autoScroll: true,
-            title: itemOpcion,
-            maximizable: true,
-            items: [{
-                    xtype: xtypeID
-                }],
-            closable: true
+        var codigoOpcion = item.xIdOpcion;
+        var host = Ext.create("EscuelaFutbol.controller.HostServer").getHost();
+
+        Ext.Ajax.request({
+            url: host + "php/session/logaccess.php",
+            params: {
+                accion: "REGISTRAROPCIONES",
+                opcionMenu: codigoOpcion
+            },
+            success: function(response) {
+                var ventana = Ext.create("Ext.window.Window", {
+                    modal: true,
+                    width: 1100,
+                    height: 600,
+                    autoScroll: true,
+                    title: itemOpcion,
+                    maximizable: true,
+                    items: [{
+                            xtype: xtypeID
+                        }],
+                    closable: true
+                });
+                ventana.show();
+            },
+            failure: function(response) {
+                alert('Error realizando su solicitud por favor comunicar con su administrador :' + response.status);
+            }
         });
-        ventana.show();
+
+
     },
     cerrarSesion: function(btn, opt) {
 
         Ext.MessageBox.confirm('Advertencia', 'Esta seguro de cerrar su sesion?', function(btn) {
-            
+
             if (btn === "no")
                 return false;
-            
+
             var host = Ext.create("EscuelaFutbol.controller.HostServer").getHost();
 
 
@@ -93,10 +110,10 @@ Ext.define('EscuelaFutbol.controller.Main', {
                 },
                 success: function(response) {
                     var varRes = Ext.decode(response.responseText);
-                    if(varRes.success){
-                         location.reload(true);
+                    if (varRes.success) {
+                        location.reload(true);
                     }
-                    
+
                 },
                 failure: function(response) {
                     alert('Error realizando su solicitud por favor comunicar con su administrador :' + response.status);

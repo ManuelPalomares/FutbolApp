@@ -18,8 +18,14 @@ Ext.define('EscuelaFutbol.controller.CitacionDeportiva', {
             '#x_btn_descripcion_evento': {
                 click: this.cargarVentanaDescripcionEvento
             },
-            '#x_guardarGuardarDescripcion':{
-                click : this.guardarDescripcion
+            '#x_guardarGuardarDescripcion': {
+                click: this.guardarDescripcion
+            },
+            '#x_enviarMailCitacionDeportiva': {
+                click: this.enviarMail
+            },
+            '#x_formularioCitaDeportiva': {
+                render: this.recargarGrillaEventos
             }
         });
     },
@@ -113,10 +119,10 @@ Ext.define('EscuelaFutbol.controller.CitacionDeportiva', {
             closabled: false,
             maximizable: false,
             width: 900,
-            id : 'x_windowDescripcionHtml',
+            id: 'x_windowDescripcionHtml',
             height: 500,
             modal: true,
-            items: [{xtype: 'htmleditor', id: 'x_descripcionHtml',width: 900, height: 500, value :Ext.getCmp('x_descripcionEvento').getValue()}],
+            items: [{xtype: 'htmleditor', id: 'x_descripcionHtml', width: 900, height: 500, value: Ext.getCmp('x_descripcionEvento').getValue()}],
             tbar: [{
                     xtype: "button",
                     text: "Guardar",
@@ -131,9 +137,35 @@ Ext.define('EscuelaFutbol.controller.CitacionDeportiva', {
         });
         windDes.show();
     },
-    guardarDescripcion : function(){
+    guardarDescripcion: function() {
         var desc = Ext.getCmp('x_descripcionHtml').getValue();
         Ext.getCmp('x_descripcionEvento').setValue(desc);
         Ext.getCmp('x_windowDescripcionHtml').close();
+    },
+    enviarMail: function() {
+
+        var formulario = Ext.getCmp("x_formularioCitaDeportiva");
+        //se llama el host 
+        var host = Ext.create("EscuelaFutbol.controller.HostServer").getHost();
+        var accion_send = "ENVIAREMAILCITA";
+        formulario.getForm().submit({
+            clientValidation: true,
+            waitMsg: "Enviando Email",
+            params: {accion: accion_send},
+            url: host + "php/citas/citas.php",
+            success: function(form, action) {
+                if (action.result.mensaje_error != undefined) {
+                    Ext.Msg.alert('Mensaje', action.result.mensaje_error);
+                    return;
+                }
+            },
+            failure: function(form, action) {
+                //Se programa el evento fallido del servidor
+                Ext.Msg.alert('Failed', action.result ? action.result.message : 'No response');
+            }
+        });
+    },
+    recargarGrillaEventos: function(){
+        Ext.getCmp("x_citasDeportivasGrid").getStore().load();
     }
 });
