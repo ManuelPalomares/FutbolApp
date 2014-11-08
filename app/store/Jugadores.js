@@ -12,6 +12,7 @@ Ext.define('EscuelaFutbol.store.Jugadores', {
         me.callParent([Ext.apply({
             storeId: 'Jugadores',
             model: 'EscuelaFutbol.model.Jugadores',
+            pageSize : 15,
             proxy: {
                     type: 'ajax',
                     url: host + "php/gestionDeportiva/FichaInscripcion.php",
@@ -22,7 +23,7 @@ Ext.define('EscuelaFutbol.store.Jugadores', {
                         totalProperty: "totalRows"
                     }
                 },
-                autoLoad: true
+                autoLoad: false
         }, cfg)]);
     }
 });

@@ -12,7 +12,7 @@ Ext.define('EscuelaFutbol.view.Jugador', {
         'Ext.grid.column.Template',
         'Ext.XTemplate'
     ],
-    height: 540,
+    height: 570,
     id: 'x_formularioJugadores',
     width: 1000,
     layout: 'column',
@@ -44,16 +44,24 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                                     layout: 'column',
                                     items: [
                                         {
-                                            xtype: 'image',
-                                            height: 150,
-                                            width: 130,
-                                            src: 'resources/img/foto_jugadores.png'
-                                        },
-                                        {
-                                            xtype: 'button',
-                                            text: 'Subir Foto',
-                                            style: {marginTop: '130px'}
-                                        },
+                                            xtype: "container",
+                                            layout : 'vbox',
+                                            width  : 140,
+                                            items: [
+                                                {
+                                                    xtype: 'button',
+                                                    text: 'Subir Foto',
+                                                    width : 130,
+                                                    style : 'margin:0.2em',
+                                                    id: 'x_subirfotoJugador'
+                                                },{
+                                                    xtype: 'image',
+                                                    height: 140,
+                                                    width: 130,
+                                                    src: 'resources/img/foto_jugadores.png'
+                                                }]
+                                        }
+                                        ,
                                         {
                                             xtype: 'fieldcontainer',
                                             width: 300,
@@ -105,227 +113,239 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                                     width: 630,
                                     fieldLabel: '',
                                     layout: 'column',
-                                    items: 
-                                    [
-                                        {
-                                            xtype: 'combobox',
-                                            //margin: 3,
-                                            width: 220,
-                                            fieldLabel: 'Tipo Doc:',
-                                            name: 'tipo_documento',
-                                            displayField: 'descripcion',
-                                            store: 'EscuelaFutbol.store.TipoDocumento',
-                                            valueField: 'codigo',
-                                            queryMode: 'local',
-                                            id: 'x_tipoDocumentoJugador',
-                                            style: {marginTop: '20px', marginLeft: '3px'},
-                                            labelWidth: 70
-                                        },
-                                        {
-                                            xtype: 'textfield',
-                                            style: {marginTop: '20px', marginLeft: '10px'},
-                                            width: 220,
-                                            fieldLabel: 'Documento:',
-                                            labelWidth: 70,
-                                            name: 'doc_identidad',
-                                            maxLength: 50
-                                        },
-                                        {
-                                            xtype: 'datefield',
-                                            //margin: 3,
-                                            width: 160,
-                                            style: {marginTop: '20px', marginLeft: '10px'},
-                                            fieldLabel: 'Fecha Exp:',
-                                            labelWidth: 60,
-                                            format: 'Y/d/m',
-                                            name: 'fecha_expedicion'
-                                        },
-                                        {
-                                            xtype: 'textfield',
-                                            style: {marginTop: '5px', marginLeft: '3px'},
-                                            //margin: 3,
-                                            width: 305,
-                                            fieldLabel: 'Nombres:',
-                                            name: 'nombres',
-                                            labelWidth: 70,
-                                            maxLength: 100
-                                        },
-                                        {
-                                            xtype: 'textfield',
-                                            //margin: 3,
-                                            width: 305,
-                                            fieldLabel: 'Apellidos:',
-                                            name: 'apellidos',
-                                            labelWidth: 65,
-                                            maxLength: 100
-                                            ,style: {marginTop: '5px',marginLeft: '10px'}
-                                        },
-                                        {
-                                            xtype: 'datefield',
-                                            //margin: 3,
-                                            width: 220,
-                                            fieldLabel: 'Fec Nac:',
-                                            format: 'Y/d/m',
-                                            labelWidth: 70,
-                                            name: 'fecha_nacimiento'                     
-                                            ,style: {marginTop: '5px',marginLeft: '3px'}
-                                        },
-                                        {
-                                            xtype: 'combobox',
-                                            //margin: 3,
-                                            width: 390,
-                                            fieldLabel: 'Lugar Nac:',
-                                            labelWidth: 70,
-                                            name: 'codigo_lugar_nacimiento',
-                                            displayField: 'descripcion',
-                                            valueField: 'codigo',
-                                            queryMode: 'local',
-                                            store: 'EscuelaFutbol.store.Ciudades'
-                                            ,style: {marginTop: '5px',marginLeft: '10px'}
-                                        },
-                                        {
-                                            xtype: 'combobox',
-                                            //margin: 3,
-                                            width: 220,
-                                            fieldLabel: 'Tipo Sangre:',
-                                            labelWidth: 70,
-                                            name: 'tipo_sangre',
-                                            store: 'EscuelaFutbol.store.TipoSangre',
-                                            displayField: 'descripcion',
-                                            valueField: 'codigo',
-                                            queryMode: 'local'
-                                            ,style: {marginTop: '5px',marginLeft: '3px'}
-                                        },
-                                        {
-                                            xtype: 'textfield',
-                                            //margin: 3,
-                                            width: 390,
-                                            fieldLabel: 'Dirección',
-                                            name: 'direccion',
-                                            maxLength: 200,
-                                            labelWidth: 70
-                                            ,style: {marginTop: '5px',marginLeft: '10px'}
-                                        },
-                                        {
-                                            xtype: 'textfield',
-                                            //margin: 3,
-                                            width: 305,
-                                            fieldLabel: 'Barrio:',
-                                            name: 'barrio',
-                                            maxLength: 100,
-                                            labelWidth: 70
-                                            ,style: {marginTop: '5px', marginLeft: '3px'}
-                                        },
-                                        {
-                                            xtype: 'combobox',
-                                            style: {marginTop: '5px',marginLeft: '10px'},
-                                            width: 115,
-                                            fieldLabel: 'Sexo:',
-                                            labelWidth: 65,
-                                            name: 'genero',
-                                            store: 'EscuelaFutbol.store.Genero',
-                                            displayField: 'descripcion',
-                                            valueField: 'codigo',
-                                            queryMode: 'local'
-                                        },
-                                        {
-                                            xtype: 'textfield',
-                                            //margin: 3,
-                                            width: 180,
-                                            fieldLabel: 'Tel Fijo:',
-                                            name: 'telefono',
-                                            maxLength: 50,
-                                            labelWidth: 50
-                                            ,style: {marginTop: '5px',marginLeft: '10px'}
-                                        },
-                                        {
-                                            xtype: 'textfield',
-                                            //margin: 3,
-                                            width: 220,
-                                            fieldLabel: 'Celular:',
-                                            labelWidth: 70,
-                                            name: 'celular',
-                                            maxLength: 50
-                                            ,style: {marginTop: '5px',marginLeft: '3px'}
-                                        },
-                                        {
-                                            xtype: 'textfield',
-                                            //margin: 3,
-                                            width: 200,
-                                            fieldLabel: 'BB_PIN',
-                                            labelWidth: 70,
-                                            name: 'BB_PIN',
-                                            maxLength: 20,
-                                            style: {marginTop: '5px', marginLeft: '10px'},
-                                        },
-                                        {
-                                            xtype: 'textfield',
-                                            //margin: 3,
-                                            width: 180,
-                                            fieldLabel: 'EPS:',
-                                            name: 'seguridad_social',
-                                            maxLength: 100,
-                                            labelWidth: 50,
-                                            style: {marginTop: '5px', marginLeft: '10px'}
-                                        },
-                                        {
-                                            xtype: 'textfield',
-                                            //margin: 3,
-                                            width: 430,
-                                            fieldLabel: 'Colegio:',
-                                            name: 'colegio',
-                                            maxLength: 100,
-                                            labelWidth: 70
-                                            ,style: {marginTop: '5px',marginLeft: '3px'}
-                                        },
-                                        {
-                                            xtype: 'textfield',
-                                            //margin: 3,
-                                            width: 180,
-                                            fieldLabel: 'Grado:',
-                                            labelWidth: 50,
-                                            name: 'grado',
-                                            maxLength: 50
-                                            ,style: {marginTop: '5px',marginLeft: '10px'}
-                                        },                                       
-                                        {
-                                            xtype: 'textfield',
-                                            //margin: 3,
-                                            width: 305,
-                                            fieldLabel: 'Email:',
-                                            name: 'email',
-                                            maxLength: 100,
-                                            vtype: 'email',
-                                            labelWidth: 70,
-                                            style: {marginTop: '5px', marginLeft: '3px'}
-                                        },
-                                        {
-                                            xtype: 'combobox',
-                                            //margin: 3,
-                                            width: 305,
-                                            fieldLabel: 'Categoría',
-                                            name: 'codigo_categoria',
-                                            displayField: 'descripcion',
-                                            valueField: 'codigo',
-                                            queryMode: 'local',
-                                            store: 'EscuelaFutbol.store.Categorias',
-                                            labelWidth: 70
-                                            ,style: {marginTop: '5px',marginLeft: '10px'}
-                                        },
-                                        {
-                                            xtype: 'combobox',
-                                            //margin: 3,
-                                            width: 430,
-                                            fieldLabel: 'Suscriptor:',
-                                            name: 'codigo_suscriptor',
-                                            displayField: 'nombrescompletos',
-                                            valueField: 'codigo',
-                                            queryMode: 'local',
-                                            store: 'EscuelaFutbol.store.Suscriptores',
-                                            labelWidth: 70,
-                                            style: {marginTop: '5px', marginLeft: '3px'}
-                                        }
-                                    ]
+                                    items:
+                                            [
+                                                {
+                                                    xtype: 'combobox',
+                                                    //margin: 3,
+                                                    width: 220,
+                                                    fieldLabel: 'Tipo Doc:',
+                                                    name: 'tipo_documento',
+                                                    displayField: 'descripcion',
+                                                    store: 'EscuelaFutbol.store.TipoDocumento',
+                                                    valueField: 'codigo',
+                                                    queryMode: 'local',
+                                                    id: 'x_tipoDocumentoJugador',
+                                                    style: {marginTop: '20px', marginLeft: '3px'},
+                                                    labelWidth: 70
+                                                },
+                                                {
+                                                    xtype: 'textfield',
+                                                    style: {marginTop: '20px', marginLeft: '10px'},
+                                                    width: 220,
+                                                    fieldLabel: 'Documento:',
+                                                    labelWidth: 70,
+                                                    name: 'doc_identidad',
+                                                    maxLength: 50
+                                                },
+                                                {
+                                                    xtype: 'datefield',
+                                                    //margin: 3,
+                                                    width: 160,
+                                                    style: {marginTop: '20px', marginLeft: '10px'},
+                                                    fieldLabel: 'Fecha Exp:',
+                                                    labelWidth: 60,
+                                                    format: 'Y/d/m',
+                                                    name: 'fecha_expedicion'
+                                                },
+                                                {
+                                                    xtype: 'textfield',
+                                                    style: {marginTop: '5px', marginLeft: '3px'},
+                                                    //margin: 3,
+                                                    width: 305,
+                                                    fieldLabel: 'Nombres:',
+                                                    name: 'nombres',
+                                                    labelWidth: 70,
+                                                    maxLength: 100
+                                                },
+                                                {
+                                                    xtype: 'textfield',
+                                                    //margin: 3,
+                                                    width: 305,
+                                                    fieldLabel: 'Apellidos:',
+                                                    name: 'apellidos',
+                                                    labelWidth: 65,
+                                                    maxLength: 100
+                                                    , style: {marginTop: '5px', marginLeft: '10px'}
+                                                },
+                                                {
+                                                    xtype: 'datefield',
+                                                    //margin: 3,
+                                                    width: 220,
+                                                    fieldLabel: 'Fec Nac:',
+                                                    format: 'Y/d/m',
+                                                    labelWidth: 70,
+                                                    name: 'fecha_nacimiento'
+                                                    , style: {marginTop: '5px', marginLeft: '3px'}
+                                                },
+                                                {
+                                                    xtype: 'combobox',
+                                                    //margin: 3,
+                                                    width: 390,
+                                                    fieldLabel: 'Lugar Nac:',
+                                                    labelWidth: 70,
+                                                    name: 'codigo_lugar_nacimiento',
+                                                    displayField: 'descripcion',
+                                                    valueField: 'codigo',
+                                                    queryMode: 'local',
+                                                    store: 'EscuelaFutbol.store.Ciudades'
+                                                    , style: {marginTop: '5px', marginLeft: '10px'}
+                                                },
+                                                {
+                                                    xtype: 'combobox',
+                                                    //margin: 3,
+                                                    width: 220,
+                                                    fieldLabel: 'Tipo Sangre:',
+                                                    labelWidth: 70,
+                                                    name: 'tipo_sangre',
+                                                    store: 'EscuelaFutbol.store.TipoSangre',
+                                                    displayField: 'descripcion',
+                                                    valueField: 'codigo',
+                                                    queryMode: 'local'
+                                                    , style: {marginTop: '5px', marginLeft: '3px'}
+                                                },
+                                                {
+                                                    xtype: 'textfield',
+                                                    //margin: 3,
+                                                    width: 390,
+                                                    fieldLabel: 'Dirección',
+                                                    name: 'direccion',
+                                                    maxLength: 200,
+                                                    labelWidth: 70
+                                                    , style: {marginTop: '5px', marginLeft: '10px'}
+                                                },
+                                                {
+                                                    xtype: 'textfield',
+                                                    //margin: 3,
+                                                    width: 305,
+                                                    fieldLabel: 'Barrio:',
+                                                    name: 'barrio',
+                                                    maxLength: 100,
+                                                    labelWidth: 70
+                                                    , style: {marginTop: '5px', marginLeft: '3px'}
+                                                },
+                                                {
+                                                    xtype: 'combobox',
+                                                    style: {marginTop: '5px', marginLeft: '10px'},
+                                                    width: 115,
+                                                    fieldLabel: 'Sexo:',
+                                                    labelWidth: 65,
+                                                    name: 'genero',
+                                                    store: 'EscuelaFutbol.store.Genero',
+                                                    displayField: 'descripcion',
+                                                    valueField: 'codigo',
+                                                    queryMode: 'local'
+                                                },
+                                                {
+                                                    xtype: 'textfield',
+                                                    //margin: 3,
+                                                    width: 180,
+                                                    fieldLabel: 'Tel Fijo:',
+                                                    name: 'telefono',
+                                                    maxLength: 50,
+                                                    labelWidth: 50
+                                                    , style: {marginTop: '5px', marginLeft: '10px'}
+                                                },
+                                                {
+                                                    xtype: 'textfield',
+                                                    //margin: 3,
+                                                    width: 220,
+                                                    fieldLabel: 'Celular:',
+                                                    labelWidth: 70,
+                                                    name: 'celular',
+                                                    maxLength: 50
+                                                    , style: {marginTop: '5px', marginLeft: '3px'}
+                                                },
+                                                {
+                                                    xtype: 'textfield',
+                                                    //margin: 3,
+                                                    width: 200,
+                                                    fieldLabel: 'BB_PIN',
+                                                    labelWidth: 70,
+                                                    name: 'BB_PIN',
+                                                    maxLength: 20,
+                                                    style: {marginTop: '5px', marginLeft: '10px'},
+                                                },
+                                                {
+                                                    xtype: 'textfield',
+                                                    //margin: 3,
+                                                    width: 180,
+                                                    fieldLabel: 'EPS:',
+                                                    name: 'seguridad_social',
+                                                    maxLength: 100,
+                                                    labelWidth: 50,
+                                                    style: {marginTop: '5px', marginLeft: '10px'}
+                                                },
+                                                {
+                                                    xtype: 'textfield',
+                                                    //margin: 3,
+                                                    width: 430,
+                                                    fieldLabel: 'Colegio:',
+                                                    name: 'colegio',
+                                                    maxLength: 100,
+                                                    labelWidth: 70
+                                                    , style: {marginTop: '5px', marginLeft: '3px'}
+                                                },
+                                                {
+                                                    xtype: 'textfield',
+                                                    //margin: 3,
+                                                    width: 180,
+                                                    fieldLabel: 'Grado:',
+                                                    labelWidth: 50,
+                                                    name: 'grado',
+                                                    maxLength: 50
+                                                    , style: {marginTop: '5px', marginLeft: '10px'}
+                                                },
+                                                {
+                                                    xtype: 'textfield',
+                                                    //margin: 3,
+                                                    width: 305,
+                                                    fieldLabel: 'Email:',
+                                                    name: 'email',
+                                                    maxLength: 100,
+                                                    vtype: 'email',
+                                                    labelWidth: 70,
+                                                    style: {marginTop: '5px', marginLeft: '3px'}
+                                                },
+                                                {
+                                                    xtype: 'combobox',
+                                                    //margin: 3,
+                                                    width: 305,
+                                                    fieldLabel: 'Categoría',
+                                                    name: 'codigo_categoria',
+                                                    displayField: 'descripcion',
+                                                    valueField: 'codigo',
+                                                    queryMode: 'local',
+                                                    store: 'EscuelaFutbol.store.Categorias',
+                                                    labelWidth: 70
+                                                    , style: {marginTop: '5px', marginLeft: '10px'}
+                                                },
+                                                {
+                                                    xtype: 'combobox',
+                                                    //margin: 3,
+                                                    width: 430,
+                                                    fieldLabel: 'Suscriptor:',
+                                                    name: 'codigo_suscriptor',
+                                                    displayField: 'nombrescompletos',
+                                                    valueField: 'codigo',
+                                                    queryMode: 'local',
+                                                    store: 'EscuelaFutbol.store.Suscriptores',
+                                                    labelWidth: 70,
+                                                    style: {marginTop: '5px', marginLeft: '3px'}
+                                                },
+                                                {
+                                                    xtype: 'textareafield',
+                                                    //grow      : true,
+                                                    //margin: 3,
+                                                    width: 620,
+                                                    fieldLabel: 'Observac:',
+                                                    name: 'observaciones',
+                                                    maxLength: 2000,
+                                                    labelWidth: 70,
+                                                    height: 40,
+                                                    style: {marginTop: '5px', marginLeft: '3px'}
+                                                }
+                                            ]
                                 }
 
                             ]
@@ -333,11 +353,11 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                         {
                             xtype: 'gridpanel',
                             id: 'x_grillaJugadores',
-                            height: 540,
-                            width: '35%',//800,
+                            height: 460,
+                            width: '35%', //800,
                             title: 'Listado de Jugadores',
                             scroll: true,
-                            store: Ext.create('EscuelaFutbol.store.Jugadores'),
+                            store: 'EscuelaFutbol.store.Jugadores',
                             columns: [{
                                     xtype: 'gridcolumn',
                                     text: 'Identificación',
@@ -348,13 +368,14 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                                     xtype: 'gridcolumn',
                                     text: 'Apellidos y Nombres',
                                     dataIndex: 'nombre_completo',
-                                    width: 300
+                                    width: 220
                                 }
                             ],
                             tbar: [{
                                     xtype: 'combobox',
                                     fieldLabel: 'Categoria',
                                     queryMode: 'local',
+                                    id: 'x_comboCategoria',
                                     //name: 'codigo_categoria',
                                     displayField: 'descripcion',
                                     valueField: 'codigo',
@@ -362,11 +383,18 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                                 }, '->',
                                 {
                                     xtype: 'button',
-                                    text: 'Consultar'                                   
+                                    text: 'Consultar'
+                                }],
+                            dockedItems: [{
+                                    xtype: 'pagingtoolbar',
+                                    store: 'EscuelaFutbol.store.Jugadores', // same store GridPanel is using
+                                    dock: 'bottom',
+                                    displayInfo: false
+
                                 }]
-                            
+
                         }]
-                },
+                }
             ],
             dockedItems: [{
                     xtype: 'toolbar',

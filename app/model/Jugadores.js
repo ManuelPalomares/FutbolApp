@@ -25,6 +25,7 @@ extend: 'Ext.data.Model',
         {name:'estado'},
         {name:'fecha_ingreso'},
         {name:'codigo_categoria'},
-        {name :'nombre_completo'}
+        {name :'nombre_completo'},
+        {name :'observaciones'}
         ]
 });

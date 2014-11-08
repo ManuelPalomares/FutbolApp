@@ -11,7 +11,17 @@ Ext.define('EscuelaFutbol.controller.Jugadores', {
             },
             '#x_grillaJugadores': {
                 itemclick: this.cargarDatosAformulario
+            },
+            '#x_comboCategoria': {
+                change: this.cargarStoreCategoria
+            },
+            '#x_subirfotoJugador': {
+                click: this.abrirformaCargueImagen
+            },
+            '#x_subirFotoServidor': {
+                click: this.subirFotoServidor
             }
+
 
         });
     },
@@ -47,7 +57,7 @@ Ext.define('EscuelaFutbol.controller.Jugadores', {
                 Ext.MessageBox.alert('Proceso', action.result.msg);
 
                 //recargar la grilla de datos 
-                //Ext.getCmp("x_grid_suscriptores").getStore().load();
+                Ext.getCmp("x_grillaJugadores").getStore().load();
             },
             failure: function (form, action) {
                 //Se programa el evento fallido del servidor
@@ -67,6 +77,61 @@ Ext.define('EscuelaFutbol.controller.Jugadores', {
         var formularioJugadores = Ext.getCmp("x_formularioJugadores");
 
         formularioJugadores.getForm().setValues(record.data);
+    },
+    cargarStoreCategoria: function (combo) {
+        //toma la grilla de datos y la recarga con el nuevo parametro de CATEGORIA seleccionada. 
+        Ext.getCmp("x_grillaJugadores").getStore().getProxy().setExtraParam('categoria', combo.getValue());
+        //recarga la grilla y el store como se cambio en setExtraParam 
+        Ext.getCmp("x_grillaJugadores").getStore().load();
+
+    },
+    abrirformaCargueImagen: function (btn) {
+        var winImg = Ext.create('Ext.window.Window', {
+            width: 400,
+            height: 150,
+            title: "Cargue fotografia del jugador",
+            modal: true,
+            closable: true,
+            maximized: false,
+            items: [{
+                    xtype: 'form',
+                    id: 'x_formaCargueFormularioFoto',
+                    items: [{
+                            xtype: 'filefield',
+                            fieldLabel: 'Imagen de jugador',
+                            allowBlank: false,
+                        }]
+                }],
+            buttons: [{text: 'Subir foto', id: 'x_subirFotoServidor'}, {text: 'Cerrar', handler: function () {
+                        winImg.close();
+                    }}]
+        });
+        winImg.show();
+
+    },
+    subirFotoServidor: function (btn) {
+        //se llama el host 
+        var host = Ext.create("EscuelaFutbol.controller.HostServer").getHost();
+        //llama el formulario
+        var formularioCargueFoto = Ext.getCmp("x_formaCargueFormularioFoto");
+        var accion_send = 'CARGARFOTO';
+        formularioCargueFoto.submit({
+            clientValidation: true,
+            waitMsg: "Subiendo el archivo al servidor",
+            url: host + "php/gestionDeportiva/FichaInscripcion.php",
+            params: {accion: accion_send},
+            success: function (form, action) {
+                //mostrar mensaje
+                if (action.result.mensaje_error != undefined) {
+                    Ext.Msg.alert('Mensaje', action.result.mensaje_error);
+                    return;
+                }
+            },
+            failure: function (form, action) {
+                //Se programa el evento fallido del servidor
+                Ext.Msg.alert('Failed', action.result ? action.result.message : 'No response');
+            }
+        });
     }
 });
 
