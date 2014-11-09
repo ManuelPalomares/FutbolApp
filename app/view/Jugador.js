@@ -58,8 +58,16 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                                                     xtype: 'image',
                                                     height: 140,
                                                     width: 130,
+                                                    id : 'x_fotoJugador',
                                                     src: 'resources/img/foto_jugadores.png'
-                                                }]
+                                                },
+                                                {
+                                                    xtype: 'textfield',
+                                                    id : 'x_fotoJugadorCampo',
+                                                    name : 'foto',
+                                                    hidden : true
+                                                }
+                                            ]
                                         }
                                         ,
                                         {
@@ -419,17 +427,7 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                             iconCls: "x_iconosBotonesForma",
                             iconAlign: "center",
                             id: "x_guardarJugador"
-                        }/*, {
-                         xtype: "button",
-                         text: "Eliminar",
-                         icon: "resources/img/btns/eliminar.png",
-                         width: 50,
-                         height: 50,
-                         style: {margin: '0.2em'},
-                         iconCls: "x_iconosBotonesForma",
-                         iconAlign: "center",
-                         id: "x_eliminarJugador"
-                         }*/]
+                        }]
                 }]
         });
 

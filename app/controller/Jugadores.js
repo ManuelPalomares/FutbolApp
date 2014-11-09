@@ -71,12 +71,17 @@ Ext.define('EscuelaFutbol.controller.Jugadores', {
         //resetear el formulario 
         formularioJugadores.getForm().reset();
         Ext.getCmp("x_tipoDocumentoJugador").focus();
+        //resetea imagen
+        Ext.getCmp("x_fotoJugador").setSrc("resources/img/foto_jugadores.png");
     },
     cargarDatosAformulario: function (grid, record) {
         //llama el formulario
         var formularioJugadores = Ext.getCmp("x_formularioJugadores");
 
         formularioJugadores.getForm().setValues(record.data);
+        //carga foto de store
+        Ext.getCmp("x_fotoJugador").setSrc(host+"files/fotosjugadores/"+action.result.foto);
+        
     },
     cargarStoreCategoria: function (combo) {
         //toma la grilla de datos y la recarga con el nuevo parametro de CATEGORIA seleccionada. 
@@ -93,12 +98,15 @@ Ext.define('EscuelaFutbol.controller.Jugadores', {
             modal: true,
             closable: true,
             maximized: false,
+            
             items: [{
                     xtype: 'form',
+                    fileUpload: true,
                     id: 'x_formaCargueFormularioFoto',
                     items: [{
                             xtype: 'filefield',
                             fieldLabel: 'Imagen de jugador',
+                            name : 'imagenJugador',
                             allowBlank: false,
                         }]
                 }],
@@ -117,6 +125,7 @@ Ext.define('EscuelaFutbol.controller.Jugadores', {
         var accion_send = 'CARGARFOTO';
         formularioCargueFoto.submit({
             clientValidation: true,
+            frame : true,
             waitMsg: "Subiendo el archivo al servidor",
             url: host + "php/gestionDeportiva/FichaInscripcion.php",
             params: {accion: accion_send},
@@ -126,6 +135,17 @@ Ext.define('EscuelaFutbol.controller.Jugadores', {
                     Ext.Msg.alert('Mensaje', action.result.mensaje_error);
                     return;
                 }
+                
+                //mensaje que cuardo con exito
+                Ext.MessageBox.alert('Proceso', action.result.msg);
+                
+                //asigna la ruta de la foto
+                if(action.result.foto !==""){
+                    var foto = Ext.getCmp("x_fotoJugador");
+                    foto.setSrc(host+"files/fotosjugadores/"+action.result.foto);
+                    Ext.getCmp("x_fotoJugadorCampo").setValue(action.result.foto);
+                }
+                    
             },
             failure: function (form, action) {
                 //Se programa el evento fallido del servidor
