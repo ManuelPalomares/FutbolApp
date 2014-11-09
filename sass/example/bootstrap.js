@@ -7,13 +7,7 @@
 Ext.Loader.addClassPathMappings({
   "EscuelaFutbol": "../../app",
   "Ext": "../../ext/src",
-  "Ext.DomHelper": "../../ext/src/dom/Helper.js",
-  "Ext.DomQuery": "../../ext/src/dom/Query.js",
-  "Ext.EventObjectImpl": "../../ext/src/EventObject.js",
   "Ext.Msg": "../../ext/src/window/MessageBox.js",
-  "Ext.Supports": "../../ext/src/Support.js",
-  "Ext.core.DomHelper": "../../ext/src/dom/Helper.js",
-  "Ext.core.DomQuery": "../../ext/src/dom/Query.js",
   "Ext.rtl.EventObjectImpl": "../../ext/src/rtl/EventObject.js"
 });
 Ext.ClassManager.addNameAlternateMappings({

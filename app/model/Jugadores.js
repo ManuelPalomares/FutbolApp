@@ -27,5 +27,6 @@ extend: 'Ext.data.Model',
         {name:'codigo_categoria'},
         {name :'nombre_completo'},
         {name :'observaciones'}
+        
         ]
 });

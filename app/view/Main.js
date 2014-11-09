@@ -34,6 +34,6 @@ Ext.define('EscuelaFutbol.view.Main', {
         id : 'x_principal'
     },{
         region : "south",
-        html : "prueba"
+        html : "Desarrollador por Manuel Palomares y Aymer Ivan 2014 Webmapsoft.com"
     }]
 });

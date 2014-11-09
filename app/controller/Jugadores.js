@@ -80,7 +80,12 @@ Ext.define('EscuelaFutbol.controller.Jugadores', {
 
         formularioJugadores.getForm().setValues(record.data);
         //carga foto de store
-        Ext.getCmp("x_fotoJugador").setSrc(host+"files/fotosjugadores/"+action.result.foto);
+        //se llama el host 
+        var host = Ext.create("EscuelaFutbol.controller.HostServer").getHost();
+        if(record.data.foto !=="")
+        Ext.getCmp("x_fotoJugador").setSrc(host+"files/fotosjugadores/"+record.data.foto);
+        
+        console.log(record.data);
         
     },
     cargarStoreCategoria: function (combo) {
