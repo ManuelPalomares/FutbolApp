@@ -12,6 +12,7 @@ Ext.Loader.addClassPathMappings({
 });
 Ext.ClassManager.addNameAlternateMappings({
   "EscuelaFutbol.Application": [],
+  "EscuelaFutbol.controller.Agendamiento": [],
   "EscuelaFutbol.controller.CitacionDeportiva": [],
   "EscuelaFutbol.controller.HostServer": [],
   "EscuelaFutbol.controller.Jugadores": [],
@@ -51,6 +52,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "EscuelaFutbol.store.TipoDocumento": [],
   "EscuelaFutbol.store.TipoSangre": [],
   "EscuelaFutbol.view.ActualizarDatosJugador": [],
+  "EscuelaFutbol.view.Agendamiento": [],
   "EscuelaFutbol.view.BannerPrincipal": [],
   "EscuelaFutbol.view.CitacionDeportiva": [],
   "EscuelaFutbol.view.ClientesPagosPendiente": [],
@@ -885,6 +887,7 @@ Ext.ClassManager.addNameAlternateMappings({
 });
 Ext.ClassManager.addNameAliasMappings({
   "EscuelaFutbol.Application": [],
+  "EscuelaFutbol.controller.Agendamiento": [],
   "EscuelaFutbol.controller.CitacionDeportiva": [],
   "EscuelaFutbol.controller.HostServer": [],
   "EscuelaFutbol.controller.Jugadores": [],
@@ -925,6 +928,9 @@ Ext.ClassManager.addNameAliasMappings({
   "EscuelaFutbol.store.TipoSangre": [],
   "EscuelaFutbol.view.ActualizarDatosJugador": [
     "widget.actualizarDatosJugador"
+  ],
+  "EscuelaFutbol.view.Agendamiento": [
+    "widget.agendamiento"
   ],
   "EscuelaFutbol.view.BannerPrincipal": [
     "widget.bannerppal"

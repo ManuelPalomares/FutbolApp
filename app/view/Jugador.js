@@ -396,7 +396,7 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                                     //name: 'codigo_categoria',
                                     displayField: 'descripcion',
                                     valueField: 'codigo',
-                                    store: 'EscuelaFutbol.store.Categorias'
+                                    store: Ext.create('EscuelaFutbol.store.Categorias')
                                 }, '->',
                                 {
                                     xtype: 'button',

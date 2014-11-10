@@ -67,7 +67,7 @@ Ext.define('EscuelaFutbol.view.Agendamiento', {
         },
         {
             xtype: 'fieldset',
-            height: 110,
+            height: 100,
             layout: 'column',
             title: 'Agendamiento del evento',
             items: [
@@ -79,13 +79,20 @@ Ext.define('EscuelaFutbol.view.Agendamiento', {
                     },
                     items: [
                         {
-                            xtype: 'textfield',
-                            width: 400,
-                            fieldLabel: 'Suscriptor'
+                            xtype: 'combobox',
+                            width: 550,
+                            fieldLabel: 'Suscriptor',
+                            displayField: 'nombrescompletos',
+                            valueField: 'codigo',
+                            queryMode: 'remote',
+                            id : 'x_suscriptor_agenda',
+                            store: Ext.create('EscuelaFutbol.store.Suscriptores')
                         },
                         {
                             xtype: 'button',
-                            text: 'Agendar'
+                            text: 'Agendar',
+                            tipo: 'S',
+                            cls:'x_btnAgregar'
                         }
                     ]
                 },
@@ -97,13 +104,22 @@ Ext.define('EscuelaFutbol.view.Agendamiento', {
                     },
                     items: [
                         {
-                            xtype: 'textfield',
-                            width: 400,
-                            fieldLabel: 'Nombre Jugador'
+                            xtype: 'combobox',
+                            width: 550,
+                            fieldLabel: 'Nombre Jugador',
+                            displayField: 'nombres',
+                            //tpl : '<div><img src="'+Ext.create("EscuelaFutbol.controller.HostServer").getHost()+"files/fotosjugadores/"+'{foto}"></img></div><div>{nombres} {apellidos}</div>',
+                            tpl : Ext.create('Ext.XTemplate','<tpl for="."><div class="x-boundlist-item"><img width="100px" height="100px" src="'+Ext.create("EscuelaFutbol.controller.HostServer").getHost()+"files/fotosjugadores/"+'{foto}"></img>{nombres} {apellidos}</div></tpl>'),
+                            valueField: 'codigo',
+                            queryMode: 'remote',
+                            id : 'x_jugador_agenda',
+                            store: Ext.create('EscuelaFutbol.store.Jugadores')
                         },
                         {
                             xtype: 'button',
-                            text: 'Agendar'
+                            text: 'Agendar',
+                            tipo: 'J',
+                            cls:'x_btnAgregar'
                         }
                     ]
                 },
@@ -115,13 +131,20 @@ Ext.define('EscuelaFutbol.view.Agendamiento', {
                     },
                     items: [
                         {
-                            xtype: 'textfield',
-                            width: 400,
-                            fieldLabel: 'Categoria'
+                            xtype: 'combobox',
+                            width: 550,
+                            fieldLabel: 'Categoria',
+                            displayField: 'descripcion',
+                            valueField: 'codigo',
+                            queryMode: 'local',
+                            id : 'x_categoria_agenda',
+                            store: Ext.create('EscuelaFutbol.store.Categorias')
                         },
                         {
                             xtype: 'button',
-                            text: 'Agendar'
+                            text: 'Agendar',
+                            tipo: 'C',
+                            cls:'x_btnAgregar'
                         }
                     ]
                 }
