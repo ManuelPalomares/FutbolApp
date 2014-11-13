@@ -58,8 +58,16 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                                                     xtype: 'image',
                                                     height: 140,
                                                     width: 130,
+                                                    id : 'x_fotoJugador',
                                                     src: 'resources/img/foto_jugadores.png'
-                                                }]
+                                                },
+                                                {
+                                                    xtype: 'textfield',
+                                                    id : 'x_fotoJugadorCampo',
+                                                    name : 'foto',
+                                                    hidden : true
+                                                }
+                                            ]
                                         }
                                         ,
                                         {
@@ -127,7 +135,8 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                                                     queryMode: 'local',
                                                     id: 'x_tipoDocumentoJugador',
                                                     style: {marginTop: '20px', marginLeft: '3px'},
-                                                    labelWidth: 70
+                                                    labelWidth: 70,
+                                                    allowBlank : false
                                                 },
                                                 {
                                                     xtype: 'textfield',
@@ -136,7 +145,8 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                                                     fieldLabel: 'Documento:',
                                                     labelWidth: 70,
                                                     name: 'doc_identidad',
-                                                    maxLength: 50
+                                                    maxLength: 50,
+                                                    allowBlank : false
                                                 },
                                                 {
                                                     xtype: 'datefield',
@@ -146,7 +156,8 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                                                     fieldLabel: 'Fecha Exp:',
                                                     labelWidth: 60,
                                                     format: 'Y/d/m',
-                                                    name: 'fecha_expedicion'
+                                                    name: 'fecha_expedicion',
+                                                    allowBlank : false
                                                 },
                                                 {
                                                     xtype: 'textfield',
@@ -156,7 +167,8 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                                                     fieldLabel: 'Nombres:',
                                                     name: 'nombres',
                                                     labelWidth: 70,
-                                                    maxLength: 100
+                                                    maxLength: 100,
+                                                    allowBlank : false
                                                 },
                                                 {
                                                     xtype: 'textfield',
@@ -165,6 +177,7 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                                                     fieldLabel: 'Apellidos:',
                                                     name: 'apellidos',
                                                     labelWidth: 65,
+                                                    allowBlank : false,
                                                     maxLength: 100
                                                     , style: {marginTop: '5px', marginLeft: '10px'}
                                                 },
@@ -175,6 +188,7 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                                                     fieldLabel: 'Fec Nac:',
                                                     format: 'Y/d/m',
                                                     labelWidth: 70,
+                                                    allowBlank : false,
                                                     name: 'fecha_nacimiento'
                                                     , style: {marginTop: '5px', marginLeft: '3px'}
                                                 },
@@ -188,7 +202,8 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                                                     displayField: 'descripcion',
                                                     valueField: 'codigo',
                                                     queryMode: 'local',
-                                                    store: 'EscuelaFutbol.store.Ciudades'
+                                                    allowBlank : false,
+                                                    store: Ext.create('EscuelaFutbol.store.Ciudades')
                                                     , style: {marginTop: '5px', marginLeft: '10px'}
                                                 },
                                                 {
@@ -197,6 +212,7 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                                                     width: 220,
                                                     fieldLabel: 'Tipo Sangre:',
                                                     labelWidth: 70,
+                                                    allowBlank : false,
                                                     name: 'tipo_sangre',
                                                     store: 'EscuelaFutbol.store.TipoSangre',
                                                     displayField: 'descripcion',
@@ -212,6 +228,7 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                                                     name: 'direccion',
                                                     maxLength: 200,
                                                     labelWidth: 70
+                                                    
                                                     , style: {marginTop: '5px', marginLeft: '10px'}
                                                 },
                                                 {
@@ -316,7 +333,7 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                                                     displayField: 'descripcion',
                                                     valueField: 'codigo',
                                                     queryMode: 'local',
-                                                    store: 'EscuelaFutbol.store.Categorias',
+                                                    store: Ext.create('EscuelaFutbol.store.Categorias'),
                                                     labelWidth: 70
                                                     , style: {marginTop: '5px', marginLeft: '10px'}
                                                 },
@@ -329,7 +346,7 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                                                     displayField: 'nombrescompletos',
                                                     valueField: 'codigo',
                                                     queryMode: 'local',
-                                                    store: 'EscuelaFutbol.store.Suscriptores',
+                                                    store: Ext.create('EscuelaFutbol.store.Suscriptores'),
                                                     labelWidth: 70,
                                                     style: {marginTop: '5px', marginLeft: '3px'}
                                                 },
@@ -379,7 +396,7 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                                     //name: 'codigo_categoria',
                                     displayField: 'descripcion',
                                     valueField: 'codigo',
-                                    store: 'EscuelaFutbol.store.Categorias'
+                                    store: Ext.create('EscuelaFutbol.store.Categorias')
                                 }, '->',
                                 {
                                     xtype: 'button',
@@ -419,21 +436,10 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                             iconCls: "x_iconosBotonesForma",
                             iconAlign: "center",
                             id: "x_guardarJugador"
-                        }/*, {
-                         xtype: "button",
-                         text: "Eliminar",
-                         icon: "resources/img/btns/eliminar.png",
-                         width: 50,
-                         height: 50,
-                         style: {margin: '0.2em'},
-                         iconCls: "x_iconosBotonesForma",
-                         iconAlign: "center",
-                         id: "x_eliminarJugador"
-                         }*/]
+                        }]
                 }]
         });
 
         me.callParent(arguments);
     }
-
 });

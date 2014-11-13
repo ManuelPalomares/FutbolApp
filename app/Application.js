@@ -17,7 +17,8 @@ Ext.define('EscuelaFutbol.Application', {
         "EscuelaFutbol.view.Jugador",
         "EscuelaFutbol.view.MenuPrincipalPanel",
         "EscuelaFutbol.view.ActualizarDatosJugador",
-        "EscuelaFutbol.view.Roles"
+        "EscuelaFutbol.view.Roles",
+        "EscuelaFutbol.view.Agendamiento"
     ],
 
     controllers: [
@@ -27,7 +28,8 @@ Ext.define('EscuelaFutbol.Application', {
         "EscuelaFutbol.controller.Roles",
         "EscuelaFutbol.controller.CitacionDeportiva",
         "EscuelaFutbol.controller.NuevosClientes",
-        "EscuelaFutbol.controller.Jugadores"
+        "EscuelaFutbol.controller.Jugadores",
+        "EscuelaFutbol.controller.Agendamiento"
     ],
 
     stores: [
@@ -50,8 +52,6 @@ Ext.define('EscuelaFutbol.Application', {
     ],
     launch : function(){
         var host = Ext.create("EscuelaFutbol.controller.HostServer").getHost();
-        //var host = "http://localhost/FutbolAppPhp/";
-
         Ext.Ajax.request({
             url: host+"php/session/session.php",
             success: function(response){
