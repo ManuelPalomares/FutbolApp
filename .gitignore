@@ -221,3 +221,5 @@ app/controller/HostServer.js
 app/view/JUGADOR_COPIA_2.js
 app/controller/HostServer.js
 app/controller/HostServer.js
+app/view/Suscripcion.js
+app/view/SUSCRIPCION_COPIA.js
