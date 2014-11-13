@@ -1,6 +1,216 @@
 Ext.define('EscuelaFutbol.view.NuevosClientes', {
     extend: 'Ext.form.Panel',
     alias: 'widget.nuevosClientes',
+    id: 'x_formularioNuevosClientes',
+    requires: [
+        'Ext.form.field.Date',
+        'Ext.form.CheckboxGroup',
+        'Ext.form.field.Checkbox',
+        'Ext.form.field.Time'
+    ],
+
+    height: 600,
+    width: 900,
+    layout: 'column',
+    bodyPadding: 10,
+    title: '',
+
+    initComponent: function() {
+        var me = this;
+
+        Ext.applyIf(me, {
+            items: [
+                {
+                    xtype: 'container',
+                    height: 50,
+                    width: 300,
+                    title: '',
+                    items: [
+                        {
+                            xtype: 'datefield',
+                            fieldLabel: 'Fecha Registro',
+                            editable: false
+                        }
+                    ]
+                },
+                {
+                    xtype: 'fieldset',
+                    height: 80,
+                    layout: 'column',
+                    title: 'Datos personales',
+                    items: [
+                        {
+                            xtype: 'textfield',
+                            width: 350,
+                            fieldLabel: 'Nombres',
+                            name: 'nombres',
+                            allowBlank: false
+                        },
+                        {
+                            xtype: 'textfield',
+                            width: 350,
+                            fieldLabel: 'Apellidos',
+                            name: 'apellidos',
+                            allowBlank: false
+                        },
+                        {
+                            xtype: 'datefield',
+                            width: 350,
+                            fieldLabel: 'Fecha Nacimiento',
+                            labelWidth: 200,
+                            name: 'fecha_nacimiento',
+                            allowBlank: false
+                        },
+                        {
+                            xtype: 'textfield',
+                            width: 350,
+                            fieldLabel: 'Edad',
+                            name: 'edad',
+                            allowBlank: false
+                        },
+                        {
+                            xtype: 'textfield',
+                            width: 350,
+                            fieldLabel: 'Email',
+                            name: 'email',
+                            allowBlank: false,
+                            vtype: 'email'
+                        }
+                    ]
+                },
+                {
+                    xtype: 'fieldset',
+                    height: 80,
+                    title: 'Entrenamientos',
+                    items: [
+                        {
+                            xtype: 'combobox',
+                            width: 350,
+                            fieldLabel: 'Categoria',
+                            name : 'categoria',
+                            allowBlank: false,
+                            displayField: 'descripcion',
+                            valueField: 'codigo',
+                            queryMode: 'local',
+                            store: Ext.create('EscuelaFutbol.store.Categorias')
+                            
+                        },
+                        {
+                            xtype: 'checkboxgroup',
+                            width: 700,
+                            fieldLabel: 'Dias',
+                            items: [
+                                {
+                                    xtype: 'checkboxfield',
+                                    boxLabel: 'Lunes',
+                                    name : 'dia'
+                                },
+                                {
+                                    xtype: 'checkboxfield',
+                                    boxLabel: 'Martes',
+                                    name : 'dia'
+                                },
+                                {
+                                    xtype: 'checkboxfield',
+                                    boxLabel: 'Miercoles',
+                                    name : 'dia'
+                                },
+                                {
+                                    xtype: 'checkboxfield',
+                                    boxLabel: 'Jueves',
+                                    name : 'dia'
+                                },
+                                {
+                                    xtype: 'checkboxfield',
+                                    boxLabel: 'Viernes',
+                                    name : 'dia'
+                                },
+                                {
+                                    xtype: 'checkboxfield',
+                                    boxLabel: 'Sabado',
+                                    name : 'dia'
+                                },
+                                {
+                                    xtype: 'checkboxfield',
+                                    boxLabel: 'Domingo',
+                                    name : 'dia'
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    xtype: 'fieldset',
+                    height: 120,
+                    title: 'Evaluacion deportiva',
+                    items: [
+                        {
+                            xtype: 'datefield',
+                            width: 350,
+                            fieldLabel: 'Fecha Evaluacion',
+                            name: 'fecha_evaluacion'
+                        },
+                        {
+                            xtype: 'timefield',
+                            width: 350,
+                            fieldLabel: 'Hora Evaluacion',
+                            name: 'hora',
+                            increment: 30
+                        },
+                        {
+                            xtype: 'combobox',
+                            width: 350,
+                            fieldLabel: 'Entrenador'
+                        }
+                    ]
+                },
+                {
+                    xtype: 'fieldset',
+                    height: 120,
+                    title: 'Inscripcion',
+                    items: [
+                        {
+                            xtype: 'combobox',
+                            width: 464,
+                            fieldLabel: 'Planes',
+                            name: 'planes'
+                        },
+                        {
+                            xtype: 'textfield',
+                            fieldLabel: 'Valor Inscripcion',
+                            name: 'inscripcion'
+                        },
+                        {
+                            xtype: 'textfield',
+                            fieldLabel: 'Mensualidad',
+                            name: 'mensualidad'
+                        },
+                        {
+                            xtype: 'textfield',
+                            fieldLabel: 'Transporte',
+                            name: 'transporte'
+                        }
+                    ]
+                },
+                {
+                    xtype: 'combobox',
+                    anchor: '100%',
+                    width: 400,
+                    fieldLabel: 'Atendido por ',
+                    store : Ext.create("EscuelaFutbol.store.Usuarios"),
+                    name: 'usuario_atencion'
+                }
+            ]
+        });
+
+        me.callParent(arguments);
+    }
+
+});
+
+/*Ext.define('EscuelaFutbol.view.NuevosClientes', {
+    extend: 'Ext.form.Panel',
+    alias: 'widget.nuevosClientes',
     requires: [
         'Ext.form.FieldContainer',
         'Ext.form.field.Date',
@@ -14,14 +224,14 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
     width: 900,
     layout: 'column',
     bodyPadding: 10,
-    title: 'Datos del Suscriptor o Responsable',
+    
     initComponent: function () {
         var me = this;
 
         Ext.applyIf(me, {
             items: [
                 {
-                    xtype: 'fieldcontainer',
+                    xtype: 'fieldset',
                     height: 30,
                     style: {
                         marginTop: '2px',
@@ -88,7 +298,7 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                     title: 'Datos Responsable Principal',
                     items: [
                         {
-                            xtype: 'fieldcontainer',
+                            xtype: 'fieldset',
                             height: 30,
                             style: {
                                 marginTop: '10px'
@@ -113,7 +323,7 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                             ]
                         },
                         {
-                            xtype: 'fieldcontainer',
+                            xtype: 'fieldset',
                             height: 30,
                             width: 870,
                             layout: 'column',
@@ -146,7 +356,7 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                             ]
                         },
                         {
-                            xtype: 'fieldcontainer',
+                            xtype: 'fieldset',
                             height: 60,
                             style: {
                                 marginTop: '5px'
@@ -195,7 +405,7 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                             ]
                         },
                         {
-                            xtype: 'fieldcontainer',
+                            xtype: 'fieldset',
                             height: 30,
                             width: 870,
                             layout: 'column',
@@ -227,7 +437,7 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                     title: 'Datos del Segundo Responsable',
                     items: [
                         {
-                            xtype: 'fieldcontainer',
+                            xtype: 'fieldset',
                             height: 30,
                             style: {
                                 marginTop: '10px'
@@ -250,7 +460,7 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                             ]
                         },
                         {
-                            xtype: 'fieldcontainer',
+                            xtype: 'fieldset',
                             height: 30,
                             width: 866,
                             layout: 'column',
@@ -281,7 +491,7 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                             ]
                         },
                         {
-                            xtype: 'fieldcontainer',
+                            xtype: 'fieldset',
                             height: 60,
                             width: 866,
                             layout: 'column',
@@ -356,3 +566,4 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
     }
 
 });
+*/

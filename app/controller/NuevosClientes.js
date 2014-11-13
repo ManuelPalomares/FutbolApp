@@ -13,7 +13,7 @@ Ext.define('EscuelaFutbol.controller.NuevosClientes', {
     },
     guardarNuevosClientes: function() {
         //llama el formulario
-        var formularioSuscriptores = Ext.getCmp("x_formularioSuscriptores");
+        var formularioSuscriptores = Ext.getCmp("x_formularioNuevosClientes");
         //se llama el host 
         var host = Ext.create("EscuelaFutbol.controller.HostServer").getHost();
         //submit y la configuracion y se programa la respuesta
@@ -53,7 +53,7 @@ Ext.define('EscuelaFutbol.controller.NuevosClientes', {
     },
     nuevoCliente: function() {
         //llama el formulario
-        var formularioSuscriptores = Ext.getCmp("x_formularioSuscriptores");
+        var formularioSuscriptores = Ext.getCmp("x_formularioNuevosClientes");
         //resetear el formulario 
         formularioSuscriptores.getForm().reset();
         Ext.getCmp("x_parentescoClienteNuevo").focus();
