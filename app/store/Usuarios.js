@@ -15,7 +15,7 @@ Ext.define('EscuelaFutbol.store.Usuarios', {
             storeId: 'Usuarios',
             proxy: {
                     type: 'ajax',
-                    url: host + "php/maestras/usuarios.php",
+                    url: host + "php/maestras/Usuarios.php",
                     extraParams: {"accion": "CONSULTARUSUARIOS"},
                     reader: {
                         type: "json",

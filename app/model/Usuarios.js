@@ -10,16 +10,7 @@ Ext.define('EscuelaFutbol.model.Usuarios', {
             name: 'codigo'
         },
         {
-            name: 'usuario'
-        },
-        {
             name: 'nombre'
-        },
-        {
-            name: 'correo'
-        },
-        {
-            name: 'estado'
         }
     ]
 });
