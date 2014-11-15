@@ -104,10 +104,22 @@ Ext.define('EscuelaFutbol.controller.NuevosClientes', {
             },
             success: function(response) {
                 var horarios = Ext.decode(response.responseText);
-                //console.log(modulos);
+                if(horarios.mensaje_error !==undefined){
+                    Ext.Msg.alert('Mensaje', horarios.mensaje_error);
+                    return;
+                }
+                
+                
+                Ext.getCmp('x_LUNES').setValue(false);
+                Ext.getCmp('x_MARTES').setValue(false);
+                Ext.getCmp('x_MIERCOLES').setValue(false);
+                Ext.getCmp('x_JUEVES').setValue(false);
+                Ext.getCmp('x_VIERNES').setValue(false);
+                Ext.getCmp('x_SABADO').setValue(false);
+                Ext.getCmp('x_DOMINGO').setValue(false);
+                
                 for (var i = 0; i < horarios.dias.length; i++) {
-                   
-                    
+                    Ext.getCmp('x_'+horarios.dias[i].dia).setValue(true);
                 }
 
             },

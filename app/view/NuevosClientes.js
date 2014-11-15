@@ -117,36 +117,43 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                                 {
                                     xtype: 'checkboxfield',
                                     boxLabel: 'Lunes',
+                                    id : 'x_LUNES',
                                     name: 'dia'
                                 },
                                 {
                                     xtype: 'checkboxfield',
                                     boxLabel: 'Martes',
+                                    id : 'x_MARTES',
                                     name: 'dia'
                                 },
                                 {
                                     xtype: 'checkboxfield',
                                     boxLabel: 'Miercoles',
+                                    id : 'x_MIERCOLES',
                                     name: 'dia'
                                 },
                                 {
                                     xtype: 'checkboxfield',
                                     boxLabel: 'Jueves',
+                                    id : 'x_JUEVES',
                                     name: 'dia'
                                 },
                                 {
                                     xtype: 'checkboxfield',
                                     boxLabel: 'Viernes',
+                                    id : 'x_VIERNES',
                                     name: 'dia'
                                 },
                                 {
                                     xtype: 'checkboxfield',
                                     boxLabel: 'Sabado',
+                                    id : 'x_SABADO',
                                     name: 'dia'
                                 },
                                 {
                                     xtype: 'checkboxfield',
                                     boxLabel: 'Domingo',
+                                    id : 'x_DOMINGO',
                                     name: 'dia'
                                 }
                             ]
