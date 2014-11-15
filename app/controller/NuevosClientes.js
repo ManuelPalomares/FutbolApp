@@ -11,6 +11,9 @@ Ext.define('EscuelaFutbol.controller.NuevosClientes', {
             },
             '#x_fecha_nacimiento': {
                 change: this.calculaEdad
+            },
+            '#x_categoriaClienteNuevo': {
+                change: this.cargarHorario
             }
         });
     },
@@ -89,6 +92,30 @@ Ext.define('EscuelaFutbol.controller.NuevosClientes', {
         
         return edad;
     },
-    
+    cargarHorario : function(categoria){
+        
+        //se llama el host 
+        var host = Ext.create("EscuelaFutbol.controller.HostServer").getHost();
+        Ext.Ajax.request({
+            url: host + "php/maestras/Horarios.php",
+            params: {
+                accion: "CONSULTARHORARIOS",
+                codigo_categoria : categoria.getValue()
+            },
+            success: function(response) {
+                var horarios = Ext.decode(response.responseText);
+                //console.log(modulos);
+                for (var i = 0; i < horarios.dias.length; i++) {
+                   
+                    
+                }
+
+            },
+            failure: function(response) {
+                alert('Error realizando su solicitud por favor comunicar con su administrador :' + response.status);
+            }
+
+        });
+    }
 
 });

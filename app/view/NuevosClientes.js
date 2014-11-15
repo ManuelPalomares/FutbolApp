@@ -105,6 +105,7 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                             displayField: 'descripcion',
                             valueField: 'codigo',
                             queryMode: 'local',
+                            id : 'x_categoriaClienteNuevo',
                             store: Ext.create('EscuelaFutbol.store.Categorias')
 
                         },
@@ -208,6 +209,8 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                     anchor: '100%',
                     width: 400,
                     fieldLabel: 'Atendido por ',
+                    valueField : 'codigo',
+                    displayField : 'nombre',
                     store: Ext.create("EscuelaFutbol.store.Usuarios"),
                     name: 'usuario_atencion'
                 }
