@@ -8,6 +8,7 @@ Ext.define('EscuelaFutbol.store.Usuarios', {
     ],
 
     constructor: function(cfg) {
+        var host = Ext.create("EscuelaFutbol.controller.HostServer").getHost();
         var me = this;
         cfg = cfg || {};
         me.callParent([Ext.apply({
