@@ -44,6 +44,8 @@ Ext.define('EscuelaFutbol.controller.NuevosClientes', {
                 }
                 //retorna el id que se almaceno para el dato de la llave primaria 
                 Ext.getCmp("x_codigoJugador").setValue(action.result.newId);
+                //
+                Ext.getCmp("x_codigoCita").setValue(action.result.codigoCita);
                 //mensaje que cuardo con exito
                 Ext.MessageBox.alert('Proceso', action.result.msg);
                 //recargar la grilla de datos 

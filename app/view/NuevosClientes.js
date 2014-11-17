@@ -33,9 +33,15 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                             xtype : 'numberfield',
                             fieldLabel : 'Codigo Jugador',
                             editable : false,
+                            name : 'codigo_jugador',
                             id: 'x_codigoJugador',
                             hideTrigger: true,
                             style : {'margin-left':'0.5em'}
+                        },{
+                            xtype : 'numberfield',
+                            hidden : true,
+                            name  : 'codigo_cita',
+                            id    : 'x_codigoCita'
                         }
                     ]
                 },
@@ -171,7 +177,10 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                             xtype: 'datefield',
                             width: 350,
                             fieldLabel: 'Fecha Evaluacion',
-                            name: 'fecha_evaluacion'
+                            name: 'fecha_evaluacion',
+                            format : 'Y/m/d',
+                            allowBlank: false
+                            
                         },
                         {
                             xtype: 'timefield',
@@ -179,12 +188,20 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                             fieldLabel: 'Hora Evaluacion',
                             style: {'margin-left': '0.5em'},
                             name: 'hora',
-                            increment: 30
+                            format: 'H:i',
+                            increment: 30,
+                            allowBlank: false
                         },
                         {
                             xtype: 'combobox',
                             width: 350,
-                            fieldLabel: 'Entrenador'
+                            fieldLabel: 'Entrenador',
+                            name : 'cod_entrenador',
+                            displayField : 'nombrescompletos',
+                            valueField   : 'codigo',
+                            allowBlank: false,
+                            store : Ext.create("EscuelaFutbol.store.Entrenadores")
+                            
                         }
                     ]
                 },
@@ -219,7 +236,8 @@ Ext.define('EscuelaFutbol.view.NuevosClientes', {
                     valueField : 'codigo',
                     displayField : 'nombre',
                     store: Ext.create("EscuelaFutbol.store.Usuarios"),
-                    name: 'usuario_atencion'
+                    name: 'usuario_atencion',
+                    allowBlank: false
                 }
             ],
             dockedItems: [{
