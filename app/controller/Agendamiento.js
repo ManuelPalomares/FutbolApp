@@ -54,5 +54,6 @@ Ext.define('EscuelaFutbol.controller.Agendamiento', {
         });
 
     },
+    recargarGrillaAgendados : function(){}
     
 });
