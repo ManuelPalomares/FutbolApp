@@ -18,7 +18,8 @@ Ext.define('EscuelaFutbol.Application', {
         "EscuelaFutbol.view.MenuPrincipalPanel",
         "EscuelaFutbol.view.ActualizarDatosJugador",
         "EscuelaFutbol.view.Roles",
-        "EscuelaFutbol.view.Agendamiento"
+        "EscuelaFutbol.view.Agendamiento",
+        "EscuelaFutbol.view.Entrenadores"
     ],
 
     controllers: [
@@ -29,7 +30,8 @@ Ext.define('EscuelaFutbol.Application', {
         "EscuelaFutbol.controller.CitacionDeportiva",
         "EscuelaFutbol.controller.NuevosClientes",
         "EscuelaFutbol.controller.Jugadores",
-        "EscuelaFutbol.controller.Agendamiento"
+        "EscuelaFutbol.controller.Agendamiento",
+        "EscuelaFutbol.controller.Entrenadores"
     ],
 
     stores: [
