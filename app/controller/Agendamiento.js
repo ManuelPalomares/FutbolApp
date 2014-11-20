@@ -8,6 +8,9 @@ Ext.define('EscuelaFutbol.controller.Agendamiento', {
             },
             'button[cls=x_btnAgregar]':{
                 click : this.agregarAlEvento
+            },
+            '#x_grillaAgenEventos' :{
+                itemclick : this.recargarGrillaAgendados
             }
         });
     },
@@ -50,5 +53,6 @@ Ext.define('EscuelaFutbol.controller.Agendamiento', {
 
         });
 
-    }
+    },
+    
 });

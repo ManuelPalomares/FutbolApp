@@ -5,8 +5,9 @@ Ext.define('EscuelaFutbol.model.AgendadosEventos', {
     ],
     fields: [
         {name: 'evento'},
-        {name: 'suscriptor'},
+        {name: 'email'},
+        {name: 'nombres'},
+        {name: 'tipo'},
         {name: 'jugador'},
-        {name: 'codigo_jugador'},
-        {name: 'codigo_suscriptor'}]
+        {name: 'categoria'}]
 });

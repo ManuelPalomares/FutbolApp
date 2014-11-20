@@ -26,6 +26,7 @@ Ext.define('EscuelaFutbol.view.Agendamiento', {
             title: 'Eventos Deportivos',
             store : 'EscuelaFutbol.store.Eventos',
             id    : 'x_grillaAgenEventos',
+            collapsible: true,
             columns: [
                 {
                     xtype: 'gridcolumn',
@@ -67,35 +68,10 @@ Ext.define('EscuelaFutbol.view.Agendamiento', {
         },
         {
             xtype: 'fieldset',
-            height: 100,
+            height: 80,
             layout: 'column',
             title: 'Agendamiento del evento',
             items: [
-                {
-                    xtype: 'container',
-                    layout: {
-                        type: 'hbox',
-                        align: 'stretch'
-                    },
-                    items: [
-                        {
-                            xtype: 'combobox',
-                            width: 550,
-                            fieldLabel: 'Suscriptor',
-                            displayField: 'nombrescompletos',
-                            valueField: 'codigo',
-                            queryMode: 'remote',
-                            id : 'x_suscriptor_agenda',
-                            store: Ext.create('EscuelaFutbol.store.Suscriptores')
-                        },
-                        {
-                            xtype: 'button',
-                            text: 'Agendar',
-                            tipo: 'S',
-                            cls:'x_btnAgregar'
-                        }
-                    ]
-                },
                 {
                     xtype: 'container',
                     layout: {
@@ -153,17 +129,25 @@ Ext.define('EscuelaFutbol.view.Agendamiento', {
         {
             xtype: 'gridpanel',
             title: 'Agendados',
+            store : 'EscuelaFutbol.store.AgendadosEventos',
+            id : 'x_gridAgendados',
+            height: 300,
             columns: [
                 {
                     xtype: 'gridcolumn',
                     width: 255,
-                    dataIndex: 'string',
-                    text: 'Nombre'
+                    dataIndex: 'nombres',
+                    text: 'Nombres'
                 },
                 {
                     xtype: 'gridcolumn',
                     width: 136,
-                    dataIndex: 'string',
+                    dataIndex: 'email',
+                    text: 'Email'
+                },{
+                    xtype: 'gridcolumn',
+                    width: 136,
+                    dataIndex: 'categoria',
                     text: 'Categoria'
                 }
             ]

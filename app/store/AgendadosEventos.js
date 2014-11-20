@@ -9,15 +9,15 @@ Ext.define("EscuelaFutbol.store.AgendadosEventos", {
                 model: "EscuelaFutbol.model.AgendadosEventos",
                 proxy: {
                     type: 'ajax',
-                    url: host + "php/citas/citas.php",
-                    extraParams: {"accion": "CONSULTAR"},
+                    url: host + "php/citas/agendamiento.php",
+                    extraParams: {"accion": "CONSULTARAGENDADOS"},
                     reader: {
                         type: "json",
                         root: "agendados",
                         totalProperty: "totalRows"
                     }
                 },
-                autoLoad: true
+                autoLoad: false
             },cfg)]);
     }
 });
