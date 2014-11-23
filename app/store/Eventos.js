@@ -12,7 +12,7 @@ Ext.define('EscuelaFutbol.store.Eventos', {
         me.callParent([Ext.apply({
             storeId: 'Eventos',
             model: 'EscuelaFutbol.model.Eventos',
-            pageSize : 15,
+            pageSize : 10,
             proxy: {
                     type: 'ajax',
                     url: host + "php/citas/citas.php",

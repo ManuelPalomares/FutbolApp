@@ -1,7 +1,6 @@
 Ext.define('EscuelaFutbol.view.Agendamiento', {
     extend: 'Ext.form.Panel',
     alias: 'widget.agendamiento',
-
     requires: [
         'Ext.grid.Panel',
         'Ext.grid.column.Date',
@@ -10,22 +9,28 @@ Ext.define('EscuelaFutbol.view.Agendamiento', {
         'Ext.form.field.Text',
         'Ext.button.Button'
     ],
-
     viewModel: {
         type: 'agendamiento'
     },
-    height: 700,
-    width: 674,
+    height: 560,
+    width: 1100,
     bodyPadding: 10,
     title: '',
-    id : 'x_agendamientoDeportivo',
+    id: 'x_agendamientoDeportivo',
+    layout : {type: 'column',padding:"0,5em"},
     items: [
         {
+            xtype: 'numberfield',
+            id: 'x_codigo_citaseleccionada',
+            hidden: true
+        },
+        {
             xtype: 'gridpanel',
-            height: 250,
+            height: 450,
+            width: 500,
             title: 'Eventos Deportivos',
-            store : 'EscuelaFutbol.store.Eventos',
-            id    : 'x_grillaAgenEventos',
+            store: 'EscuelaFutbol.store.Eventos',
+            id: 'x_grillaAgenEventos',
             collapsible: true,
             columns: [
                 {
@@ -49,11 +54,11 @@ Ext.define('EscuelaFutbol.view.Agendamiento', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    width: 137,
+                    width: 100,
                     dataIndex: 'string',
                     text: 'Estado del evento',
                     dataIndex : 'estado_evento'
-                    
+
                 }
             ],
             dockedItems: [
@@ -61,16 +66,17 @@ Ext.define('EscuelaFutbol.view.Agendamiento', {
                     xtype: 'pagingtoolbar',
                     dock: 'bottom',
                     width: 360,
-                    store : 'EscuelaFutbol.store.Eventos'
-                    
+                    store: 'EscuelaFutbol.store.Eventos'
+
                 }
             ]
         },
         {
             xtype: 'fieldset',
             height: 80,
+            width: 500,
             layout: 'column',
-            title: 'Agendamiento del evento',
+            title: 'Agendamiento del evento por jugador o categoria',
             items: [
                 {
                     xtype: 'container',
@@ -81,21 +87,21 @@ Ext.define('EscuelaFutbol.view.Agendamiento', {
                     items: [
                         {
                             xtype: 'combobox',
-                            width: 550,
+                            width: 400,
                             fieldLabel: 'Nombre Jugador',
                             displayField: 'nombres',
                             //tpl : '<div><img src="'+Ext.create("EscuelaFutbol.controller.HostServer").getHost()+"files/fotosjugadores/"+'{foto}"></img></div><div>{nombres} {apellidos}</div>',
-                            tpl : Ext.create('Ext.XTemplate','<tpl for="."><div class="x-boundlist-item"><img width="100px" height="100px" src="'+Ext.create("EscuelaFutbol.controller.HostServer").getHost()+"files/fotosjugadores/"+'{foto}"></img>{nombres} {apellidos}</div></tpl>'),
+                            tpl: Ext.create('Ext.XTemplate', '<tpl for="."><div class="x-boundlist-item"><img width="100px" height="100px" src="' + Ext.create("EscuelaFutbol.controller.HostServer").getHost() + "files/fotosjugadores/" + '{foto}"></img>{nombres} {apellidos}</div></tpl>'),
                             valueField: 'codigo',
                             queryMode: 'remote',
-                            id : 'x_jugador_agenda',
+                            id: 'x_jugador_agenda',
                             store: Ext.create('EscuelaFutbol.store.Jugadores')
                         },
                         {
                             xtype: 'button',
                             text: 'Agendar',
                             tipo: 'J',
-                            cls:'x_btnAgregar'
+                            cls: 'x_btnAgregar'
                         }
                     ]
                 },
@@ -108,19 +114,19 @@ Ext.define('EscuelaFutbol.view.Agendamiento', {
                     items: [
                         {
                             xtype: 'combobox',
-                            width: 550,
+                            width: 400,
                             fieldLabel: 'Categoria',
                             displayField: 'descripcion',
                             valueField: 'codigo',
                             queryMode: 'local',
-                            id : 'x_categoria_agenda',
+                            id: 'x_categoria_agenda',
                             store: Ext.create('EscuelaFutbol.store.Categorias')
                         },
                         {
                             xtype: 'button',
                             text: 'Agendar',
                             tipo: 'C',
-                            cls:'x_btnAgregar'
+                            cls: 'x_btnAgregar'
                         }
                     ]
                 }
@@ -129,13 +135,15 @@ Ext.define('EscuelaFutbol.view.Agendamiento', {
         {
             xtype: 'gridpanel',
             title: 'Agendados',
-            store : 'EscuelaFutbol.store.AgendadosEventos',
-            id : 'x_gridAgendados',
-            height: 300,
+            width: 500,
+            height : 360,
+            store: 'EscuelaFutbol.store.AgendadosEventos',
+            id: 'x_gridAgendados',
+            
             columns: [
                 {
                     xtype: 'gridcolumn',
-                    width: 255,
+                    width: 200,
                     dataIndex: 'nombres',
                     text: 'Nombres'
                 },
@@ -144,14 +152,47 @@ Ext.define('EscuelaFutbol.view.Agendamiento', {
                     width: 136,
                     dataIndex: 'email',
                     text: 'Email'
-                },{
+                }, {
                     xtype: 'gridcolumn',
-                    width: 136,
+                    width: 120,
                     dataIndex: 'categoria',
                     text: 'Categoria'
                 }
-            ]
+            ],
+            tbar : [
+                {
+                    id : 'x_eliminardelaAgenda',
+                    text : " ", 
+                    icon:"resources/img/btns/eliminar2.png", 
+                    iconCls : "x_iconosBotonesForma",
+                    iconAlign: "center",
+                     width: 40,
+                    height: 40,
+                }
+            ],
+            dockedItems: [{
+                    xtype: 'pagingtoolbar',
+                    store: 'EscuelaFutbol.store.AgendadosEventos', // same store GridPanel is using
+                    dock: 'bottom',
+                    displayInfo: false
+
+                }]
         }
-    ]
+    ],
+    dockedItems: [{
+            xtype: 'toolbar',
+            dock: 'top',
+            items: [{
+                    xtype: "button",
+                    text: "Enviar Mail",
+                    icon: "resources/img/btns/mail.png",
+                    width: 50,
+                    height: 50,
+                    style: {margin: '0.2em'},
+                    iconCls: "x_iconosBotonesForma",
+                    iconAlign: "center",
+                    id: "x_enviarCitaDeportivaEmailAgendados"
+                }]
+        }]
 
 });

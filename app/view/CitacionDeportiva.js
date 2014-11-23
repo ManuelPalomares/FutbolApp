@@ -141,7 +141,7 @@ Ext.define('EscuelaFutbol.view.CitacionDeportiva', {
                             xtype: 'gridpanel',
                             height: 350,
                             id: 'x_citasDeportivasGrid',
-                            store: Ext.create('EscuelaFutbol.store.Eventos'),
+                            store: 'EscuelaFutbol.store.Eventos',
                             columns: [
                                 {
                                     xtype: 'gridcolumn',
@@ -157,7 +157,15 @@ Ext.define('EscuelaFutbol.view.CitacionDeportiva', {
                                     width: '50%',
                                     text: 'Fechas Evento'
                                 }
-                            ]
+                            ],
+                            dockedItems: [{
+                                    xtype: 'pagingtoolbar',
+                                    store: 'EscuelaFutbol.store.Eventos', // same store GridPanel is using
+                                    dock: 'bottom',
+                                    displayInfo: false
+
+                                }]
+
                         }
                     ]
                 }]

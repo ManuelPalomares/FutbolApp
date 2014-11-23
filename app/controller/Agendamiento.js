@@ -31,8 +31,17 @@ Ext.define('EscuelaFutbol.controller.Agendamiento', {
             codigoAgregar = Ext.getCmp("x_categoria_agenda").getValue();
         }
         
-        if(btn.tipo === 'S'){
-            codigoAgregar = Ext.getCmp("x_suscriptor_agenda").getValue();
+        var codigo = Ext.getCmp("x_codigo_citaseleccionada").getValue();
+        
+        //validar null
+        
+        if(codigoAgregar ==null){
+            Ext.Msg.alert('Mensaje error',"No se puede agendar sin seleccionar el jugador");
+            return;
+        }
+        if(codigo ==null){
+            Ext.Msg.alert('Mensaje error',"No se puede agendar sin seleccionar  el evento");
+            return;
         }
         
         
@@ -41,11 +50,22 @@ Ext.define('EscuelaFutbol.controller.Agendamiento', {
             params: {
                 accion: "AGENDARCITA",
                 tipoAgenda: btn.tipo,
-                codigoAgregar : codigoAgregar
+                codigoAgregar : codigoAgregar,
+                codigo_cita   : Ext.getCmp("x_codigo_citaseleccionada").getValue()
             },
             success: function(response) {
                 var respuesta = Ext.decode(response.responseText);
+                if (respuesta.mensaje_error !== undefined){
+                    Ext.Msg.alert('Mensaje', respuesta.mensaje_error);
+                    return;
+                }
                 
+                if (respuesta.msg !== undefined){
+                    Ext.Msg.alert('Mensaje', respuesta.msg);
+                    Ext.getCmp("x_gridAgendados").getStore().load();
+                    return;
+                }
+          
             },
             failure: function(response) {
                 alert('Error realizando su solicitud por favor comunicar con su administrador :' + response.status);
@@ -54,6 +74,14 @@ Ext.define('EscuelaFutbol.controller.Agendamiento', {
         });
 
     },
-    recargarGrillaAgendados : function(){}
+    recargarGrillaAgendados : function(grid,record){
+        //define el codigo cita para agendar
+        Ext.getCmp("x_codigo_citaseleccionada").setValue(record.data.codigo);
+        
+        var grilla = Ext.getCmp("x_gridAgendados");
+        
+        grilla.getStore().getProxy().setExtraParam('codigo_cita',record.data.codigo);
+        grilla.getStore().load();
+    }
     
 });

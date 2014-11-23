@@ -11,6 +11,7 @@ Ext.define("EscuelaFutbol.store.AgendadosEventos", {
                     type: 'ajax',
                     url: host + "php/citas/agendamiento.php",
                     extraParams: {"accion": "CONSULTARAGENDADOS"},
+                    pageSize : 20,
                     reader: {
                         type: "json",
                         root: "agendados",
