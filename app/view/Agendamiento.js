@@ -25,6 +25,11 @@ Ext.define('EscuelaFutbol.view.Agendamiento', {
             hidden: true
         },
         {
+            xtype: 'numberfield',
+            id: 'x_codigo_jugadorSeleccionado',
+            hidden: true
+        },
+        {
             xtype: 'gridpanel',
             height: 450,
             width: 500,
