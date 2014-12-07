@@ -15,20 +15,20 @@ Ext.define('EscuelaFutbol.store.TipoDocumento', {
             storeId: 'TipoDocumento',
             data: [
                 {
-                    codigo: 'CC',
-                    descripcion: 'Cédula de Ciudadanía'
-                },
-                {
-                    codigo: 'TE',
-                    descripcion: 'Tarjeta de Extranjería'
+                    codigo: 'RC',
+                    descripcion: 'R.C.'
                 },
                 {
                     codigo: 'TI',
-                    descripcion: 'Tarjeta de Identidad'
+                    descripcion: 'T.I.'
                 },
                 {
-                    codigo: 'RC',
-                    descripcion: 'Registro Civíl'
+                    codigo: 'CC',
+                    descripcion: 'C.C.'
+                },                
+                {
+                    codigo: 'TE',
+                    descripcion: 'T.E.'
                 }
             ]
         }, cfg)]);

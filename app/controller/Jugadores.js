@@ -20,6 +20,12 @@ Ext.define('EscuelaFutbol.controller.Jugadores', {
             },
             '#x_subirFotoServidor': {
                 click: this.subirFotoServidor
+            },
+            /*'button[cls=x_btnConsultar]':{
+                click : this.cargarDatosAformulario1
+            },*/
+            '#x_jugador_filtro' :{
+              change : this.seleccionarJugador  
             }
 
 
@@ -157,6 +163,17 @@ Ext.define('EscuelaFutbol.controller.Jugadores', {
                 Ext.Msg.alert('Failed', action.result ? action.result.message : 'No response');
             }
         });
+    },
+    seleccionarJugador : function(combo){
+        //se llama el host 
+        var host = Ext.create("EscuelaFutbol.controller.HostServer").getHost();
+        var storeJugador = combo.getStore();
+        var jugador = combo.getValue();
+        var registro = storeJugador.findRecord('codigo',jugador).getData();
+        Ext.getCmp("x_formularioJugadores").getForm().setValues(registro);
+        if(registro.foto !=="")
+        Ext.getCmp("x_fotoJugador").setSrc(host+"files/fotosjugadores/"+registro.foto);
+        
     }
 });
 

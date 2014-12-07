@@ -52,7 +52,8 @@ Ext.define('EscuelaFutbol.Application', {
         "EscuelaFutbol.store.Suscriptores",
         "EscuelaFutbol.store.Jugadores",
         "EscuelaFutbol.store.Usuarios",
-        "EscuelaFutbol.store.Entrenadores"
+        "EscuelaFutbol.store.Entrenadores",
+        "EscuelaFutbol.store.EntrenadoresGrilla"
     ],
     launch : function(){
         var host = Ext.create("EscuelaFutbol.controller.HostServer").getHost();

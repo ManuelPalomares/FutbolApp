@@ -26,7 +26,24 @@ extend: 'Ext.data.Model',
         {name:'fecha_ingreso'},
         {name:'codigo_categoria'},
         {name :'nombre_completo'},
-        {name :'observaciones'}
-        
+        {name :'observaciones'},
+        {name :'inscripcion'},
+        {name :'mensualidad'},
+        {name :'transporte'},
+        {name :'exp_deportiva'},
+        {name :'jornada_colegio'},
+        {name :'referido'},
+        {name :'responsable'},
+        {name :'nombre_madre'},
+        {name :'celular_madre'},
+        {name :'email_madre'},
+        {name :'ocupacion_madre'},
+        {name :'empresa_madre'},
+        {name :'nombre_padre'},
+        {name :'celular_padre'},
+        {name :'email_padre'},
+        {name :'ocupacion_padre'},
+        {name :'empresa_padre'}
         ]
 });
+
