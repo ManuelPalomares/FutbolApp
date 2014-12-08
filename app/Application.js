@@ -19,7 +19,9 @@ Ext.define('EscuelaFutbol.Application', {
         "EscuelaFutbol.view.ActualizarDatosJugador",
         "EscuelaFutbol.view.Roles",
         "EscuelaFutbol.view.Agendamiento",
-        "EscuelaFutbol.view.Entrenadores"
+        "EscuelaFutbol.view.Entrenadores",
+        "EscuelaFutbol.view.EvaluacionJugadores"
+        
     ],
 
     controllers: [

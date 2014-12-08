@@ -14,6 +14,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "EscuelaFutbol.Application": [],
   "EscuelaFutbol.controller.Agendamiento": [],
   "EscuelaFutbol.controller.CitacionDeportiva": [],
+  "EscuelaFutbol.controller.Entrenadores": [],
   "EscuelaFutbol.controller.HostServer": [],
   "EscuelaFutbol.controller.Jugadores": [],
   "EscuelaFutbol.controller.Login": [],
@@ -23,6 +24,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "EscuelaFutbol.model.AgendadosEventos": [],
   "EscuelaFutbol.model.Categorias": [],
   "EscuelaFutbol.model.Ciudades": [],
+  "EscuelaFutbol.model.Entrenadores": [],
   "EscuelaFutbol.model.Estado": [],
   "EscuelaFutbol.model.EstadosEventos": [],
   "EscuelaFutbol.model.Eventos": [],
@@ -35,9 +37,11 @@ Ext.ClassManager.addNameAlternateMappings({
   "EscuelaFutbol.model.Suscriptores": [],
   "EscuelaFutbol.model.TipoDocumento": [],
   "EscuelaFutbol.model.TipoSangre": [],
+  "EscuelaFutbol.model.Usuarios": [],
   "EscuelaFutbol.store.AgendadosEventos": [],
   "EscuelaFutbol.store.Categorias": [],
   "EscuelaFutbol.store.Ciudades": [],
+  "EscuelaFutbol.store.Entrenadores": [],
   "EscuelaFutbol.store.Estado": [],
   "EscuelaFutbol.store.EstadosEventos": [],
   "EscuelaFutbol.store.Eventos": [],
@@ -51,11 +55,13 @@ Ext.ClassManager.addNameAlternateMappings({
   "EscuelaFutbol.store.Suscriptores": [],
   "EscuelaFutbol.store.TipoDocumento": [],
   "EscuelaFutbol.store.TipoSangre": [],
+  "EscuelaFutbol.store.Usuarios": [],
   "EscuelaFutbol.view.ActualizarDatosJugador": [],
   "EscuelaFutbol.view.Agendamiento": [],
   "EscuelaFutbol.view.BannerPrincipal": [],
   "EscuelaFutbol.view.CitacionDeportiva": [],
   "EscuelaFutbol.view.ClientesPagosPendiente": [],
+  "EscuelaFutbol.view.Entrenadores": [],
   "EscuelaFutbol.view.EnvioCorreoSolicitudesNuevas": [],
   "EscuelaFutbol.view.ImpresionReciboPago": [],
   "EscuelaFutbol.view.Jugador": [],
@@ -889,6 +895,7 @@ Ext.ClassManager.addNameAliasMappings({
   "EscuelaFutbol.Application": [],
   "EscuelaFutbol.controller.Agendamiento": [],
   "EscuelaFutbol.controller.CitacionDeportiva": [],
+  "EscuelaFutbol.controller.Entrenadores": [],
   "EscuelaFutbol.controller.HostServer": [],
   "EscuelaFutbol.controller.Jugadores": [],
   "EscuelaFutbol.controller.Login": [],
@@ -898,6 +905,7 @@ Ext.ClassManager.addNameAliasMappings({
   "EscuelaFutbol.model.AgendadosEventos": [],
   "EscuelaFutbol.model.Categorias": [],
   "EscuelaFutbol.model.Ciudades": [],
+  "EscuelaFutbol.model.Entrenadores": [],
   "EscuelaFutbol.model.Estado": [],
   "EscuelaFutbol.model.EstadosEventos": [],
   "EscuelaFutbol.model.Eventos": [],
@@ -910,9 +918,11 @@ Ext.ClassManager.addNameAliasMappings({
   "EscuelaFutbol.model.Suscriptores": [],
   "EscuelaFutbol.model.TipoDocumento": [],
   "EscuelaFutbol.model.TipoSangre": [],
+  "EscuelaFutbol.model.Usuarios": [],
   "EscuelaFutbol.store.AgendadosEventos": [],
   "EscuelaFutbol.store.Categorias": [],
   "EscuelaFutbol.store.Ciudades": [],
+  "EscuelaFutbol.store.Entrenadores": [],
   "EscuelaFutbol.store.Estado": [],
   "EscuelaFutbol.store.EstadosEventos": [],
   "EscuelaFutbol.store.Eventos": [],
@@ -926,6 +936,7 @@ Ext.ClassManager.addNameAliasMappings({
   "EscuelaFutbol.store.Suscriptores": [],
   "EscuelaFutbol.store.TipoDocumento": [],
   "EscuelaFutbol.store.TipoSangre": [],
+  "EscuelaFutbol.store.Usuarios": [],
   "EscuelaFutbol.view.ActualizarDatosJugador": [
     "widget.actualizarDatosJugador"
   ],
@@ -940,6 +951,9 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "EscuelaFutbol.view.ClientesPagosPendiente": [
     "widget.clientesPagoPendientes"
+  ],
+  "EscuelaFutbol.view.Entrenadores": [
+    "widget.fichaEntrenadores"
   ],
   "EscuelaFutbol.view.EnvioCorreoSolicitudesNuevas": [
     "widget.envioSolicitudesNuevas"
