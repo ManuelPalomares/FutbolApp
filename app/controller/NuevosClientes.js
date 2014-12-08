@@ -66,6 +66,7 @@ Ext.define('EscuelaFutbol.controller.NuevosClientes', {
     },
     calculaEdad: function (fechaNac) {
         var fecha = fechaNac.getValue();
+        
         var edad = Ext.getCmp("x_edad");
         fecha.getYear();
         edad.setValue(this.calcular_edad(fecha.getDate(),fecha.getMonth(),fecha.getYear()));
