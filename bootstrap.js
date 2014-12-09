@@ -25,6 +25,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "EscuelaFutbol.model.Categorias": [],
   "EscuelaFutbol.model.Ciudades": [],
   "EscuelaFutbol.model.Entrenadores": [],
+  "EscuelaFutbol.model.EntrenadoresGrilla": [],
   "EscuelaFutbol.model.Estado": [],
   "EscuelaFutbol.model.EstadosEventos": [],
   "EscuelaFutbol.model.Eventos": [],
@@ -42,6 +43,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "EscuelaFutbol.store.Categorias": [],
   "EscuelaFutbol.store.Ciudades": [],
   "EscuelaFutbol.store.Entrenadores": [],
+  "EscuelaFutbol.store.EntrenadoresGrilla": [],
   "EscuelaFutbol.store.Estado": [],
   "EscuelaFutbol.store.EstadosEventos": [],
   "EscuelaFutbol.store.Eventos": [],
@@ -63,6 +65,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "EscuelaFutbol.view.ClientesPagosPendiente": [],
   "EscuelaFutbol.view.Entrenadores": [],
   "EscuelaFutbol.view.EnvioCorreoSolicitudesNuevas": [],
+  "EscuelaFutbol.view.EvaluacionJugadores": [],
   "EscuelaFutbol.view.ImpresionReciboPago": [],
   "EscuelaFutbol.view.Jugador": [],
   "EscuelaFutbol.view.LoginForm": [],
@@ -906,6 +909,7 @@ Ext.ClassManager.addNameAliasMappings({
   "EscuelaFutbol.model.Categorias": [],
   "EscuelaFutbol.model.Ciudades": [],
   "EscuelaFutbol.model.Entrenadores": [],
+  "EscuelaFutbol.model.EntrenadoresGrilla": [],
   "EscuelaFutbol.model.Estado": [],
   "EscuelaFutbol.model.EstadosEventos": [],
   "EscuelaFutbol.model.Eventos": [],
@@ -923,6 +927,7 @@ Ext.ClassManager.addNameAliasMappings({
   "EscuelaFutbol.store.Categorias": [],
   "EscuelaFutbol.store.Ciudades": [],
   "EscuelaFutbol.store.Entrenadores": [],
+  "EscuelaFutbol.store.EntrenadoresGrilla": [],
   "EscuelaFutbol.store.Estado": [],
   "EscuelaFutbol.store.EstadosEventos": [],
   "EscuelaFutbol.store.Eventos": [],
@@ -957,6 +962,9 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "EscuelaFutbol.view.EnvioCorreoSolicitudesNuevas": [
     "widget.envioSolicitudesNuevas"
+  ],
+  "EscuelaFutbol.view.EvaluacionJugadores": [
+    "widget.evaluacionJugadores"
   ],
   "EscuelaFutbol.view.ImpresionReciboPago": [
     "widget.impreReciboPag"
