@@ -1,7 +1,6 @@
 Ext.define('EscuelaFutbol.view.EvaluacionJugadores', {
     extend: 'Ext.form.Panel',
     alias: 'widget.evaluacionJugadores',
-
     requires: [
         'Ext.form.FieldSet',
         'Ext.form.field.ComboBox',
@@ -11,7 +10,6 @@ Ext.define('EscuelaFutbol.view.EvaluacionJugadores', {
         'Ext.grid.View',
         'Ext.form.field.TextArea'
     ],
-
     viewModel: {
         type: 'evaluacion'
     },
@@ -21,7 +19,7 @@ Ext.define('EscuelaFutbol.view.EvaluacionJugadores', {
     layout: 'column',
     bodyPadding: 10,
     title: '',
-
+    id: 'x_formaEvaluacionJugadores',
     items: [
         {
             xtype: 'fieldset',
@@ -40,20 +38,25 @@ Ext.define('EscuelaFutbol.view.EvaluacionJugadores', {
                     tpl: Ext.create('Ext.XTemplate', '<tpl for="."><div class="x-boundlist-item"><img width="100px" height="100px" src="' + Ext.create("EscuelaFutbol.controller.HostServer").getHost() + "files/fotosjugadores/" + '{foto}"></img>{nombres} {apellidos}</div></tpl>'),
                     valueField: 'codigo',
                     queryMode: 'remote',
-                    
-                    store: Ext.create('EscuelaFutbol.store.Jugadores')
+                    store: 'EscuelaFutbol.store.Jugadores',
+                    id: 'x_jugador_evaluacion',
+                    allowBlank: false
                 },
                 {
                     xtype: 'displayfield',
                     width: 517,
                     fieldLabel: 'Fecha de nacimiento',
-                    value: 'valor'
+                    value: 'valor',
+                    name: 'fecha_nacimiento',
+                    allowBlank: false
+
                 },
                 {
                     xtype: 'displayfield',
                     width: 335,
                     fieldLabel: 'Edad',
-                    value: 'valor'
+                    value: 'valor',
+                    id: 'x_edadJugadorEvaluacion'
                 },
                 {
                     xtype: 'textfield',
@@ -63,23 +66,29 @@ Ext.define('EscuelaFutbol.view.EvaluacionJugadores', {
                     allowBlank: false,
                     maxLength: 100,
                     vtype: 'email'
+
                 },
                 {
                     xtype: 'textfield',
                     width: 325,
                     fieldLabel: 'Colegio',
-                    name: 'colegio'
+                    name: 'colegio',
+                    maxLength: 100
                 },
                 {
-                    xtype: 'combobox',
+                    xtype: 'textfield',
                     width: 151,
-                    fieldLabel: 'Jornada'
+                    fieldLabel: 'Jornada',
+                    name: 'jornada_colegio',
+                    maxLength: 2
+
                 },
                 {
                     xtype: 'textfield',
                     width: 390,
                     fieldLabel: 'Telefono Celular',
-                    minLength: 20
+                    maxLength: 50,
+                    name: 'celular'
                 },
                 {
                     xtype: 'textfield',
@@ -87,7 +96,7 @@ Ext.define('EscuelaFutbol.view.EvaluacionJugadores', {
                     fieldLabel: 'Responsable',
                     name: 'responsable',
                     allowBlank: false,
-                    maxLength: 200
+                    maxLength: 200,
                 },
                 {
                     xtype: 'textfield',
@@ -116,47 +125,70 @@ Ext.define('EscuelaFutbol.view.EvaluacionJugadores', {
                     xtype: 'combobox',
                     width: 390,
                     fieldLabel: 'Categoria',
-                    name: 'categoria',
-                    maxLength: 100
+                    name: 'codigo_categoria',
+                    displayField: 'descripcion',
+                    valueField: 'codigo',
+                    queryMode: 'local',
+                    allowBlank: false,
+                    store: Ext.create('EscuelaFutbol.store.Categorias')
                 },
                 {
                     xtype: 'combobox',
                     width: 390,
                     fieldLabel: 'Entrenador',
-                    name: 'entrenador',
-                    maxLength: 100
+                    maxLength: 100,
+                    name: 'cod_entrenador',
+                    displayField: 'nombrescompletos',
+                    valueField: 'codigo',
+                    allowBlank: false,
+                    store: Ext.create("EscuelaFutbol.store.Entrenadores")
                 }
             ]
         },
         {
-            xtype: 'gridpanel',
-            height: 500,
-            width: 900,
-            title: 'Evaluacion',
-            columns: [
-                {
-                    xtype: 'gridcolumn',
-                    width: 554,
-                    dataIndex: 'string',
-                    text: 'Aspecto personal'
+            xtype: 'fieldset',
+            title : 'Evaluacion',
+            items: [{
+                    xtype: 'button',
+                    text: 'Realizar Evaluacion',
+                    id : 'x_realizarEvaluacion'
+
+                }, {
+                    xtype: 'combobox',
+                    fieldLabel: 'Resultado de la evaluacion',
+                    name: 'resultado'
                 },
                 {
-                    xtype: 'booleancolumn',
-                    dataIndex: 'bool',
-                    text: 'Boolean'
-                }
-            ]
+                    xtype: 'textareafield',
+                    width: 456,
+                    fieldLabel: 'Otras consideraciones'
+                }]
         },
-        {
-            xtype: 'combobox',
-            fieldLabel: 'Resultado de la evaluacion',
-            name: 'resultado'
-        },
-        {
-            xtype: 'textareafield',
-            width: 456,
-            fieldLabel: 'Otras consideraciones'
-        }
-    ]
+    ],
+    dockedItems: [{
+            xtype: 'toolbar',
+            dock: 'top',
+            items: [{
+                    xtype: "button",
+                    text: "Nuevo",
+                    icon: "resources/img/btns/nuevo.png",
+                    width: 50,
+                    height: 50,
+                    style: {margin: '0.2em'},
+                    iconCls: "x_iconosBotonesForma",
+                    iconAlign: "center",
+                    id: "x_nuevaEvaluacion"
+                }, {
+                    xtype: "button",
+                    text: "Guardar",
+                    icon: "resources/img/btns/guardar.png",
+                    width: 50,
+                    height: 50,
+                    style: {margin: '0.2em'},
+                    iconCls: "x_iconosBotonesForma",
+                    iconAlign: "center",
+                    id: "x_guardarEvaluacion"
+                }]
+        }]
 
 });

@@ -33,7 +33,8 @@ Ext.define('EscuelaFutbol.Application', {
         "EscuelaFutbol.controller.NuevosClientes",
         "EscuelaFutbol.controller.Jugadores",
         "EscuelaFutbol.controller.Agendamiento",
-        "EscuelaFutbol.controller.Entrenadores"
+        "EscuelaFutbol.controller.Entrenadores",
+        "EscuelaFutbol.controller.EvaluacionJugadores"
     ],
 
     stores: [
