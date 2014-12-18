@@ -1,6 +1,6 @@
 Ext.define('EscuelaFutbol.controller.EvaluacionJugadores', {
     extend: 'Ext.app.Controller',
-    requires: ['Ext.tip.*','Ext.tree.*',],
+    requires: ['Ext.tip.*','Ext.tree.*'],
     init: function () {
         this.control({
             '#x_jugador_evaluacion': {
@@ -37,18 +37,28 @@ Ext.define('EscuelaFutbol.controller.EvaluacionJugadores', {
                     xtype: 'gridpanel',
                     title: 'Evaluacion',
                     height : 550,
+                    store : 'EscuelaFutbol.store.Evaluacion',
                     columns: [
                         {
-                            xtype: 'gridcolumn',
-                            width: '80%',
-                            dataIndex: 'string',
+                            xtype: 'treecolumn',
+                            width: '60%',
+                            dataIndex: 'descripcion_detalle',
                             text: 'Aspecto personal'
                         },
                         {
                             xtype: 'booleancolumn',
-                            dataIndex: 'bool',
+                            dataIndex: 'respuestasino',
                             width: '20%',
-                            text: 'Boolean'
+                            text: 'Respuesta Si/NO'
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'respuestatexto',
+                            width: '20%',
+                            editor :{
+                                allowBlank:true
+                            },
+                            text: 'Respuesta Texto'
                         }
                     ]
                 }]
