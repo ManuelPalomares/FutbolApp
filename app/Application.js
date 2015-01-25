@@ -20,7 +20,8 @@ Ext.define('EscuelaFutbol.Application', {
         "EscuelaFutbol.view.Roles",
         "EscuelaFutbol.view.Agendamiento",
         "EscuelaFutbol.view.Entrenadores",
-        "EscuelaFutbol.view.EvaluacionJugadores"
+        "EscuelaFutbol.view.EvaluacionJugadores",
+        "EscuelaFutbol.view.Evaluacion"
         
     ],
 
