@@ -1,8 +1,20 @@
 Ext.define('EscuelaFutbol.model.Evaluacion', {
     extend: 'Ext.data.Model',
+    requires: [
+        'Ext.data.NodeInterface'
+    ],
+    getRefItems: function () {
+        return this.childNodes;
+    },
+    getRefOwner: function () {
+        return this.parentNode;
+    },
     fields: [
         {
             name: 'codigo'
+        },
+        {
+            name: 'codigo_padre'
         },
         {
             name: 'descripcion_detalle'
@@ -11,16 +23,14 @@ Ext.define('EscuelaFutbol.model.Evaluacion', {
             name: 'tipo'
         },
         {
-            name: 'codigo_detalle_aspecto'
+            name: 'respuesta_aspecto'
         },
         {
-            name : 'calificacion'
+            name: 'respuesta_si_no'
         },
         {
-            name : 'respuestasino'
-        },
-        {
-            name : 'respuestatexto'
+            name: 'respuesta_texto'
         }
+
     ]
 });

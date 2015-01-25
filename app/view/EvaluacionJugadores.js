@@ -8,7 +8,8 @@ Ext.define('EscuelaFutbol.view.EvaluacionJugadores', {
         'Ext.grid.Panel',
         'Ext.grid.column.Boolean',
         'Ext.grid.View',
-        'Ext.form.field.TextArea'
+        'Ext.form.field.TextArea',
+        "Ext.data.TreeStore"
     ],
     viewModel: {
         type: 'evaluacion'
@@ -21,6 +22,14 @@ Ext.define('EscuelaFutbol.view.EvaluacionJugadores', {
     title: '',
     id: 'x_formaEvaluacionJugadores',
     items: [
+        {
+          xtype : 'textfield',
+          name  : 'codigo_evaluacion',
+          id    : 'x_codigo_evaluacion',
+          
+          readOnly : true,
+          fieldLabel: 'Codigo de la evaluacion'
+        },
         {
             xtype: 'fieldset',
             height: 232,
@@ -148,12 +157,7 @@ Ext.define('EscuelaFutbol.view.EvaluacionJugadores', {
         {
             xtype: 'fieldset',
             title : 'Evaluacion',
-            items: [{
-                    xtype: 'button',
-                    text: 'Realizar Evaluacion',
-                    id : 'x_realizarEvaluacion'
-
-                }, {
+            items: [ {
                     xtype: 'combobox',
                     fieldLabel: 'Resultado de la evaluacion',
                     name: 'resultado'
@@ -188,6 +192,17 @@ Ext.define('EscuelaFutbol.view.EvaluacionJugadores', {
                     iconCls: "x_iconosBotonesForma",
                     iconAlign: "center",
                     id: "x_guardarEvaluacion"
+                },
+            {
+                    xtype: 'button',
+                    text : 'Realizar evaluacion',
+                    id : 'x_realizarEvaluacion',
+                    style: {margin: '0.2em'},
+                    icon: "resources/img/btns/evaluacion.png",
+                    width: 50,
+                    height: 50,
+                    iconCls: "x_iconosBotonesForma",
+                    iconAlign: "center"
                 }]
         }]
 
