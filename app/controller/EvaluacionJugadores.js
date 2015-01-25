@@ -34,10 +34,10 @@ Ext.define('EscuelaFutbol.controller.EvaluacionJugadores', {
     },
     abrirVentanaEvaluacion: function () {
         
-        /*if(Ext.getCmp("x_codigo_evaluacion").getValue() ==""){
+        if(Ext.getCmp("x_codigo_evaluacion").getValue() ==""){
             Ext.Msg.alert('Advertencia',"Debe crear la  evaluacion y luego evaluar");
             return false;
-        }*/
+        }
         
         var wind2 = Ext.create("Ext.window.Window", {
             maximized : true,
