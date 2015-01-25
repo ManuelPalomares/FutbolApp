@@ -20,7 +20,8 @@ Ext.define('EscuelaFutbol.Application', {
         "EscuelaFutbol.view.Roles",
         "EscuelaFutbol.view.Agendamiento",
         "EscuelaFutbol.view.Entrenadores",
-        "EscuelaFutbol.view.EvaluacionJugadores"
+        "EscuelaFutbol.view.EvaluacionJugadores",
+        "EscuelaFutbol.view.Cobros"
         
     ],
 
@@ -34,7 +35,8 @@ Ext.define('EscuelaFutbol.Application', {
         "EscuelaFutbol.controller.Jugadores",
         "EscuelaFutbol.controller.Agendamiento",
         "EscuelaFutbol.controller.Entrenadores",
-        "EscuelaFutbol.controller.EvaluacionJugadores"
+        "EscuelaFutbol.controller.EvaluacionJugadores",
+        "EscuelaFutbol.controller.Cobros"
     ],
 
     stores: [
@@ -57,7 +59,9 @@ Ext.define('EscuelaFutbol.Application', {
         "EscuelaFutbol.store.Usuarios",
         "EscuelaFutbol.store.Entrenadores",
         "EscuelaFutbol.store.EntrenadoresGrilla",
-        "EscuelaFutbol.store.Evaluacion"
+        "EscuelaFutbol.store.Evaluacion",
+        "EscuelaFutbol.store.ConceptosCobros",
+        "EscuelaFutbol.store.Cobros"
     ],
     launch : function(){
         var host = Ext.create("EscuelaFutbol.controller.HostServer").getHost();

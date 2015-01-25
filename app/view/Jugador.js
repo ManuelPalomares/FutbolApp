@@ -178,7 +178,8 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                                                             name: 'nombres',
                                                             labelWidth: 60,
                                                             maxLength: 100,
-                                                            allowBlank: false
+                                                            allowBlank: false,
+                                                            id:'x_nombres'
                                                         },
                                                         {
                                                             xtype: 'textfield',
@@ -189,7 +190,8 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                                                             labelWidth: 65,
                                                             allowBlank: false,
                                                             maxLength: 100,
-                                                            style: {marginTop: '5px', marginLeft: '5px'}
+                                                            style: {marginTop: '5px', marginLeft: '5px'},
+                                                            id:'x_apellidos'
                                                         }]},
                                                 {
                                                     xtype: 'fieldcontainer',
@@ -667,6 +669,16 @@ Ext.define('EscuelaFutbol.view.Jugador', {
                             iconCls: "x_iconosBotonesForma",
                             iconAlign: "center",
                             id: "x_guardarJugador"
+                        }, {
+                            xtype: "button",
+                            text: "Cobros",
+                            icon: "resources/img/btns/cobros.png",
+                            width: 50,
+                            height: 50,
+                            style: {margin: '0.2em'},
+                            iconCls: "x_iconosBotonesForma",
+                            iconAlign: "center",
+                            id: "x_cobrosJugador"
                         }]
                 }]
         });

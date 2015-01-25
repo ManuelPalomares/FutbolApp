@@ -26,6 +26,9 @@ Ext.define('EscuelaFutbol.controller.Jugadores', {
             },*/
             '#x_jugador_filtro' :{
               change : this.seleccionarJugador  
+            },
+            '#x_cobrosJugador': {
+                click: this.cargarVentanaCobrosJugador
             }
 
 
@@ -173,6 +176,29 @@ Ext.define('EscuelaFutbol.controller.Jugadores', {
         Ext.getCmp("x_formularioJugadores").getForm().setValues(registro);
         if(registro.foto !=="")
         Ext.getCmp("x_fotoJugador").setSrc(host+"files/fotosjugadores/"+registro.foto);
+        
+    },
+    cargarVentanaCobrosJugador: function() {
+        var windDes = Ext.create("Ext.window.Window", {
+            title: "Cobros del Jugador",
+            closabled: false,
+            maximizable: true,
+            width: 900,
+            id: 'x_windowCobrosJugador',
+            height: 500,
+            modal: true,
+            items: [{
+                   xtype : 'cobrosJugadores',
+                   width : '90%',
+                   height : 600
+           }]
+        });
+        windDes.show();
+        
+        var nombre = Ext.getCmp("x_nombres"+"x_apellidos");
+        nombre.getValue();
+        Ext.getCmp("x_nombres_apellidos_jugador_cobro").setValue(nombre.getValue());
+        
         
     }
 });
